@@ -1,0 +1,451 @@
+[gd_scene load_steps=7 format=3 uid="uid://drddf4j2gbweq"]
+
+[ext_resource type="Texture2D" uid="uid://b2nler7tmsvhs" path="res://Asset/SpaceStation1.png" id="1_5p6ln"]
+[ext_resource type="Script" path="res://main.gd" id="1_7tmd3"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ws068"]
+bg_color = Color(0.239216, 0.239216, 0.239216, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 1)
+border_blend = true
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dl7rf"]
+texture = ExtResource("1_5p6ln")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_imjuq"]
+bg_color = Color(0.231373, 0.384314, 0.956863, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_71ofv"]
+bg_color = Color(0.615686, 0.4, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -2.0
+offset_top = -40.0
+offset_right = 766.0
+offset_bottom = 392.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7tmd3")
+
+[node name="PanelStation" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 21.0
+offset_top = 101.0
+offset_right = 1139.0
+offset_bottom = 432.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_ws068")
+
+[node name="LabelPayload" type="Label" parent="PanelStation"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.442
+anchor_top = 0.151
+anchor_right = 0.442
+anchor_bottom = 0.151
+offset_left = 234.844
+offset_top = -25.981
+offset_right = 567.844
+offset_bottom = 13.019
+theme_override_font_sizes/font_size = 28
+text = "Crew and Payload"
+
+[node name="LabelCredits" type="Label" parent="PanelStation/LabelPayload"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.441
+anchor_top = 0.857
+anchor_right = 0.441
+anchor_bottom = 0.857
+offset_left = -146.853
+offset_top = 206.577
+offset_right = -64.853
+offset_bottom = 240.577
+theme_override_font_sizes/font_size = 24
+text = "Credits"
+
+[node name="CountCred" type="Label" parent="PanelStation/LabelPayload/LabelCredits"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.473
+anchor_bottom = 0.473
+offset_left = 97.0
+offset_top = -15.082
+offset_right = 304.0
+offset_bottom = 18.918
+theme_override_font_sizes/font_size = 24
+text = "??"
+horizontal_alignment = 2
+
+[node name="UnitCred" type="Label" parent="PanelStation/LabelPayload/LabelCredits/CountCred"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.473
+anchor_bottom = 0.473
+offset_left = 212.826
+offset_top = -16.508
+offset_right = 244.826
+offset_bottom = 17.492
+theme_override_font_sizes/font_size = 24
+text = "€"
+horizontal_alignment = 2
+
+[node name="LabelHumans" type="Label" parent="PanelStation/LabelPayload"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.244
+anchor_bottom = 0.244
+offset_top = 35.484
+offset_right = 97.0
+offset_bottom = 69.484
+theme_override_font_sizes/font_size = 24
+text = "Humans"
+
+[node name="CountHumans" type="Label" parent="PanelStation/LabelPayload/LabelHumans"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.473
+anchor_bottom = 0.473
+offset_left = 97.0
+offset_top = -14.082
+offset_right = 304.0
+offset_bottom = 19.918
+theme_override_font_sizes/font_size = 24
+text = "??"
+horizontal_alignment = 2
+
+[node name="Sprite" type="Panel" parent="PanelStation"]
+clip_contents = true
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 6.0
+offset_top = -132.0
+offset_right = 268.0
+offset_bottom = 130.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_dl7rf")
+
+[node name="PanelEnergy" type="Panel" parent="PanelStation"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.439
+anchor_top = 0.346
+anchor_right = 0.439
+anchor_bottom = 0.346
+offset_left = -204.802
+offset_top = -41.526
+offset_right = 137.198
+offset_bottom = 87.474
+theme_override_styles/panel = SubResource("StyleBoxFlat_imjuq")
+
+[node name="LabelEnergy" type="Label" parent="PanelStation/PanelEnergy"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.244
+anchor_bottom = 0.244
+offset_left = 13.0
+offset_top = -16.96
+offset_right = 91.0
+offset_bottom = 17.04
+theme_override_font_sizes/font_size = 24
+text = "Power"
+
+[node name="CountPower" type="Label" parent="PanelStation/PanelEnergy/LabelEnergy"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.473
+anchor_bottom = 0.473
+offset_left = 94.0
+offset_top = -15.598
+offset_right = 256.0
+offset_bottom = 18.402
+theme_override_font_sizes/font_size = 24
+text = "??"
+horizontal_alignment = 2
+
+[node name="UnitPower" type="Label" parent="PanelStation/PanelEnergy/LabelEnergy/CountPower"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.473
+anchor_bottom = 0.473
+offset_left = 179.0
+offset_top = -14.082
+offset_right = 227.0
+offset_bottom = 19.918
+theme_override_font_sizes/font_size = 22
+text = "kWp"
+horizontal_alignment = 2
+
+[node name="LabelConsumption" type="Label" parent="PanelStation/PanelEnergy"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.244
+anchor_bottom = 0.244
+offset_left = 13.0
+offset_top = 17.524
+offset_right = 169.0
+offset_bottom = 51.524
+theme_override_font_sizes/font_size = 24
+text = "Consumption"
+
+[node name="CountConsumption" type="Label" parent="PanelStation/PanelEnergy/LabelConsumption"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.473
+anchor_bottom = 0.473
+offset_left = 94.0
+offset_top = -15.598
+offset_right = 256.0
+offset_bottom = 18.402
+theme_override_font_sizes/font_size = 24
+text = "??"
+horizontal_alignment = 2
+
+[node name="UnitConsumption" type="Label" parent="PanelStation/PanelEnergy/LabelConsumption/CountConsumption"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.473
+anchor_bottom = 0.473
+offset_left = 179.0
+offset_top = -14.082
+offset_right = 227.0
+offset_bottom = 19.918
+theme_override_font_sizes/font_size = 22
+text = "kW
+"
+
+[node name="ProgressBar" type="ProgressBar" parent="PanelStation/PanelEnergy"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 13.0
+offset_top = 86.0
+offset_right = 332.0
+offset_bottom = 113.0
+value = 32.0
+show_percentage = false
+
+[node name="UnitEnergy" type="Label" parent="PanelStation/PanelEnergy/ProgressBar"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.473
+anchor_bottom = 0.473
+offset_left = 266.0
+offset_top = -12.771
+offset_right = 317.0
+offset_bottom = 15.229
+theme_override_font_sizes/font_size = 20
+text = "kWh"
+horizontal_alignment = 2
+
+[node name="CountEnergy" type="Label" parent="PanelStation/PanelEnergy/ProgressBar"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.473
+anchor_bottom = 0.473
+offset_left = 81.0
+offset_top = -12.771
+offset_right = 258.0
+offset_bottom = 15.229
+theme_override_font_sizes/font_size = 20
+text = "??/??"
+horizontal_alignment = 2
+
+[node name="PanelMatter" type="Panel" parent="PanelStation"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.439
+anchor_top = 0.641
+anchor_right = 0.439
+anchor_bottom = 0.641
+offset_left = -201.802
+offset_top = -2.17099
+offset_right = 140.198
+offset_bottom = 87.829
+theme_override_styles/panel = SubResource("StyleBoxFlat_71ofv")
+
+[node name="LabelMatter" type="Label" parent="PanelStation/PanelMatter"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.244
+anchor_bottom = 0.244
+offset_left = 13.0
+offset_top = -16.96
+offset_right = 91.0
+offset_bottom = 17.04
+theme_override_font_sizes/font_size = 24
+text = "Matter
+"
+
+[node name="CountMatterTransf" type="Label" parent="PanelStation/PanelMatter"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.473
+anchor_bottom = 0.473
+offset_left = 104.0
+offset_top = -36.57
+offset_right = 258.0
+offset_bottom = -2.56999
+theme_override_font_sizes/font_size = 24
+text = "??"
+horizontal_alignment = 2
+
+[node name="UnitMatterTransf" type="Label" parent="PanelStation/PanelMatter/CountMatterTransf"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.473
+anchor_bottom = 0.473
+offset_left = 166.0
+offset_top = -15.802
+offset_right = 225.0
+offset_bottom = 18.198
+theme_override_font_sizes/font_size = 22
+text = "Kg/d"
+horizontal_alignment = 2
+
+[node name="CountMatter" type="Label" parent="PanelStation/PanelMatter"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.473
+anchor_bottom = 0.473
+offset_left = 104.0
+offset_top = -1.56999
+offset_right = 258.0
+offset_bottom = 32.43
+theme_override_font_sizes/font_size = 24
+text = "??"
+horizontal_alignment = 2
+
+[node name="UnitMatter" type="Label" parent="PanelStation/PanelMatter/CountMatter"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.473
+anchor_bottom = 0.473
+offset_left = 172.0
+offset_top = -17.082
+offset_right = 221.0
+offset_bottom = 16.918
+theme_override_font_sizes/font_size = 22
+text = "ton"
+horizontal_alignment = 2
+
+[node name="LabelStation" type="Label" parent="PanelStation"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.442
+anchor_top = 0.151
+anchor_right = 0.442
+anchor_bottom = 0.151
+offset_left = -205.035
+offset_top = -15.981
+offset_right = 127.965
+offset_bottom = 23.019
+theme_override_font_sizes/font_size = 28
+text = "Composite Space Station"
+
+[node name="ContainerLaunchH" type="VBoxContainer" parent="."]
+layout_mode = 2
+offset_left = 869.0
+offset_top = 608.0
+offset_right = 1131.0
+offset_bottom = 670.0
+
+[node name="LaunchHumans" type="Button" parent="ContainerLaunchH"]
+layout_mode = 2
+text = "Launch Humans"
+
+[node name="ProgressLaunchH" type="ProgressBar" parent="ContainerLaunchH"]
+unique_name_in_owner = true
+layout_mode = 2
+max_value = 14.0
+show_percentage = false
+
+[node name="ContainerLaunchM" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 21.0
+offset_top = 608.0
+offset_right = 283.0
+offset_bottom = 678.0
+
+[node name="LaunchMatter" type="Button" parent="ContainerLaunchM"]
+show_behind_parent = true
+layout_mode = 2
+text = "Launch Matter"
+
+[node name="ProgressLaunchM" type="ProgressBar" parent="ContainerLaunchM"]
+unique_name_in_owner = true
+layout_mode = 2
+max_value = 7.0
+show_percentage = false
+
+[node name="BoxLaunchM" type="SpinBox" parent="ContainerLaunchM"]
+unique_name_in_owner = true
+layout_mode = 2
+step = 0.1
+
+[node name="LabelDays" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.391
+anchor_top = 0.068
+anchor_right = 0.391
+anchor_bottom = 0.068
+offset_left = -0.720093
+offset_top = -17.44
+offset_right = 152.28
+offset_bottom = 16.56
+theme_override_font_sizes/font_size = 24
+text = "Days Elapsed"
+
+[node name="CountDays" type="Label" parent="LabelDays"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.473
+anchor_bottom = 0.473
+offset_left = 168.0
+offset_top = -16.082
+offset_right = 352.0
+offset_bottom = 17.918
+theme_override_font_sizes/font_size = 24
+text = "??"
+horizontal_alignment = 2
+
+[connection signal="pressed" from="ContainerLaunchH/LaunchHumans" to="." method="_on_launchHumans_pressed"]
+[connection signal="pressed" from="ContainerLaunchM/LaunchMatter" to="." method="_on_launchMatter_pressed"]
