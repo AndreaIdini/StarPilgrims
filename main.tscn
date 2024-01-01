@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://drddf4j2gbweq"]
+[gd_scene load_steps=9 format=3 uid="uid://drddf4j2gbweq"]
 
 [ext_resource type="Texture2D" uid="uid://b2nler7tmsvhs" path="res://Asset/SpaceStation1.png" id="1_5p6ln"]
 [ext_resource type="Script" path="res://main.gd" id="1_7tmd3"]
 [ext_resource type="Script" path="res://Station.gd" id="2_oc6wt"]
+[ext_resource type="Script" path="res://Launch.gd" id="4_oiuw7"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ws068"]
 bg_color = Color(0.239216, 0.239216, 0.239216, 1)
@@ -381,46 +382,6 @@ offset_bottom = 23.019
 theme_override_font_sizes/font_size = 28
 text = "Composite Space Station"
 
-[node name="ContainerLaunchH" type="VBoxContainer" parent="."]
-layout_mode = 2
-offset_left = 869.0
-offset_top = 608.0
-offset_right = 1131.0
-offset_bottom = 670.0
-
-[node name="LaunchHumans" type="Button" parent="ContainerLaunchH"]
-layout_mode = 2
-text = "Launch Humans"
-
-[node name="ProgressLaunchH" type="ProgressBar" parent="ContainerLaunchH"]
-unique_name_in_owner = true
-layout_mode = 2
-max_value = 14.0
-show_percentage = false
-
-[node name="ContainerLaunchM" type="VBoxContainer" parent="."]
-layout_mode = 0
-offset_left = 21.0
-offset_top = 608.0
-offset_right = 283.0
-offset_bottom = 678.0
-
-[node name="LaunchMatter" type="Button" parent="ContainerLaunchM"]
-show_behind_parent = true
-layout_mode = 2
-text = "Launch Matter"
-
-[node name="ProgressLaunchM" type="ProgressBar" parent="ContainerLaunchM"]
-unique_name_in_owner = true
-layout_mode = 2
-max_value = 7.0
-show_percentage = false
-
-[node name="BoxLaunchM" type="SpinBox" parent="ContainerLaunchM"]
-unique_name_in_owner = true
-layout_mode = 2
-step = 0.1
-
 [node name="LabelDays" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = -1
@@ -449,5 +410,56 @@ theme_override_font_sizes/font_size = 24
 text = "??"
 horizontal_alignment = 2
 
-[connection signal="pressed" from="ContainerLaunchH/LaunchHumans" to="." method="_on_launchHumans_pressed"]
-[connection signal="pressed" from="ContainerLaunchM/LaunchMatter" to="." method="_on_launchMatter_pressed"]
+[node name="Launch" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 918.0
+offset_top = 56.0
+offset_right = 958.0
+offset_bottom = 96.0
+script = ExtResource("4_oiuw7")
+
+[node name="ContainerLaunchH" type="VBoxContainer" parent="Launch"]
+layout_mode = 2
+offset_left = -51.9999
+offset_top = 541.0
+offset_right = 210.0
+offset_bottom = 603.0
+size_flags_horizontal = 8
+size_flags_vertical = 8
+
+[node name="LaunchHumans" type="Button" parent="Launch/ContainerLaunchH"]
+layout_mode = 2
+text = "Launch Humans"
+
+[node name="ProgressLaunchH" type="ProgressBar" parent="Launch/ContainerLaunchH"]
+unique_name_in_owner = true
+layout_mode = 2
+max_value = 14.0
+show_percentage = false
+
+[node name="ContainerLaunchM" type="VBoxContainer" parent="Launch"]
+layout_mode = 2
+offset_left = -897.0
+offset_top = 541.0
+offset_right = -635.0
+offset_bottom = 615.0
+size_flags_horizontal = 0
+
+[node name="LaunchMatter" type="Button" parent="Launch/ContainerLaunchM"]
+show_behind_parent = true
+layout_mode = 2
+text = "Launch Matter"
+
+[node name="ProgressLaunchM" type="ProgressBar" parent="Launch/ContainerLaunchM"]
+unique_name_in_owner = true
+layout_mode = 2
+max_value = 7.0
+show_percentage = false
+
+[node name="BoxLaunchM" type="SpinBox" parent="Launch/ContainerLaunchM"]
+unique_name_in_owner = true
+layout_mode = 2
+step = 0.1
+
+[connection signal="pressed" from="Launch/ContainerLaunchH/LaunchHumans" to="Launch" method="_on_launch_humans_pressed"]
+[connection signal="pressed" from="Launch/ContainerLaunchM/LaunchMatter" to="Launch" method="_on_launch_matter_pressed"]
