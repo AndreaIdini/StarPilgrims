@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://drddf4j2gbweq"]
+[gd_scene load_steps=10 format=3 uid="uid://drddf4j2gbweq"]
 
 [ext_resource type="Texture2D" uid="uid://b2nler7tmsvhs" path="res://Asset/SpaceStation1.png" id="1_5p6ln"]
 [ext_resource type="Script" path="res://main.gd" id="1_7tmd3"]
 [ext_resource type="Script" path="res://Station.gd" id="2_oc6wt"]
+[ext_resource type="Script" path="res://ModuleBuild.gd" id="4_my3be"]
 [ext_resource type="Script" path="res://Launch.gd" id="4_oiuw7"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ws068"]
@@ -139,9 +140,66 @@ anchors_preset = -1
 anchor_top = 0.473
 anchor_bottom = 0.473
 offset_left = 97.0
-offset_top = -14.082
+offset_top = -16.082
 offset_right = 304.0
-offset_bottom = 19.918
+offset_bottom = 17.918
+theme_override_font_sizes/font_size = 24
+text = "??"
+horizontal_alignment = 2
+
+[node name="LabelExperiments" type="Label" parent="PanelStation/LabelPayload"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.168
+anchor_top = -0.615
+anchor_right = 1.168
+anchor_bottom = -0.615
+offset_left = -388.944
+offset_top = 127.985
+offset_right = -291.944
+offset_bottom = 161.985
+theme_override_font_sizes/font_size = 24
+text = "Experiments"
+
+[node name="CountExperiments" type="Label" parent="PanelStation/LabelPayload/LabelExperiments"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.473
+anchor_bottom = 0.473
+offset_left = 97.0
+offset_top = -16.082
+offset_right = 304.0
+offset_bottom = 17.918
+theme_override_font_sizes/font_size = 24
+text = "??"
+horizontal_alignment = 2
+
+[node name="LabelDrones" type="Label" parent="PanelStation/LabelPayload"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.168
+anchor_top = -0.615
+anchor_right = 1.168
+anchor_bottom = -0.615
+offset_left = -388.944
+offset_top = 185.985
+offset_right = -291.944
+offset_bottom = 219.985
+theme_override_font_sizes/font_size = 24
+text = "Mining Drones"
+
+[node name="CountDrones" type="Label" parent="PanelStation/LabelPayload/LabelDrones"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.473
+anchor_bottom = 0.473
+offset_left = 97.0
+offset_top = -16.082
+offset_right = 304.0
+offset_bottom = 17.918
 theme_override_font_sizes/font_size = 24
 text = "??"
 horizontal_alignment = 2
@@ -370,6 +428,35 @@ offset_bottom = 63.0
 theme_override_font_sizes/font_size = 28
 text = "Composite Space Station"
 
+[node name="ContainerSolarPanel" type="HBoxContainer" parent="PanelStation"]
+unique_name_in_owner = true
+layout_mode = 2
+offset_left = 31.0
+offset_top = 309.0
+offset_right = 238.0
+offset_bottom = 348.0
+script = ExtResource("4_my3be")
+
+[node name="CountSolar" type="Label" parent="PanelStation/ContainerSolarPanel"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 24
+text = "??"
+
+[node name="ContainerSolarButton" type="VBoxContainer" parent="PanelStation/ContainerSolarPanel"]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="BuildSolar" type="Button" parent="PanelStation/ContainerSolarPanel/ContainerSolarButton"]
+layout_mode = 2
+text = "Build Solar Array Wing"
+
+[node name="ProgressSolar" type="ProgressBar" parent="PanelStation/ContainerSolarPanel/ContainerSolarButton"]
+layout_mode = 2
+max_value = 14.0
+show_percentage = false
+
 [node name="LabelDays" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = -1
@@ -408,10 +495,10 @@ script = ExtResource("4_oiuw7")
 
 [node name="ContainerLaunchH" type="VBoxContainer" parent="Launch"]
 layout_mode = 2
-offset_left = -51.9999
+offset_left = -52.0
 offset_top = 541.0
 offset_right = 210.0
-offset_bottom = 603.0
+offset_bottom = 580.0
 size_flags_horizontal = 8
 size_flags_vertical = 8
 
@@ -449,5 +536,6 @@ unique_name_in_owner = true
 layout_mode = 2
 step = 0.1
 
+[connection signal="pressed" from="PanelStation/ContainerSolarPanel/ContainerSolarButton/BuildSolar" to="PanelStation/ContainerSolarPanel" method="_on_build_pressed"]
 [connection signal="pressed" from="Launch/ContainerLaunchH/LaunchHumans" to="Launch" method="_on_launch_humans_pressed"]
 [connection signal="pressed" from="Launch/ContainerLaunchM/LaunchMatter" to="Launch" method="_on_launch_matter_pressed"]
