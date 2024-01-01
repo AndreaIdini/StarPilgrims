@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://drddf4j2gbweq"]
+[gd_scene load_steps=8 format=3 uid="uid://drddf4j2gbweq"]
 
 [ext_resource type="Texture2D" uid="uid://b2nler7tmsvhs" path="res://Asset/SpaceStation1.png" id="1_5p6ln"]
 [ext_resource type="Script" path="res://main.gd" id="1_7tmd3"]
+[ext_resource type="Script" path="res://Station.gd" id="2_oc6wt"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ws068"]
 bg_color = Color(0.239216, 0.239216, 0.239216, 1)
@@ -63,6 +64,7 @@ offset_top = 101.0
 offset_right = 1139.0
 offset_bottom = 432.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_ws068")
+script = ExtResource("2_oc6wt")
 
 [node name="LabelPayload" type="Label" parent="PanelStation"]
 layout_mode = 1
