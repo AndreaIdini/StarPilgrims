@@ -18,7 +18,7 @@ Missions and Events help or hinder.
 
 ### Costs:
 	
-- Solar Panel: 1KW = 10kg + 1k Credits
+- Solar Panel: 1KW = 10kg + 10k Credits
 - Matter: 1kg = 1k Credits
 - 1 Human: Gain: 20k Credits / day; Costs: 10kg/d; 100kWh/d = 4.1 kW
 - Upkeep: X per module.

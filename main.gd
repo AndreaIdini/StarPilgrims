@@ -1,20 +1,13 @@
 extends Node
 
 var time = 0.                   # days
-
 var credits = 1000.             # ~ 1k dollars
-
 
 @onready var count_days = %CountDays
 @onready var count_cred = %CountCred
 
-
 @onready var station = $PanelStation
-
-
-
-func solar_power(p,t):
-	return p*abs(sin(t*3.141))
+@onready var launch = $Launch
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -23,7 +16,6 @@ func _ready():
 	print('initialized')
 	#print(station.starting)
 	
-	pass # Replace with function body.
 
 func update_show():
 	count_days.text = str(floor(time))

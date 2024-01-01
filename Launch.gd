@@ -22,7 +22,6 @@ var matter_cost = 1000.         # cred/ton
 func _ready():
 	pass # Replace with function body.
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
 	time += delta

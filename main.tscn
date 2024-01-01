@@ -63,35 +63,31 @@ layout_mode = 0
 offset_left = 21.0
 offset_top = 101.0
 offset_right = 1139.0
-offset_bottom = 432.0
+offset_bottom = 585.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_ws068")
 script = ExtResource("2_oc6wt")
 
 [node name="LabelPayload" type="Label" parent="PanelStation"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.442
-anchor_top = 0.151
-anchor_right = 0.442
-anchor_bottom = 0.151
-offset_left = 234.844
-offset_top = -25.981
-offset_right = 567.844
-offset_bottom = 13.019
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -389.0
+offset_top = 24.0
+offset_right = -56.0
+offset_bottom = 63.0
 theme_override_font_sizes/font_size = 28
 text = "Crew and Payload"
 
 [node name="LabelCredits" type="Label" parent="PanelStation/LabelPayload"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.441
-anchor_top = 0.857
-anchor_right = 0.441
-anchor_bottom = 0.857
-offset_left = -146.853
-offset_top = 206.577
-offset_right = -64.853
-offset_bottom = 240.577
+anchor_top = 6.59
+anchor_bottom = 6.59
+offset_left = 24.0
+offset_top = 257.99
+offset_right = 377.0
+offset_bottom = 291.99
 theme_override_font_sizes/font_size = 24
 text = "Credits"
 
@@ -125,11 +121,14 @@ horizontal_alignment = 2
 [node name="LabelHumans" type="Label" parent="PanelStation/LabelPayload"]
 layout_mode = 1
 anchors_preset = -1
-anchor_top = 0.244
-anchor_bottom = 0.244
-offset_top = 35.484
-offset_right = 97.0
-offset_bottom = 69.484
+anchor_left = 1.168
+anchor_top = -0.615
+anchor_right = 1.168
+anchor_bottom = -0.615
+offset_left = -388.944
+offset_top = 68.985
+offset_right = -291.944
+offset_bottom = 102.985
 theme_override_font_sizes/font_size = 24
 text = "Humans"
 
@@ -152,25 +151,20 @@ clip_contents = true
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 1
 anchors_preset = -1
-anchor_top = 0.5
-anchor_bottom = 0.5
+anchor_right = 0.005
 offset_left = 6.0
-offset_top = -132.0
-offset_right = 268.0
-offset_bottom = 130.0
+offset_top = 33.5
+offset_right = 262.41
+offset_bottom = 295.5
 theme_override_styles/panel = SubResource("StyleBoxTexture_dl7rf")
 
 [node name="PanelEnergy" type="Panel" parent="PanelStation"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.439
-anchor_top = 0.346
-anchor_right = 0.439
-anchor_bottom = 0.346
-offset_left = -204.802
-offset_top = -41.526
-offset_right = 137.198
-offset_bottom = 87.474
+offset_left = 286.0
+offset_top = 73.0
+offset_right = 628.0
+offset_bottom = 202.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_imjuq")
 
 [node name="LabelEnergy" type="Label" parent="PanelStation/PanelEnergy"]
@@ -291,14 +285,10 @@ horizontal_alignment = 2
 [node name="PanelMatter" type="Panel" parent="PanelStation"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.439
-anchor_top = 0.641
-anchor_right = 0.439
-anchor_bottom = 0.641
-offset_left = -201.802
-offset_top = -2.17099
-offset_right = 140.198
-offset_bottom = 87.829
+offset_left = 289.0
+offset_top = 210.0
+offset_right = 631.0
+offset_bottom = 300.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_71ofv")
 
 [node name="LabelMatter" type="Label" parent="PanelStation/PanelMatter"]
@@ -318,12 +308,14 @@ text = "Matter
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = -1
-anchor_top = 0.473
-anchor_bottom = 0.473
-offset_left = 104.0
-offset_top = -36.57
-offset_right = 258.0
-offset_bottom = -2.56999
+anchor_left = -0.827
+anchor_top = -2.333
+anchor_right = -0.827
+anchor_bottom = -2.333
+offset_left = 386.834
+offset_top = 215.97
+offset_right = 540.834
+offset_bottom = 249.97
 theme_override_font_sizes/font_size = 24
 text = "??"
 horizontal_alignment = 2
@@ -371,14 +363,10 @@ horizontal_alignment = 2
 [node name="LabelStation" type="Label" parent="PanelStation"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.442
-anchor_top = 0.151
-anchor_right = 0.442
-anchor_bottom = 0.151
-offset_left = -205.035
-offset_top = -15.981
-offset_right = 127.965
-offset_bottom = 23.019
+offset_left = 289.0
+offset_top = 24.0
+offset_right = 622.0
+offset_bottom = 63.0
 theme_override_font_sizes/font_size = 28
 text = "Composite Space Station"
 
