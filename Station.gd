@@ -136,6 +136,8 @@ const DRONE = {
 
 var Modules = [STARTING]
 
+@onready var tab_bar = %TabBar
+
 @onready var count_power = %CountPower
 @onready var count_energy = %CountEnergy
 @onready var progress_bar = %ProgressBar
@@ -174,6 +176,9 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
+	var time_multi = tab_bar.current_tab*tab_bar.current_tab
+	delta = delta*time_multi
+	
 	time += delta
 	
 	pow_consumption = power_construction + modules_upkeep + humans*humans_energy_upkeep

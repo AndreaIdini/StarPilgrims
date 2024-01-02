@@ -37,7 +37,8 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
-
+	var time_multi = station.tab_bar.current_tab*station.tab_bar.current_tab
+	delta = delta*time_multi
 	if build_in_progress:
 		build_counter +=delta
 		progress_bar.value = build_counter

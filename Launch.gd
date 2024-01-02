@@ -17,6 +17,7 @@ var matter_cost = 1000.         # cred/ton
 @onready var box_launch_m = %BoxLaunchM
 @onready var station = $"../PanelStation"
 @onready var control = $".."
+@onready var tab_bar = %TabBar
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -24,6 +25,9 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
+	var time_multi = tab_bar.current_tab*tab_bar.current_tab
+	delta = delta*time_multi
+	
 	time += delta
 	if launch_in_progress:
 		launch_counter +=delta
