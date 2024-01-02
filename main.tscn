@@ -3,8 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://b2nler7tmsvhs" path="res://Asset/SpaceStation1.png" id="1_5p6ln"]
 [ext_resource type="Script" path="res://main.gd" id="1_7tmd3"]
 [ext_resource type="Script" path="res://Station.gd" id="2_oc6wt"]
-[ext_resource type="Script" path="res://ModuleBuild.gd" id="4_my3be"]
 [ext_resource type="Script" path="res://Launch.gd" id="4_oiuw7"]
+[ext_resource type="Script" path="res://Buttons/ContainerSolarPanel.gd" id="5_ree1l"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ws068"]
 bg_color = Color(0.239216, 0.239216, 0.239216, 1)
@@ -455,31 +455,64 @@ offset_bottom = 63.0
 theme_override_font_sizes/font_size = 28
 text = "Composite Space Station"
 
-[node name="ContainerSolarPanel" type="HBoxContainer" parent="PanelStation"]
+[node name="ModuleBuild" type="Control" parent="PanelStation"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ContainerSolarPanel" type="HBoxContainer" parent="PanelStation/ModuleBuild"]
 unique_name_in_owner = true
 layout_mode = 2
 offset_left = 31.0
 offset_top = 309.0
 offset_right = 238.0
 offset_bottom = 348.0
-script = ExtResource("4_my3be")
+script = ExtResource("5_ree1l")
 
-[node name="CountSolar" type="Label" parent="PanelStation/ContainerSolarPanel"]
+[node name="CountSolar" type="Label" parent="PanelStation/ModuleBuild/ContainerSolarPanel"]
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 1
 theme_override_font_sizes/font_size = 24
 text = "??"
 
-[node name="ContainerSolarButton" type="VBoxContainer" parent="PanelStation/ContainerSolarPanel"]
+[node name="ContainerSolarButton" type="VBoxContainer" parent="PanelStation/ModuleBuild/ContainerSolarPanel"]
 layout_mode = 2
 size_flags_horizontal = 0
 
-[node name="BuildSolar" type="Button" parent="PanelStation/ContainerSolarPanel/ContainerSolarButton"]
+[node name="BuildSolar" type="Button" parent="PanelStation/ModuleBuild/ContainerSolarPanel/ContainerSolarButton"]
 layout_mode = 2
 text = "Build Solar Array Wing"
 
-[node name="ProgressSolar" type="ProgressBar" parent="PanelStation/ContainerSolarPanel/ContainerSolarButton"]
+[node name="ProgressSolar" type="ProgressBar" parent="PanelStation/ModuleBuild/ContainerSolarPanel/ContainerSolarButton"]
+layout_mode = 2
+max_value = 14.0
+show_percentage = false
+
+[node name="ContainerBattery" type="HBoxContainer" parent="PanelStation/ModuleBuild"]
+layout_mode = 2
+offset_left = 268.0
+offset_top = 309.0
+offset_right = 475.0
+offset_bottom = 348.0
+script = ExtResource("5_ree1l")
+
+[node name="CountBattery" type="Label" parent="PanelStation/ModuleBuild/ContainerBattery"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 24
+text = "??"
+
+[node name="ContainerBatteryButton" type="VBoxContainer" parent="PanelStation/ModuleBuild/ContainerBattery"]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="BuildBattery" type="Button" parent="PanelStation/ModuleBuild/ContainerBattery/ContainerBatteryButton"]
+layout_mode = 2
+text = "Build Battery Stack"
+
+[node name="ProgressBattery" type="ProgressBar" parent="PanelStation/ModuleBuild/ContainerBattery/ContainerBatteryButton"]
 layout_mode = 2
 max_value = 14.0
 show_percentage = false
@@ -563,6 +596,7 @@ unique_name_in_owner = true
 layout_mode = 2
 step = 0.1
 
-[connection signal="pressed" from="PanelStation/ContainerSolarPanel/ContainerSolarButton/BuildSolar" to="PanelStation/ContainerSolarPanel" method="_on_build_pressed"]
+[connection signal="pressed" from="PanelStation/ModuleBuild/ContainerSolarPanel/ContainerSolarButton/BuildSolar" to="PanelStation/ModuleBuild/ContainerSolarPanel" method="_on_build_pressed"]
+[connection signal="pressed" from="PanelStation/ModuleBuild/ContainerBattery/ContainerBatteryButton/BuildBattery" to="PanelStation/ModuleBuild/ContainerBattery" method="_on_build_pressed"]
 [connection signal="pressed" from="Launch/ContainerLaunchH/LaunchHumans" to="Launch" method="_on_launch_humans_pressed"]
 [connection signal="pressed" from="Launch/ContainerLaunchM/LaunchMatter" to="Launch" method="_on_launch_matter_pressed"]

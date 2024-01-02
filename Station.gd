@@ -123,26 +123,17 @@ var Modules = [STARTING]
 @onready var container_solar_panel = %ContainerSolarPanel
 @onready var label_experiments = %LabelExperiments
 @onready var label_drones = %LabelDrones
+@onready var label_computing = %LabelComputing
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	print("station ready", Modules)
+	print("Station ready: ")
+	for module in Modules:
+		print("- ", module["name"])
 	station_properties()
-	print(battery_cap, " ",power)
-	
-	container_solar_panel.show()
-	container_solar_panel.get_child(0).text = "0"
-	
-	label_experiments.hide()
-	label_experiments.get_child(0).text = "0"
-	label_drones.hide()
-	label_drones.get_child(0).text = "0"
+	hide_unaffordable()
 
-	#Modules.append(SOLAR)
-#
-	#station_properties()
-	#print(battery_cap, " ", power)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
@@ -157,6 +148,12 @@ func _physics_process(delta):
 	matter_change = matter_transf - humans*humans_matter_upkeep
 	matter += matter_change*delta/1000
 	
+	update_visuals()
+	
+	unlock_features()
+	pass
+
+func update_visuals():
 	count_matter.text = str("%10.2f" % matter)
 	count_power.text = str("%10.1f" % solar_power_installed)
 	count_energy.text = str("%10.1f" % energy) + "/" + str("%10.1f" % battery_cap)
@@ -166,7 +163,6 @@ func _physics_process(delta):
 	
 	progress_bar.max_value = battery_cap
 	progress_bar.value = energy
-	pass
 
 func station_properties():
 	humans_cap = 0
@@ -179,6 +175,23 @@ func station_properties():
 		modules_upkeep += module["upkeep_power"]
 		battery_cap += module["battery"]
 		humans_cap += module["living_space"]
+
+func hide_unaffordable():
+	container_solar_panel.hide()
+	container_solar_panel.get_child(0).text = "0"
+	label_experiments.hide()
+	label_experiments.get_child(0).text = "0"
+	label_drones.hide()
+	label_drones.get_child(0).text = "0"
+	label_computing.hide()
+	label_computing.get_child(0).text = "0"
+
+func unlock_features():
+	if(! container_solar_panel.is_visible() && matter > SOLAR["build_matter"] && energy > SOLAR["build_energy"]):
+		print("solar array unlocked")
+		container_solar_panel.show()
+		
+	
 	
 
 func print_state():
