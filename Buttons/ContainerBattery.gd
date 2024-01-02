@@ -16,7 +16,7 @@ var pressed = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	moduleType = station.SOLAR
+	moduleType = station.BATTERY
 
 	progress_bar = get_child(1).get_child(1)
 	labelCounter = get_child(0)

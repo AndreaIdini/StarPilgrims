@@ -12,12 +12,10 @@ var cheat = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	update_show()
-	
 	if cheat:
-		credits = 10000
-		station.matter = 10000
-		station.energy = 50
+		print("cheat credits")
+		credits = 100000
+	update_show()
 	
 	print('initialized')
 	#print(station.starting)

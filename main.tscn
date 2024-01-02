@@ -1,10 +1,14 @@
-[gd_scene load_steps=10 format=3 uid="uid://drddf4j2gbweq"]
+[gd_scene load_steps=14 format=3 uid="uid://drddf4j2gbweq"]
 
 [ext_resource type="Texture2D" uid="uid://b2nler7tmsvhs" path="res://Asset/SpaceStation1.png" id="1_5p6ln"]
 [ext_resource type="Script" path="res://main.gd" id="1_7tmd3"]
 [ext_resource type="Script" path="res://Station.gd" id="2_oc6wt"]
 [ext_resource type="Script" path="res://Launch.gd" id="4_oiuw7"]
 [ext_resource type="Script" path="res://Buttons/ContainerSolarPanel.gd" id="5_ree1l"]
+[ext_resource type="Script" path="res://Buttons/ContainerBattery.gd" id="5_tsak2"]
+[ext_resource type="Script" path="res://Buttons/ContainerComputing.gd" id="6_fswgt"]
+[ext_resource type="Script" path="res://Buttons/ContainerLiving.gd" id="6_yq5dq"]
+[ext_resource type="Script" path="res://Buttons/ContainerDroneBay.gd" id="8_v88ik"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ws068"]
 bg_color = Color(0.239216, 0.239216, 0.239216, 1)
@@ -48,23 +52,22 @@ corner_radius_bottom_left = 5
 
 [node name="Control" type="Control"]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 0
 offset_left = -2.0
 offset_top = -40.0
-offset_right = 766.0
-offset_bottom = 392.0
-grow_horizontal = 2
-grow_vertical = 2
+offset_right = 90.0
+offset_bottom = 12.0
 script = ExtResource("1_7tmd3")
 
 [node name="PanelStation" type="Panel" parent="."]
-layout_mode = 0
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.734
+anchor_bottom = 0.734
 offset_left = 21.0
-offset_top = 101.0
+offset_top = 62.832
 offset_right = 1139.0
-offset_bottom = 585.0
+offset_bottom = 546.832
 theme_override_styles/panel = SubResource("StyleBoxFlat_ws068")
 script = ExtResource("2_oc6wt")
 
@@ -156,41 +159,13 @@ anchor_top = -0.615
 anchor_right = 1.168
 anchor_bottom = -0.615
 offset_left = -388.944
-offset_top = 428.985
+offset_top = 265.985
 offset_right = -243.944
-offset_bottom = 462.985
+offset_bottom = 299.985
 theme_override_font_sizes/font_size = 24
 text = "Experiments"
 
 [node name="CountExperiments" type="Label" parent="PanelStation/LabelPayload/LabelExperiments"]
-layout_mode = 1
-anchors_preset = -1
-anchor_top = 0.473
-anchor_bottom = 0.473
-offset_left = 145.0
-offset_top = -16.082
-offset_right = 352.0
-offset_bottom = 17.918
-theme_override_font_sizes/font_size = 24
-text = "??"
-horizontal_alignment = 2
-
-[node name="LabelComputing" type="Label" parent="PanelStation/LabelPayload"]
-unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 1.168
-anchor_top = -0.615
-anchor_right = 1.168
-anchor_bottom = -0.615
-offset_left = -388.944
-offset_top = 142.985
-offset_right = -250.944
-offset_bottom = 176.985
-theme_override_font_sizes/font_size = 24
-text = "Data Center"
-
-[node name="CountComputers" type="Label" parent="PanelStation/LabelPayload/LabelComputing"]
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 0.473
@@ -212,13 +187,14 @@ anchor_top = -0.615
 anchor_right = 1.168
 anchor_bottom = -0.615
 offset_left = -388.944
-offset_top = 201.985
+offset_top = 143.985
 offset_right = -219.944
-offset_bottom = 235.985
+offset_bottom = 177.985
 theme_override_font_sizes/font_size = 24
 text = "Mining Drones"
 
 [node name="CountDrones" type="Label" parent="PanelStation/LabelPayload/LabelDrones"]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 0.473
@@ -464,9 +440,9 @@ offset_bottom = 40.0
 unique_name_in_owner = true
 layout_mode = 2
 offset_left = 31.0
-offset_top = 309.0
+offset_top = 319.0
 offset_right = 238.0
-offset_bottom = 348.0
+offset_bottom = 358.0
 script = ExtResource("5_ree1l")
 
 [node name="CountSolar" type="Label" parent="PanelStation/ModuleBuild/ContainerSolarPanel"]
@@ -490,12 +466,13 @@ max_value = 14.0
 show_percentage = false
 
 [node name="ContainerBattery" type="HBoxContainer" parent="PanelStation/ModuleBuild"]
+unique_name_in_owner = true
 layout_mode = 2
 offset_left = 268.0
-offset_top = 309.0
+offset_top = 319.0
 offset_right = 475.0
-offset_bottom = 348.0
-script = ExtResource("5_ree1l")
+offset_bottom = 358.0
+script = ExtResource("5_tsak2")
 
 [node name="CountBattery" type="Label" parent="PanelStation/ModuleBuild/ContainerBattery"]
 layout_mode = 2
@@ -517,17 +494,104 @@ layout_mode = 2
 max_value = 14.0
 show_percentage = false
 
+[node name="ContainerLiving" type="HBoxContainer" parent="PanelStation/ModuleBuild"]
+unique_name_in_owner = true
+layout_mode = 2
+offset_left = 479.0
+offset_top = 319.0
+offset_right = 686.0
+offset_bottom = 358.0
+script = ExtResource("6_yq5dq")
+
+[node name="CountLiving" type="Label" parent="PanelStation/ModuleBuild/ContainerLiving"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 24
+text = "??"
+
+[node name="ContainerLivingButton" type="VBoxContainer" parent="PanelStation/ModuleBuild/ContainerLiving"]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="BuildLiving" type="Button" parent="PanelStation/ModuleBuild/ContainerLiving/ContainerLivingButton"]
+layout_mode = 2
+text = "Build Living Quarters"
+
+[node name="ProgressLiving" type="ProgressBar" parent="PanelStation/ModuleBuild/ContainerLiving/ContainerLivingButton"]
+layout_mode = 2
+max_value = 14.0
+show_percentage = false
+
+[node name="ContainerComputing" type="HBoxContainer" parent="PanelStation/ModuleBuild"]
+unique_name_in_owner = true
+layout_mode = 2
+offset_left = 714.0
+offset_top = 319.0
+offset_right = 921.0
+offset_bottom = 358.0
+script = ExtResource("6_fswgt")
+
+[node name="CountComputing" type="Label" parent="PanelStation/ModuleBuild/ContainerComputing"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 24
+text = "??"
+
+[node name="ContainerComputingButton" type="VBoxContainer" parent="PanelStation/ModuleBuild/ContainerComputing"]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="BuildSolar" type="Button" parent="PanelStation/ModuleBuild/ContainerComputing/ContainerComputingButton"]
+layout_mode = 2
+text = "Build Data Center"
+
+[node name="ProgressSolar" type="ProgressBar" parent="PanelStation/ModuleBuild/ContainerComputing/ContainerComputingButton"]
+layout_mode = 2
+max_value = 14.0
+show_percentage = false
+
+[node name="ContainerDroneBay" type="HBoxContainer" parent="PanelStation/ModuleBuild"]
+unique_name_in_owner = true
+layout_mode = 2
+offset_left = 31.0
+offset_top = 368.0
+offset_right = 247.0
+offset_bottom = 407.0
+script = ExtResource("8_v88ik")
+
+[node name="CountDroneBay" type="Label" parent="PanelStation/ModuleBuild/ContainerDroneBay"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 24
+text = "??"
+
+[node name="ContainerDroneButton" type="VBoxContainer" parent="PanelStation/ModuleBuild/ContainerDroneBay"]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="BuildDroneBay" type="Button" parent="PanelStation/ModuleBuild/ContainerDroneBay/ContainerDroneButton"]
+layout_mode = 2
+text = "Build Drone Bay"
+
+[node name="ProgressDroneBay" type="ProgressBar" parent="PanelStation/ModuleBuild/ContainerDroneBay/ContainerDroneButton"]
+layout_mode = 2
+max_value = 14.0
+show_percentage = false
+
 [node name="LabelDays" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.391
-anchor_top = 0.068
-anchor_right = 0.391
-anchor_bottom = 0.068
-offset_left = -0.720093
-offset_top = -17.44
-offset_right = 152.28
-offset_bottom = 16.56
+anchor_left = 12.545
+anchor_top = 0.8
+anchor_right = 12.545
+anchor_bottom = 0.8
+offset_left = -393.14
+offset_top = 14.4
+offset_right = -240.14
+offset_bottom = 48.4
 theme_override_font_sizes/font_size = 24
 text = "Days Elapsed"
 
@@ -555,9 +619,9 @@ script = ExtResource("4_oiuw7")
 
 [node name="ContainerLaunchH" type="VBoxContainer" parent="Launch"]
 layout_mode = 2
-offset_left = -52.0
+offset_left = -611.0
 offset_top = 541.0
-offset_right = 210.0
+offset_right = -349.0
 offset_bottom = 580.0
 size_flags_horizontal = 8
 size_flags_vertical = 8
@@ -596,7 +660,29 @@ unique_name_in_owner = true
 layout_mode = 2
 step = 0.1
 
+[node name="ContainerBuildDrone" type="VBoxContainer" parent="Launch"]
+unique_name_in_owner = true
+offset_left = -325.0
+offset_top = 541.0
+offset_right = -63.0
+offset_bottom = 580.0
+size_flags_horizontal = 8
+size_flags_vertical = 8
+
+[node name="BuildMiningDrone" type="Button" parent="Launch/ContainerBuildDrone"]
+layout_mode = 2
+text = "Bulid Mining Drone"
+
+[node name="ProgressBuildMD" type="ProgressBar" parent="Launch/ContainerBuildDrone"]
+layout_mode = 2
+max_value = 14.0
+show_percentage = false
+
 [connection signal="pressed" from="PanelStation/ModuleBuild/ContainerSolarPanel/ContainerSolarButton/BuildSolar" to="PanelStation/ModuleBuild/ContainerSolarPanel" method="_on_build_pressed"]
 [connection signal="pressed" from="PanelStation/ModuleBuild/ContainerBattery/ContainerBatteryButton/BuildBattery" to="PanelStation/ModuleBuild/ContainerBattery" method="_on_build_pressed"]
+[connection signal="pressed" from="PanelStation/ModuleBuild/ContainerLiving/ContainerLivingButton/BuildLiving" to="PanelStation/ModuleBuild/ContainerLiving" method="_on_build_pressed"]
+[connection signal="pressed" from="PanelStation/ModuleBuild/ContainerComputing/ContainerComputingButton/BuildSolar" to="PanelStation/ModuleBuild/ContainerComputing" method="_on_build_pressed"]
+[connection signal="pressed" from="PanelStation/ModuleBuild/ContainerDroneBay/ContainerDroneButton/BuildDroneBay" to="PanelStation/ModuleBuild/ContainerDroneBay" method="_on_build_pressed"]
 [connection signal="pressed" from="Launch/ContainerLaunchH/LaunchHumans" to="Launch" method="_on_launch_humans_pressed"]
 [connection signal="pressed" from="Launch/ContainerLaunchM/LaunchMatter" to="Launch" method="_on_launch_matter_pressed"]
+[connection signal="pressed" from="Launch/ContainerBuildDrone/BuildMiningDrone" to="Launch" method="_on_launch_humans_pressed"]
