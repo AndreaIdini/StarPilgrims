@@ -36,7 +36,7 @@ func _physics_process(delta):
 				launching_matter = false
 				launching_humans = false
 				launch_counter = 0.
-				progress_launch_m.value = launch_counter
+				progress_launch_m.value = 0.
 				
 				station.matter += box_launch_m.value
 				control.credits -= box_launch_m.value*matter_cost
@@ -48,20 +48,20 @@ func _physics_process(delta):
 				launching_matter = false
 				launching_humans = false
 				launch_counter = 0.
+				progress_launch_h.value = 0.
 				station.humans += 1
 		
-	pass
 
 
 func _on_launch_humans_pressed():
-	launch_in_progress = true
-	launch_counter = 0
-	launching_matter = false
-	launching_humans = true
+	if station.humans_cap > station.humans:
+		launch_in_progress = true
+		launch_counter = 0
+		launching_matter = false
+		launching_humans = true
+		
+		progress_launch_h.max_value = time_to_launch_humans
 	
-	progress_launch_h.max_value = time_to_launch_humans
-	
-	pass # Replace with function body.
 
 
 func _on_launch_matter_pressed():
@@ -71,5 +71,4 @@ func _on_launch_matter_pressed():
 	launching_humans = false
 	
 	progress_launch_m.max_value = time_to_launch_matter
-	
-	pass # Replace with function body.
+

@@ -31,10 +31,10 @@ const STARTING = {
 	"power": 15.,                # KW
 	"battery": 50.,              # KWh
 	"living_space": 3.,          # Capacity for Humans
-	"upkeep_power": 3.,         # KW
+	"upkeep_power": 3.,          # KW
 	"upkeep_matter": 0.,         # Kg/d
-	"build_matter": 5.,           # ton
-	"build_energy": 100.,           # KWh
+	"build_matter": 5.,          # ton
+	"build_energy": 100.,        # KWh
 	"build_credits": 3000,
 	"build_time": 30.
 }
@@ -45,10 +45,10 @@ const SOLAR = {
 	"power": 30.,                # KW
 	"battery": 5.,               # KWh
 	"living_space": 0.,          # Capacity for Humans
-	"upkeep_power": 0.,         # KW
+	"upkeep_power": 0.,          # KW
 	"upkeep_matter": 0.,         # Kg/d
-	"build_matter": 1.,           # ton
-	"build_energy": 20.,          # KWh
+	"build_matter": 1.,          # ton
+	"build_energy": 20.,         # KWh
 	"build_credits": 500,
 	"build_time": 3.
 }
@@ -56,13 +56,13 @@ const SOLAR = {
 const BATTERY = {
 	"name": "Battery Storage",  # 
 	"description": "The battery storage module will provide all your energy storage needs at the most convenient price, it needs some power and batteries need to be replaced from time to time.",
-	"power": 0,                 # KW
+	"power": 0,                  # KW
 	"battery": 50.,              # KWh
 	"living_space": 0.,          # Capacity for Humans
-	"upkeep_power": 0.1,       # KW
+	"upkeep_power": 0.1,         # KW
 	"upkeep_matter": 1.,         # Kg/d
-	"build_matter": 1.,           # ton
-	"build_energy": 30.,          # KWh
+	"build_matter": 1.,          # ton
+	"build_energy": 30.,         # KWh
 	"build_credits": 500,
 	"build_time": 5.
 }
@@ -87,7 +87,21 @@ const DRONE = {
 	"power": 0.,                 # KW
 	"battery": 20.,              # KWh
 	"living_space": 5.,          # Capacity for Humans
-	"upkeep_power": 3.,         # KW
+	"upkeep_power": 20.,         # KW
+	"upkeep_matter": 5.,         # Kg/d
+	"build_matter": 5.,           # ton
+	"build_energy": 50.,          # KWh
+	"build_credits": 10000,
+	"build_time": 10.
+}
+
+const COMPUTING = {
+	"name": "Computing Center",
+	"description": "A computing center to crunch numbers using the refrigeration in the coldness of space.",
+	"power": 0.,                 # KW
+	"battery": 20.,              # KWh
+	"living_space": 5.,          # Capacity for Humans
+	"upkeep_power": 20.,         # KW
 	"upkeep_matter": 5.,         # Kg/d
 	"build_matter": 5.,           # ton
 	"build_energy": 50.,          # KWh
