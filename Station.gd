@@ -20,12 +20,16 @@ var power_construction=0.       # KW
 var matter_transf = 0.
 var matter_change
 var modules_matter_transf
-var humans_cap
-var drones_cap = 0.
 
+var humans_cap
 var humans_matter_upkeep = 10   # Kg
 var humans_energy_upkeep = 5    # KW
 var humans_rent = 20            # cred
+
+# TODO: research on realistic drone capabilities and consupmtion
+var drones_cap
+var drones_matter_mining = 20.
+var drones_energy_upkeep = 20.
 
 #enum ModuleNames {STARTING, SOLAR_PANEL, basic_living}
 
@@ -181,13 +185,13 @@ func _physics_process(delta):
 	
 	time += delta
 	
-	pow_consumption = power_construction + modules_upkeep + humans*humans_energy_upkeep
+	pow_consumption = power_construction + modules_upkeep + humans*humans_energy_upkeep + drones*drones_energy_upkeep
 	power = solar_power(solar_power_installed, time) - pow_consumption
 	
 	energy += power*delta
 	energy = min(energy,battery_cap)
 	
-	matter_change = matter_transf - humans*humans_matter_upkeep - modules_matter_transf
+	matter_change = matter_transf - humans*humans_matter_upkeep - modules_matter_transf + drones*drones_matter_mining
 	matter += matter_change*delta/1000
 	
 	update_visuals()

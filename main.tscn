@@ -625,7 +625,7 @@ theme_override_font_sizes/font_size = 24
 text = "??"
 horizontal_alignment = 2
 
-[node name="Launch" type="Control" parent="."]
+[node name="LaunchBuild" type="Control" parent="."]
 anchors_preset = 0
 offset_left = 918.0
 offset_top = 56.0
@@ -633,7 +633,7 @@ offset_right = 958.0
 offset_bottom = 96.0
 script = ExtResource("4_oiuw7")
 
-[node name="ContainerLaunchH" type="VBoxContainer" parent="Launch"]
+[node name="ContainerLaunchH" type="VBoxContainer" parent="LaunchBuild"]
 layout_mode = 2
 offset_left = -611.0
 offset_top = 541.0
@@ -642,17 +642,17 @@ offset_bottom = 580.0
 size_flags_horizontal = 8
 size_flags_vertical = 8
 
-[node name="LaunchHumans" type="Button" parent="Launch/ContainerLaunchH"]
+[node name="LaunchHumans" type="Button" parent="LaunchBuild/ContainerLaunchH"]
 layout_mode = 2
 text = "Launch Humans"
 
-[node name="ProgressLaunchH" type="ProgressBar" parent="Launch/ContainerLaunchH"]
+[node name="ProgressLaunchH" type="ProgressBar" parent="LaunchBuild/ContainerLaunchH"]
 unique_name_in_owner = true
 layout_mode = 2
 max_value = 14.0
 show_percentage = false
 
-[node name="ContainerLaunchM" type="VBoxContainer" parent="Launch"]
+[node name="ContainerLaunchM" type="VBoxContainer" parent="LaunchBuild"]
 layout_mode = 2
 offset_left = -897.0
 offset_top = 541.0
@@ -660,24 +660,25 @@ offset_right = -635.0
 offset_bottom = 615.0
 size_flags_horizontal = 0
 
-[node name="LaunchMatter" type="Button" parent="Launch/ContainerLaunchM"]
+[node name="LaunchMatter" type="Button" parent="LaunchBuild/ContainerLaunchM"]
 show_behind_parent = true
 layout_mode = 2
 text = "Launch Matter"
 
-[node name="ProgressLaunchM" type="ProgressBar" parent="Launch/ContainerLaunchM"]
+[node name="ProgressLaunchM" type="ProgressBar" parent="LaunchBuild/ContainerLaunchM"]
 unique_name_in_owner = true
 layout_mode = 2
 max_value = 7.0
 show_percentage = false
 
-[node name="BoxLaunchM" type="SpinBox" parent="Launch/ContainerLaunchM"]
+[node name="BoxLaunchM" type="SpinBox" parent="LaunchBuild/ContainerLaunchM"]
 unique_name_in_owner = true
 layout_mode = 2
 step = 0.1
 
-[node name="ContainerBuildDrone" type="VBoxContainer" parent="Launch"]
+[node name="ContainerBuildDrone" type="VBoxContainer" parent="LaunchBuild"]
 unique_name_in_owner = true
+layout_mode = 0
 offset_left = -325.0
 offset_top = 541.0
 offset_right = -63.0
@@ -685,11 +686,12 @@ offset_bottom = 580.0
 size_flags_horizontal = 8
 size_flags_vertical = 8
 
-[node name="BuildMiningDrone" type="Button" parent="Launch/ContainerBuildDrone"]
+[node name="BuildMiningDrone" type="Button" parent="LaunchBuild/ContainerBuildDrone"]
 layout_mode = 2
 text = "Bulid Mining Drone"
 
-[node name="ProgressBuildMD" type="ProgressBar" parent="Launch/ContainerBuildDrone"]
+[node name="ProgressBuildMD" type="ProgressBar" parent="LaunchBuild/ContainerBuildDrone"]
+unique_name_in_owner = true
 layout_mode = 2
 max_value = 14.0
 show_percentage = false
@@ -715,6 +717,6 @@ tab_3/title = "⏭"
 [connection signal="pressed" from="PanelStation/ModuleBuild/ContainerLiving/ContainerLivingButton/BuildLiving" to="PanelStation/ModuleBuild/ContainerLiving" method="_on_build_pressed"]
 [connection signal="pressed" from="PanelStation/ModuleBuild/ContainerComputing/ContainerComputingButton/BuildSolar" to="PanelStation/ModuleBuild/ContainerComputing" method="_on_build_pressed"]
 [connection signal="pressed" from="PanelStation/ModuleBuild/ContainerDroneBay/ContainerDroneButton/BuildDroneBay" to="PanelStation/ModuleBuild/ContainerDroneBay" method="_on_build_pressed"]
-[connection signal="pressed" from="Launch/ContainerLaunchH/LaunchHumans" to="Launch" method="_on_launch_humans_pressed"]
-[connection signal="pressed" from="Launch/ContainerLaunchM/LaunchMatter" to="Launch" method="_on_launch_matter_pressed"]
-[connection signal="pressed" from="Launch/ContainerBuildDrone/BuildMiningDrone" to="Launch" method="_on_launch_humans_pressed"]
+[connection signal="pressed" from="LaunchBuild/ContainerLaunchH/LaunchHumans" to="LaunchBuild" method="_on_launch_humans_pressed"]
+[connection signal="pressed" from="LaunchBuild/ContainerLaunchM/LaunchMatter" to="LaunchBuild" method="_on_launch_matter_pressed"]
+[connection signal="pressed" from="LaunchBuild/ContainerBuildDrone/BuildMiningDrone" to="LaunchBuild" method="_on_build_drone_pressed"]

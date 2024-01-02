@@ -3,19 +3,16 @@ extends Node
 var time = 0.                   # days
 var time_multi = 1.
 var credits = 1000.             # ~ 1k dollars
-var cheat = true
-
 
 @onready var count_days = %CountDays
 @onready var count_cred = %CountCred
 
 @onready var station = $PanelStation
-@onready var launch = $Launch
 @onready var tab_bar = %TabBar
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	if cheat:
+	if station.cheat:
 		print("cheat credits")
 		credits = 100000
 	update_show()
