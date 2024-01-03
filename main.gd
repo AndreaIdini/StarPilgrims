@@ -28,9 +28,9 @@ func _ready():
 	#print(station.starting)
 	
 func entrance_Dialogs():
-	story_box.start_story()
-	await %Button.button_up
-	print("story done")
+	#story_box.start_story()
+	#await %Button.button_up
+	#print("story done")
 
 	event_box.start_tutorial()
 	await $EventBox/Button.button_up

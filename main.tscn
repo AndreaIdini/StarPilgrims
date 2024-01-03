@@ -807,7 +807,6 @@ tab_3/title = "⏭"
 
 [node name="EventBox" type="ColorRect" parent="."]
 unique_name_in_owner = true
-visible = false
 layout_mode = 0
 offset_left = 707.0
 offset_top = 317.0
@@ -831,8 +830,10 @@ offset_left = 48.0
 offset_top = 38.0
 offset_right = 395.0
 offset_bottom = 217.0
-theme_override_font_sizes/normal_font_size = 24
-text = "Text Here"
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "Hello, welcome to Space Station 1. Don't be startled! We needed to jumpstart the waking process and you might miss many operating parameters. 
+I'm here to provide guidance!"
 
 [node name="Button" type="Button" parent="EventBox"]
 layout_mode = 1
@@ -847,6 +848,14 @@ offset_right = 20.0
 grow_horizontal = 2
 grow_vertical = 0
 text = "Ok"
+
+[node name="Arrow" type="Label" parent="EventBox"]
+offset_left = 406.0
+offset_top = 210.0
+offset_right = 429.0
+offset_bottom = 265.0
+theme_override_font_sizes/font_size = 40
+text = "🢛"
 
 [node name="StoryBox" type="TextureRect" parent="."]
 unique_name_in_owner = true
@@ -912,5 +921,7 @@ text = "Button Text"
 [connection signal="pressed" from="LaunchBuild/ContainerLaunchH/LaunchHumans" to="LaunchBuild" method="_on_launch_humans_pressed"]
 [connection signal="pressed" from="LaunchBuild/ContainerLaunchM/LaunchMatter" to="LaunchBuild" method="_on_launch_matter_pressed"]
 [connection signal="pressed" from="LaunchBuild/ContainerBuildDrone/BuildMiningDrone" to="LaunchBuild" method="_on_build_drone_pressed"]
+[connection signal="mouse_entered" from="EventBox" to="EventBox" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="EventBox" to="EventBox" method="_on_mouse_exited"]
 [connection signal="pressed" from="EventBox/Button" to="EventBox" method="_on_button_pressed"]
 [connection signal="pressed" from="StoryBox/Button" to="StoryBox" method="_on_button_pressed"]

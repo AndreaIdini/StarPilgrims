@@ -42,8 +42,8 @@ func _physics_process(delta):
 	if launch_in_progress:
 		launch_counter +=delta
 		if launching_matter:
+			progress_launch_m.value = launch_counter
 			if launch_counter > time_to_launch_matter:
-
 				launch_in_progress = false
 				launching_matter = false
 				launching_humans = false
@@ -85,7 +85,9 @@ func _on_launch_humans_pressed():
 
 
 func _on_launch_matter_pressed():
+	print("launch ", box_launch_m.value*matter_cost)
 	if control.credits >= box_launch_m.value*matter_cost:
+		print("ok")
 		launch_in_progress = true
 		launch_counter = 0
 		launching_matter = true
