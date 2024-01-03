@@ -16,12 +16,25 @@ Services consume matter and energy.
 
 Missions and Events help or hinder.
 
+Evaluate logarithmic curve for credits earning in factory in function of the number of humans, maybe difficult to balance
+
 ### Costs:
 	
 - Solar Panel: 1KW = 10kg + 10k Credits
 - Matter: 1kg = 1k Credits
 - 1 Human: Gain: 20k Credits / day; Costs: 10kg/d; 100kWh/d = 4.1 kW
 - Upkeep: X per module.
+
+### Build:
+
+Buiding takes time, but is reduced by log_2(number of humans+1). It needs a human to build things, and having more humans help but progressively less. 3 humans, the starting living quarter capacity, gives factor 2.
+
+### Launch and orbits:
+
+Launches of matter and humans need to be planned in advance, they have a cost in credits and a given capacity.
+
+At a certain points it will be possible to change orbit, this will change the rate at which drones can accumulate matter but also cost and time needed for orbital launches, needing a more self-sufficient outpost but allowing for more resource accumulation.
+	
 
 ## Story snippets
 

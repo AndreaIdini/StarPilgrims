@@ -25,7 +25,7 @@ func _init(type, bar, label, stat, ctrl):
 	
 	counter = int(labelCounter.text)
 	
-	build_time = moduleType["build_time"]
+	build_time = moduleType["build_time"]/log(station.humans+1)*log(2)
 	progress_bar.max_value = build_time # Set the maximum value of the progress bar
 	build_in_progress = true
 	build_counter = 0.
