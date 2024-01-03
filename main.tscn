@@ -807,6 +807,7 @@ tab_3/title = "⏭"
 
 [node name="EventBox" type="ColorRect" parent="."]
 unique_name_in_owner = true
+visible = false
 layout_mode = 0
 offset_left = 707.0
 offset_top = 317.0

@@ -12,7 +12,7 @@ var build_in_progress = false
 var build_counter = 0.
 
 var time_to_launch_matter = 7.
-var time_to_launch_humans = 14.
+var time_to_launch_humans = 1.
 var cost_to_launch_humans = 100
 var matter_cost = 1000.         # cred/ton
 
