@@ -36,7 +36,7 @@ func _physics_process(delta):
 	
 	time += delta 
 		
-	credits += station.humans * station.humans_rent * delta
+	credits += station.humans * station.humans_rent * delta + station.Modules.count(station.COMPUTING) * station.COMPUTING["earning_credits"]*delta
 	
 	update_show()
 

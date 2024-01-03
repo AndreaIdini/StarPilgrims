@@ -31,19 +31,18 @@ var drones_cap
 var drones_matter_mining = 20.
 var drones_energy_upkeep = 20.
 
-#enum ModuleNames {STARTING, SOLAR_PANEL, basic_living}
-
 const DEFO = {
 	"name": "",
 	"description": "",
 	"power": 0.,                # KW
 	"battery": 0.,              # KWh
-	"living_space": 0.,          # Capacity for Humans
+	"living_space": 0.,         # Capacity for Humans
 	"drone_bays": 0.,           # Capacity for Drones
-	"upkeep_power": 0.,          # KW
-	"upkeep_matter": 0.,         # Kg/d
-	"build_matter": 0.,          # ton
-	"build_energy": 0.,        # KWh
+	"upkeep_power": 0.,         # KW
+	"upkeep_matter": 0.,        # Kg/d
+	"earning_credits": 0.,      # Credits
+	"build_matter": 0.,         # ton
+	"build_energy": 0.,         # KWh
 	"build_credits": 0,
 	"build_time": 0.
 }
@@ -57,6 +56,7 @@ const STARTING = {
 	"drone_bays": 0.,            # Capacity for Drones
 	"upkeep_power": 3.,          # KW
 	"upkeep_matter": 0.,         # Kg/d
+	"earning_credits": 0.,      # Credits/d
 	"build_matter": 5.,          # ton
 	"build_energy": 100.,        # KWh
 	"build_credits": 3000,
@@ -72,6 +72,7 @@ const SOLAR = {
 	"drone_bays": 0.,           # Capacity for Drones
 	"upkeep_power": 0.,          # KW
 	"upkeep_matter": 0.,         # Kg/d
+	"earning_credits": 0.,      # Credits/d
 	"build_matter": 1.,          # ton
 	"build_energy": 20.,         # KWh
 	"build_credits": 500,
@@ -87,6 +88,7 @@ const BATTERY = {
 	"drone_bays": 0.,           # Capacity for Drones
 	"upkeep_power": 0.1,         # KW
 	"upkeep_matter": 1.,         # Kg/d
+	"earning_credits": 0.,      # Credits/d
 	"build_matter": 1.,          # ton
 	"build_energy": 30.,         # KWh
 	"build_credits": 500,
@@ -102,6 +104,7 @@ const BASIC_LIVING = {
 	"drone_bays": 0.,           # Capacity for Drones
 	"upkeep_power": 3.,         # KW
 	"upkeep_matter": 5.,         # Kg/d
+	"earning_credits": 0.,      # Credits/d
 	"build_matter": 5.,           # ton
 	"build_energy": 50.,          # KWh
 	"build_credits": 2000,
@@ -110,13 +113,14 @@ const BASIC_LIVING = {
 
 const COMPUTING = {
 	"name": "Computing Center",
-	"description": "A computing center to crunch numbers using the refrigeration of the coldness of space.",
+	"description": "A computing center to crunch numbers using the refrigeration of the coldness of space. Increases the your AI capabilities and rents the residual computing powers to earth",
 	"power": 0.,                 # KW
-	"battery": 20.,              # KWh
+	"battery": 30.,              # KWh
 	"living_space": 0,          # Capacity for Humans
 	"drone_bays": 0.,           # Capacity for Drones
 	"upkeep_power": 50.,         # KW
-	"upkeep_matter": 10.,        # Kg/d
+	"upkeep_matter": 0.5,        # Kg/d
+	"earning_credits": 20.,      # Credits/d
 	"build_matter": 5.,          # ton
 	"build_energy": 200.,         # KWh
 	"build_credits": 2000,
@@ -125,17 +129,34 @@ const COMPUTING = {
 
 const DRONE = {
 	"name": "Mining Drone Bay",
-	"description": "Living quarters for 5 humans, with some basic amenities but needs energy and material upkeep.",
+	"description": "Bay accomodating 3 mining drones that will autonomously recover material from the areas surrounding the station.",
 	"power": 0.,                 # KW
-	"battery": 20.,              # KWh
+	"battery": 50.,              # KWh
 	"living_space": 0,          # Capacity for Humans
 	"drone_bays": 3.,           # Capacity for Drones
 	"upkeep_power": 20.,         # KW
 	"upkeep_matter": 10.,         # Kg/d
+	"earning_credits": 0.,      # Credits/d
 	"build_matter": 5.,           # ton
 	"build_energy": 50.,          # KWh
 	"build_credits": 10000,
 	"build_time": 60.
+}
+
+const LUXURY_LIVING = {
+	"name": "Luxury Living Facilities",
+	"description": "A 0g Hotel module, comparatively luxurious respect to the spartan life of astronauts. With amenities and corresponding need energy and material upkeep. It starts the more mainstream age of space tourism, increasing the credits earned per human",
+	"power": 0.,                 # KW
+	"battery": 50.,              # KWh
+	"living_space": 10,          # Capacity for Humans
+	"drone_bays": 0.,           # Capacity for Drones
+	"upkeep_power": 20.,         # KW
+	"upkeep_matter": 20.,         # Kg/d
+	"earning_credits": 0.,      # Credits/d
+	"build_matter": 15.,           # ton
+	"build_energy": 75.,          # KWh
+	"build_credits": 20000,
+	"build_time": 120.
 }
 
 var Modules = [STARTING]
@@ -163,13 +184,14 @@ var Modules = [STARTING]
 
 @onready var container_build_drone = %ContainerBuildDrone
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	if cheat:
 		print("cheat mode")
 		matter = 10000
-		energy = 50
-		Modules.append_array([SOLAR, SOLAR, SOLAR, BATTERY, BATTERY, DRONE])
+		energy = 200
+		Modules.append_array([SOLAR, SOLAR, SOLAR, SOLAR, SOLAR, BATTERY, BATTERY, BATTERY, DRONE, COMPUTING])
 	
 	print("Station ready: ")
 	for module in Modules:
@@ -231,6 +253,9 @@ func station_properties():
 	$ModuleBuild/ContainerLiving/CountLiving.text = str(Modules.count(BASIC_LIVING))
 	$ModuleBuild/ContainerComputing/CountComputing.text = str(Modules.count(COMPUTING))
 	$ModuleBuild/ContainerDroneBay/CountDroneBay.text = str(Modules.count(DRONE))
+	
+	if Modules.count(LUXURY_LIVING) > 0:
+		humans_rent = 50
 
 func hide_unaffordable():
 	container_solar_panel.hide()
@@ -249,6 +274,8 @@ func hide_unaffordable():
 	label_drones.hide()
 	label_drones.get_child(0).text = "0/0"
 	container_build_drone.hide()
+	
+	tab_bar.hide()
 
 
 func unlock_features():
@@ -267,6 +294,7 @@ func unlock_features():
 	if(! container_computing.is_visible() && matter > COMPUTING["build_matter"] && energy > COMPUTING["build_energy"]):
 		print("Computing Center unlocked")
 		container_computing.show()
+		tab_bar.show()
 		
 	if(! container_drone_bay.is_visible() && matter > DRONE["build_matter"] && energy > DRONE["build_energy"]):
 		print("Drone Bay unlocked")
