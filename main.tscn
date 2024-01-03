@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://drddf4j2gbweq"]
+[gd_scene load_steps=22 format=3 uid="uid://drddf4j2gbweq"]
 
 [ext_resource type="Texture2D" uid="uid://b2nler7tmsvhs" path="res://Asset/SpaceStation1.png" id="1_5p6ln"]
 [ext_resource type="Script" path="res://main.gd" id="1_7tmd3"]
@@ -12,6 +12,10 @@
 [ext_resource type="Script" path="res://Buttons/ContainerHotel.gd" id="9_g0u6u"]
 [ext_resource type="Script" path="res://Buttons/ContainerEngine.gd" id="10_mwwui"]
 [ext_resource type="Script" path="res://Buttons/ContainerFactory.gd" id="11_graqn"]
+[ext_resource type="Texture2D" uid="uid://dwme1p8lf0yit" path="res://Asset/StarrySky1.png" id="13_1pqwx"]
+[ext_resource type="Texture2D" uid="uid://odjc7vaotsk4" path="res://Asset/AI_noBackground.png" id="13_4216q"]
+[ext_resource type="Script" path="res://EventBox.gd" id="13_e2jex"]
+[ext_resource type="Script" path="res://StoryBox.gd" id="13_nqmeh"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ws068"]
 bg_color = Color(0.239216, 0.239216, 0.239216, 1)
@@ -72,9 +76,8 @@ cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
 [node name="Control" type="Control"]
 layout_mode = 3
 anchors_preset = 0
-offset_left = -2.0
 offset_top = -40.0
-offset_right = 90.0
+offset_right = 92.0
 offset_bottom = 12.0
 script = ExtResource("1_7tmd3")
 
@@ -802,6 +805,102 @@ tab_1/title = "▶"
 tab_2/title = "⏩"
 tab_3/title = "⏭"
 
+[node name="EventBox" type="ColorRect" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 0
+offset_left = 707.0
+offset_top = 317.0
+offset_right = 1139.0
+offset_bottom = 585.0
+color = Color(0.239216, 0.282353, 0.313726, 0.917647)
+script = ExtResource("13_e2jex")
+
+[node name="Avatar" type="TextureRect" parent="EventBox"]
+layout_mode = 0
+offset_left = -29.0
+offset_top = -28.0
+offset_right = 56.0
+offset_bottom = 52.0
+texture = ExtResource("13_4216q")
+expand_mode = 1
+
+[node name="Text" type="RichTextLabel" parent="EventBox"]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 38.0
+offset_right = 395.0
+offset_bottom = 217.0
+theme_override_font_sizes/normal_font_size = 24
+text = "Text Here"
+
+[node name="Button" type="Button" parent="EventBox"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -19.0
+offset_top = -16.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Ok"
+
+[node name="StoryBox" type="TextureRect" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 0
+offset_top = 40.0
+offset_right = 1153.0
+offset_bottom = 691.0
+texture = ExtResource("13_1pqwx")
+expand_mode = 1
+stretch_mode = 1
+script = ExtResource("13_nqmeh")
+
+[node name="ColorRect" type="ColorRect" parent="StoryBox"]
+layout_mode = 0
+offset_right = 1153.0
+offset_bottom = 651.0
+color = Color(0, 0, 0, 0.635294)
+
+[node name="Text" type="RichTextLabel" parent="StoryBox"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.458
+anchor_top = -0.468
+anchor_right = -0.458
+anchor_bottom = -0.468
+offset_left = 836.074
+offset_top = 389.668
+offset_right = 1385.07
+offset_bottom = 857.668
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "Text Here"
+scroll_following = true
+
+[node name="Button" type="Button" parent="StoryBox"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -54.5
+offset_top = -55.0
+offset_right = 54.5
+offset_bottom = -24.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Button Text"
+
 [connection signal="pressed" from="PanelStation/ModuleBuild/ContainerSolarPanel/ContainerSolarButton/BuildSolar" to="PanelStation/ModuleBuild/ContainerSolarPanel" method="_on_build_pressed"]
 [connection signal="pressed" from="PanelStation/ModuleBuild/ContainerBattery/ContainerBatteryButton/BuildBattery" to="PanelStation/ModuleBuild/ContainerBattery" method="_on_build_pressed"]
 [connection signal="pressed" from="PanelStation/ModuleBuild/ContainerLiving/ContainerLivingButton/BuildLiving" to="PanelStation/ModuleBuild/ContainerLiving" method="_on_build_pressed"]
@@ -813,3 +912,5 @@ tab_3/title = "⏭"
 [connection signal="pressed" from="LaunchBuild/ContainerLaunchH/LaunchHumans" to="LaunchBuild" method="_on_launch_humans_pressed"]
 [connection signal="pressed" from="LaunchBuild/ContainerLaunchM/LaunchMatter" to="LaunchBuild" method="_on_launch_matter_pressed"]
 [connection signal="pressed" from="LaunchBuild/ContainerBuildDrone/BuildMiningDrone" to="LaunchBuild" method="_on_build_drone_pressed"]
+[connection signal="pressed" from="EventBox/Button" to="EventBox" method="_on_button_pressed"]
+[connection signal="pressed" from="StoryBox/Button" to="StoryBox" method="_on_button_pressed"]

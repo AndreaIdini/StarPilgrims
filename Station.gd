@@ -213,6 +213,11 @@ var Modules = [STARTING]
 @onready var container_drone_bay = %ContainerDroneBay
 @onready var container_computing = %ContainerComputing
 @onready var container_living = %ContainerLiving
+@onready var container_hotel = %ContainerHotel
+@onready var container_engine = %ContainerEngine
+@onready var container_factory = %ContainerFactory
+
+
 
 @onready var container_build_drone = %ContainerBuildDrone
 
@@ -300,6 +305,12 @@ func hide_unaffordable():
 	container_computing.get_child(0).text = "0"
 	container_drone_bay.hide()
 	container_drone_bay.get_child(0).text = "0"
+	container_hotel.hide()
+	container_hotel.get_child(0).text = "0"
+	container_engine.hide()
+	container_engine.get_child(0).text = "0"
+	container_factory.hide()
+	container_factory.get_child(0).text = "0"
 	
 	label_experiments.hide()
 	label_experiments.get_child(0).text = "0"
@@ -333,7 +344,18 @@ func unlock_features():
 		container_drone_bay.show()
 		label_drones.show()
 		container_build_drone.show()
+
+	if(! container_hotel.is_visible() && matter > LUXURY_LIVING["build_matter"] && energy > LUXURY_LIVING["build_energy"]):
+		print("Luxury Quarters unlocked")
+		container_hotel.show()
 		
+	if(! container_engine.is_visible() && matter > ENGINE["build_matter"] && energy > ENGINE["build_energy"]):
+		print("Engine unlocked")
+		container_engine.show()
+
+	if(! container_factory.is_visible() && matter > FACTORY["build_matter"] && energy > FACTORY["build_energy"]):
+		print("Engine unlocked")
+		container_factory.show()
 
 func print_state():
 	print('--- Printing State ---')

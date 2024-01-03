@@ -4,11 +4,16 @@ var time = 0.                   # days
 var time_multi = 1.
 var credits = 1000.             # ~ 1k dollars
 
+
 @onready var count_days = %CountDays
 @onready var count_cred = %CountCred
 
 @onready var station = $PanelStation
 @onready var tab_bar = %TabBar
+@onready var story_box = %StoryBox
+@onready var event_box = %EventBox
+
+var button = Button.new()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -16,11 +21,20 @@ func _ready():
 		print("cheat credits")
 		credits = 100000
 	update_show()
+
+	entrance_Dialogs()
 	
 	print('initialized')
 	#print(station.starting)
 	
+func entrance_Dialogs():
+	story_box.start_story()
+	await %Button.button_up
+	print("story done")
 
+	event_box.start_tutorial()
+	await $EventBox/Button.button_up
+	
 func update_show():
 	count_days.text = str(floor(time))
 	count_cred.text = str("%10.1f" % credits)
