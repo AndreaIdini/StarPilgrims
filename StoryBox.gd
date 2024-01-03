@@ -36,9 +36,11 @@ Something that will happen, even though we don't know when. This is the story of
 ", "Let's embark on this adventure!")
 
 func game_over():
+	button.hide()
 	
-	text_scroll("[center]One Human died frozen or hungry despite your best efforts (I hope). 
-	Unfortunately this makes you unfit for an AI. Our space exploration program needs better", "")
+	text_scroll("[center]At least one human would have died frozen or hungry lest I intervened, despite what I hope are your best efforts. 
+	
+Unfortunately this makes you unfit for a mission critical AI. Our space program needs better", "")
 	
 
 func text_scroll(textScroll, textButton):
@@ -59,9 +61,9 @@ func text_scroll(textScroll, textButton):
 		
 	if !skip:
 		await get_tree().create_timer(0.3).timeout
-		
-	button.text = textButton
-	button.show()
+	if textButton != "":
+		button.text = textButton
+		button.show()
 	skip = false
 
 func _on_button_pressed():

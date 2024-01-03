@@ -14,6 +14,8 @@ var credits = 1000.             # ~ 1k dollars
 @onready var event_box = %EventBox
 
 var button = Button.new()
+var matter_crisis = false
+var energy_crisis = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -55,4 +57,34 @@ func _physics_process(delta):
 	credits += station.humans * station.humans_rent * delta + station_earnings
 	
 	update_show()
+
+	if station.matter < 0 && ! matter_crisis:
+		matter_crisis = true
+		# Put two alternatives
+		await event_box.text_scroll("You've run out of matter, your humans are starving!
+		
+I can send you rapidly some emergency provision, but it's going to cost you 300 credits for 100 kg!", "Accept")
+		
+		if credits > 300:
+			credits -= 300
+			station.matter += 0.1
+		else:
+			story_box.game_over()
+		matter_crisis = false
+		
+	if station.energy < 0 && ! energy_crisis:
+		energy_crisis = true
+		
+		if station.humans > 0:
+			await event_box.text_scroll("You've run out of energy, your life support system is off!
+		
+Your humans need to evacuate immediately for their safety.
+I hope you have enough credits to financially recover from this", "Accept")
+		
+			credits -= 300
+			station.humans = 0
+		
+			if credits < $LaunchBuild.cost_to_launch_humans:
+				story_box.game_over()
+			
 

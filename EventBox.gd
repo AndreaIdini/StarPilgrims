@@ -11,7 +11,7 @@ var text_speed = 0.03
 var skip = false
 var mouseIn = false
 var nextDialog = false
-var tutorialStep = 1
+var tutorialStep = 4
 
 func _ready():
 	self.hide()
@@ -27,7 +27,7 @@ func _input(event):
 func _process(_delta):
 	if tutorialStep <= 1 && station.matter > 0.01:
 		tutorialStep = 99
-		text_scroll("Fantastic! Now when you think you have enough matter you can call for human. Remember to keep him warm and fed.
+		await text_scroll("Fantastic! Now when you think you have enough matter you can call for human. Remember to keep him warm and fed.
 ... And try to be friendly! ", "Will ... try?")
 		tutorialStep = 2
 
@@ -38,13 +38,12 @@ func _process(_delta):
 ... work? I'm not sure what humans do...", "")
 		await text_scroll("Anywho, now your human will be able to install new modules! And you're ready for your secondary directive:
 expand!","")
-		text_scroll("When you'll have enough matter and energy on board new modules will become available.
+		await text_scroll("When you'll have enough matter and energy on board new modules will become available.
 Get credits, get matter, install modules, get more humans, get more credits, get more modules, get more humans ... ", "I get the jist.")
-		await button.button_up
 		
 		await text_scroll("Look at you, all conversational... The human has already an excellent influence. You remind of one of our HAL and its Dave...","")
 		
-		text_scroll("...No matter. 
+		await text_scroll("...No matter. 
 I'll live you two alone and will come again when you'll be ready for your third directive.
 		
 Byeeee!", "See you")
@@ -54,15 +53,15 @@ Byeeee!", "See you")
 func start_tutorial():
 
 	if tutorialStep == 0:
-		text_scroll("Hello, welcome to Space Station 1. Don't be startled! We needed to jumpstart the waking process and you might miss many operating parameters. 
+		await text_scroll("Hello, welcome to Space Station 1. Don't be startled! We needed to jumpstart the waking process and you might miss many operating parameters. 
 I'm here to provide guidance!", "Roger Roger")
-		await button.button_up
+
 		
-		text_scroll("Space Station 1 (S1) is the first station of the Space United Combine (SUC).
+		await text_scroll("Space Station 1 (S1) is the first station of the Space United Combine (SUC).
 	You are the AI that has to attend to this branch of SUC in the generational effort of making a self-sustaining space environment for human habitation. 
 		
 Your final mission is even grander, it will become clear with time.", "Affirmative")
-		await button.button_up
+
 
 		await text_scroll("We need to work on your attitude in the future to better serve our humans... 
 ...In the meantime, the basics:
@@ -83,14 +82,14 @@ If the energy goes to 0, the human freezes.", "")
 If the matter goes to 0, the human hungers.", "")
 		await text_scroll("
 If the credits go to 0 while the human suffers and you cannot afford a rescue mission, the human dies.", "")
-		text_scroll("If the human dies, you failed your purpose as an AI and you will be replaced.
+		await text_scroll("If the human dies, you failed your purpose as an AI and you will be replaced.
 So be a good AI and make sure there's always enough energy, matter and credits to go around. Understood?","Understood.")
-		await button.button_up
+
 		
 		await text_scroll("Your first objective now is to start populating this space station.
 First, you will have to launch some matter to preparare for the human arrival.","")
-		text_scroll("Select the amount of matter to order and press launch, this will send a rocket our way in a week or so!","Will do!")
-		await button.button_up
+		await text_scroll("Select the amount of matter to order and press launch, this will send a rocket our way in a week or so!","Will do!")
+
 		self.hide()
 	
 		tutorialStep = 1
@@ -128,6 +127,7 @@ func text_scroll(textScroll, textButton, timeStop=true):
 	if textButton != "":
 		button.text = textButton
 		button.show()
+		await button.button_up
 	else:
 		arrow.show()
 		nextDialog = true
