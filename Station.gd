@@ -159,6 +159,38 @@ const LUXURY_LIVING = {
 	"build_time": 120.
 }
 
+const ENGINE = {
+	"name": "Ion_Engine",
+	"description": "High powered ionic engine, unlocks the orbital change mechanics",
+	"power": 0.,                 # KW
+	"battery": 0.,              # KWh
+	"living_space": 0,          # Capacity for Humans
+	"drone_bays": 0.,           # Capacity for Drones
+	"upkeep_power": 1.,         # KW
+	"upkeep_matter": 1.,         # Kg/d
+	"earning_credits": 0.,      # Credits/d
+	"build_matter": 5.,           # ton
+	"build_energy": 10.,          # KWh
+	"build_credits": 3000,
+	"build_time": 10.
+}
+
+const FACTORY = {                # Careful to not make it too convenient respect to matter upkeep
+	"name": "Zero-G Factory",
+	"description": "Uses the Zero-G environment to build stuff. It reduces the rest of the prices for components since now we can build in-house!",
+	"power": 0.,                 # KW
+	"battery": 0.,              # KWh
+	"living_space": 0,          # Capacity for Humans
+	"drone_bays": 0.,           # Capacity for Drones
+	"upkeep_power": 1.,         # KW
+	"upkeep_matter": 100.,         # Kg/d
+	"earning_credits": 200.,      # Credits/d
+	"build_matter": 10.,           # ton
+	"build_energy": 300.,          # KWh
+	"build_credits": 30000,
+	"build_time": 120.
+}
+
 var Modules = [STARTING]
 
 @onready var tab_bar = %TabBar

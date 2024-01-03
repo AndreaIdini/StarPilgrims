@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://drddf4j2gbweq"]
+[gd_scene load_steps=18 format=3 uid="uid://drddf4j2gbweq"]
 
 [ext_resource type="Texture2D" uid="uid://b2nler7tmsvhs" path="res://Asset/SpaceStation1.png" id="1_5p6ln"]
 [ext_resource type="Script" path="res://main.gd" id="1_7tmd3"]
@@ -9,6 +9,9 @@
 [ext_resource type="Script" path="res://Buttons/ContainerComputing.gd" id="6_fswgt"]
 [ext_resource type="Script" path="res://Buttons/ContainerLiving.gd" id="6_yq5dq"]
 [ext_resource type="Script" path="res://Buttons/ContainerDroneBay.gd" id="8_v88ik"]
+[ext_resource type="Script" path="res://Buttons/ContainerHotel.gd" id="9_g0u6u"]
+[ext_resource type="Script" path="res://Buttons/ContainerEngine.gd" id="10_mwwui"]
+[ext_resource type="Script" path="res://Buttons/ContainerFactory.gd" id="11_graqn"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ws068"]
 bg_color = Color(0.239216, 0.239216, 0.239216, 1)
@@ -559,11 +562,11 @@ text = "??"
 layout_mode = 2
 size_flags_horizontal = 0
 
-[node name="BuildSolar" type="Button" parent="PanelStation/ModuleBuild/ContainerComputing/ContainerComputingButton"]
+[node name="BuildComputing" type="Button" parent="PanelStation/ModuleBuild/ContainerComputing/ContainerComputingButton"]
 layout_mode = 2
 text = "Build Data Center"
 
-[node name="ProgressSolar" type="ProgressBar" parent="PanelStation/ModuleBuild/ContainerComputing/ContainerComputingButton"]
+[node name="ProgressComputing" type="ProgressBar" parent="PanelStation/ModuleBuild/ContainerComputing/ContainerComputingButton"]
 layout_mode = 2
 max_value = 14.0
 show_percentage = false
@@ -593,6 +596,93 @@ layout_mode = 2
 text = "Build Drone Bay"
 
 [node name="ProgressDroneBay" type="ProgressBar" parent="PanelStation/ModuleBuild/ContainerDroneBay/ContainerDroneButton"]
+layout_mode = 2
+max_value = 14.0
+show_percentage = false
+
+[node name="ContainerHotel" type="HBoxContainer" parent="PanelStation/ModuleBuild"]
+unique_name_in_owner = true
+layout_mode = 2
+offset_left = 268.0
+offset_top = 368.0
+offset_right = 434.0
+offset_bottom = 407.0
+script = ExtResource("9_g0u6u")
+
+[node name="CountHotel" type="Label" parent="PanelStation/ModuleBuild/ContainerHotel"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 24
+text = "??"
+
+[node name="ContainerHotelButton" type="VBoxContainer" parent="PanelStation/ModuleBuild/ContainerHotel"]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="BuildHotel" type="Button" parent="PanelStation/ModuleBuild/ContainerHotel/ContainerHotelButton"]
+layout_mode = 2
+text = "Build Zero-G Hotel"
+
+[node name="ProgressHotel" type="ProgressBar" parent="PanelStation/ModuleBuild/ContainerHotel/ContainerHotelButton"]
+layout_mode = 2
+max_value = 14.0
+show_percentage = false
+
+[node name="ContainerEngine" type="HBoxContainer" parent="PanelStation/ModuleBuild"]
+unique_name_in_owner = true
+layout_mode = 2
+offset_left = 479.0
+offset_top = 368.0
+offset_right = 653.0
+offset_bottom = 407.0
+script = ExtResource("10_mwwui")
+
+[node name="CountEngine" type="Label" parent="PanelStation/ModuleBuild/ContainerEngine"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 24
+text = "??"
+
+[node name="ContainerEngineButton" type="VBoxContainer" parent="PanelStation/ModuleBuild/ContainerEngine"]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="BuildEngine" type="Button" parent="PanelStation/ModuleBuild/ContainerEngine/ContainerEngineButton"]
+layout_mode = 2
+text = "Build Ion Thruster"
+
+[node name="ProgressEngine" type="ProgressBar" parent="PanelStation/ModuleBuild/ContainerEngine/ContainerEngineButton"]
+layout_mode = 2
+max_value = 14.0
+show_percentage = false
+
+[node name="ContainerFactory" type="HBoxContainer" parent="PanelStation/ModuleBuild"]
+unique_name_in_owner = true
+layout_mode = 2
+offset_left = 714.0
+offset_top = 368.0
+offset_right = 888.0
+offset_bottom = 407.0
+script = ExtResource("11_graqn")
+
+[node name="CountFactory" type="Label" parent="PanelStation/ModuleBuild/ContainerFactory"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 24
+text = "??"
+
+[node name="ContainerFactoryButton" type="VBoxContainer" parent="PanelStation/ModuleBuild/ContainerFactory"]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="BuildFactory" type="Button" parent="PanelStation/ModuleBuild/ContainerFactory/ContainerFactoryButton"]
+layout_mode = 2
+text = "Build Zero-G Factory"
+
+[node name="ProgressFactory" type="ProgressBar" parent="PanelStation/ModuleBuild/ContainerFactory/ContainerFactoryButton"]
 layout_mode = 2
 max_value = 14.0
 show_percentage = false
@@ -715,8 +805,11 @@ tab_3/title = "⏭"
 [connection signal="pressed" from="PanelStation/ModuleBuild/ContainerSolarPanel/ContainerSolarButton/BuildSolar" to="PanelStation/ModuleBuild/ContainerSolarPanel" method="_on_build_pressed"]
 [connection signal="pressed" from="PanelStation/ModuleBuild/ContainerBattery/ContainerBatteryButton/BuildBattery" to="PanelStation/ModuleBuild/ContainerBattery" method="_on_build_pressed"]
 [connection signal="pressed" from="PanelStation/ModuleBuild/ContainerLiving/ContainerLivingButton/BuildLiving" to="PanelStation/ModuleBuild/ContainerLiving" method="_on_build_pressed"]
-[connection signal="pressed" from="PanelStation/ModuleBuild/ContainerComputing/ContainerComputingButton/BuildSolar" to="PanelStation/ModuleBuild/ContainerComputing" method="_on_build_pressed"]
+[connection signal="pressed" from="PanelStation/ModuleBuild/ContainerComputing/ContainerComputingButton/BuildComputing" to="PanelStation/ModuleBuild/ContainerComputing" method="_on_build_pressed"]
 [connection signal="pressed" from="PanelStation/ModuleBuild/ContainerDroneBay/ContainerDroneButton/BuildDroneBay" to="PanelStation/ModuleBuild/ContainerDroneBay" method="_on_build_pressed"]
+[connection signal="pressed" from="PanelStation/ModuleBuild/ContainerHotel/ContainerHotelButton/BuildHotel" to="PanelStation/ModuleBuild/ContainerHotel" method="_on_build_pressed"]
+[connection signal="pressed" from="PanelStation/ModuleBuild/ContainerEngine/ContainerEngineButton/BuildEngine" to="PanelStation/ModuleBuild/ContainerEngine" method="_on_build_pressed"]
+[connection signal="pressed" from="PanelStation/ModuleBuild/ContainerFactory/ContainerFactoryButton/BuildFactory" to="PanelStation/ModuleBuild/ContainerFactory" method="_on_build_pressed"]
 [connection signal="pressed" from="LaunchBuild/ContainerLaunchH/LaunchHumans" to="LaunchBuild" method="_on_launch_humans_pressed"]
 [connection signal="pressed" from="LaunchBuild/ContainerLaunchM/LaunchMatter" to="LaunchBuild" method="_on_launch_matter_pressed"]
 [connection signal="pressed" from="LaunchBuild/ContainerBuildDrone/BuildMiningDrone" to="LaunchBuild" method="_on_build_drone_pressed"]

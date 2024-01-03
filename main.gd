@@ -35,8 +35,10 @@ func _physics_process(delta):
 	delta = delta*time_multi
 	
 	time += delta 
-		
-	credits += station.humans * station.humans_rent * delta + station.Modules.count(station.COMPUTING) * station.COMPUTING["earning_credits"]*delta
+	var station_earnings = station.Modules.count(station.COMPUTING) * station.COMPUTING["earning_credits"]*delta \
+						 + station.Modules.count(station.FACTORY) * station.FACTORY["earning_credits"]*delta
+	
+	credits += station.humans * station.humans_rent * delta + station_earnings
 	
 	update_show()
 
