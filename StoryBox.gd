@@ -38,7 +38,7 @@ Something that will happen, even though we don't know when. This is the story of
 func game_over():
 	button.hide()
 	
-	text_scroll("[center]At least one human would have died frozen or hungry lest I intervened, despite what I hope are your best efforts. 
+	text_scroll("[center]At least one human would have died frozen or hungry unless I intervened, despite what I hope are your best efforts. 
 	
 Unfortunately this makes you unfit for a mission critical AI. Our space program needs better", "")
 	

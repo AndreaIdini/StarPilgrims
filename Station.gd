@@ -1,7 +1,7 @@
 extends Node
 
 class_name Station
-var cheat = false
+var cheat = true
 
 var time = 0.
 
@@ -30,6 +30,8 @@ var humans_rent = 20            # cred
 var drones_cap
 var drones_matter_mining = 20.
 var drones_energy_upkeep = 20.
+
+var orbit_Asteroid = false
 
 const DEFO = {
 	"name": "",

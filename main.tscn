@@ -851,6 +851,7 @@ grow_vertical = 0
 text = "Ok"
 
 [node name="Arrow" type="Label" parent="EventBox"]
+layout_mode = 0
 offset_left = 406.0
 offset_top = 210.0
 offset_right = 429.0

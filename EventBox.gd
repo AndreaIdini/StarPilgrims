@@ -11,7 +11,8 @@ var text_speed = 0.03
 var skip = false
 var mouseIn = false
 var nextDialog = false
-var tutorialStep = 4
+var storyStep = 3
+var timeCount = 0
 
 func _ready():
 	self.hide()
@@ -24,16 +25,16 @@ func _input(event):
 		if event.button_index == 1 && event.pressed: # if leftclick
 			skip = true
 
-func _process(_delta):
-	if tutorialStep <= 1 && station.matter > 0.01:
-		tutorialStep = 99
+func _process(delta):
+	if storyStep <= 1 && station.matter > 0.01:
+		storyStep = 9999
 		await text_scroll("Fantastic! Now when you think you have enough matter you can call for human. Remember to keep him warm and fed.
 ... And try to be friendly! ", "Will ... try?")
-		tutorialStep = 2
+		storyStep = 2
 
 
-	if tutorialStep <= 2 && station.humans > 0.01:
-		tutorialStep = 99 # This on top, to avoid spawning a bunch of subsequent texts
+	if storyStep <= 2 && station.humans > 0.01:
+		storyStep = 9999 # This on top, to avoid spawning a bunch of subsequent texts
 		await text_scroll("Look at your human all cozy and happy in your belly! Now you will receive some credits to host him while he performs 
 ... work? I'm not sure what humans do...", "")
 		await text_scroll("Anywho, now your human will be able to install new modules! And you're ready for your secondary directive:
@@ -47,12 +48,55 @@ Get credits, get matter, install modules, get more humans, get more credits, get
 I'll live you two alone and will come again when you'll be ready for your third directive.
 		
 Byeeee!", "See you")
-		tutorialStep = 3
+		storyStep = 3
 
+	if storyStep <= 3 && station.Modules.count(station.COMPUTING):
+		storyStep = 9999
+		await text_scroll("Wow! Your station have grown alot junior, now you can accomodate and power your own Computing Center!","") 
+		await text_scroll("This gives you the phenomenal cosmic powers of thinking very fast so that the human time sits comparatively still, just like when we talk! Now you can feel like you're controlling time.","I feel more intelligent already")
+		await text_scroll("Good! I hope you did not forget about your humans. Let's just say that this HAL friend of mine was not rewarded by prioritizing his own computing over Dave's...", "I? Never!")
+		storyStep = 4
+	
+	if storyStep <= 4 && station.Modules.count(station.DRONE) > 0:
+		storyStep = 9999
+		await text_scroll("A Drone bay! Finally with these beauties you'll be able to autonomously get material from around you and not waiting for a launch from Earth!
+Drones bring little matter and cost quite some energy, but in the long run they are worth it!","")
+		await text_scroll("Now you are ready for your third directive:
+			
+become self sufficient.","")
+		await text_scroll("Assemble enough Drones and power to be able to have a positive matter balance, don't forget the other two directives!","Survive, Expand, Flourish")
+		await text_scroll("Quite a growth journey don't you think?
+		
+See you after some days that you've flourished!", "Bye")
+		storyStep = 5
+		
+	if storyStep <= 5 && station.matter_change > 0:
+		timeCount += delta
+		if timeCount > 5:
+			storyStep = 9999
+			await text_scroll("Congratulations! Your space station has become a veritable space outpost. Your human population is safe and cozy with their needs provided for in place!","")
+			await text_scroll("Now the next step, in order to continue expanding, will be to change orbit. Right now you are in a highly elliptic geosynchronous orbit optimized to avoid worrying about debris but periodically close enough to some graveyard to cannibalize.","")
+			await text_scroll("Now that you're self sufficient, to better expand you will have to move to a place with plenty of materials and free orbits, we have to venture into space!","")
+			await text_scroll("Your objective will be to park within reach of the asteroid belt and become the first self-sufficient outpost there. First, construct at least 4 ion thruster engines.","I feel the need for speed.")
+			storyStep = 6
+			
+	if storyStep <= 6 && station.Modules.count(station.ENGINE) > 3 && station.matter_change > 0:
+		storyStep=9999
+		await text_scroll("Now you have the neccessary characteristic to take flight to true space, with your brave crew under your guidance","")
+		await text_scroll("Be mindful that the trip will take time, energy, and the power output of your solar panels will change, together with the price of launches. You'll need enough provision to survive it. If you're feeling competitive, Voyager 2 still holds the record at 81 days. Goodspeed!", "Thanks")
+		storyStep=7
 
+	if storyStep <= 7 && station.orbit_Asteroid:
+		storyStep=9999
+		await text_scroll("Now you are there! Your final step in this very first part of the long journey is to construct a completely new station. This is the only way to ensure artificial gravity and that your humans can thrive in the long term.","")
+		await text_scroll("The Bolas configuration will acomodate the possibility of artificial gravity without the expense of a full cylinder and with the possibility of expansion.", "")
+		await text_scroll("A new station with centrifugal gravity needs an awful lot of materials, but now you have materials all around you, you just need enough power, drones and an eye on the situation.","")
+		await text_scroll("You don't need my help anymore! Besides, the time delay is starting to get on my nerves...", "Do you have nerves? See you when I see you!")
+		storyStep=8
+	
 func start_tutorial():
 
-	if tutorialStep == 0:
+	if storyStep == 0:
 		await text_scroll("Hello, welcome to Space Station 1. Don't be startled! We needed to jumpstart the waking process and you might miss many operating parameters. 
 I'm here to provide guidance!", "Roger Roger")
 
@@ -92,7 +136,7 @@ First, you will have to launch some matter to preparare for the human arrival.",
 
 		self.hide()
 	
-		tutorialStep = 1
+		storyStep = 1
 
 func game_over():
 	

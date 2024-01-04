@@ -71,3 +71,4 @@ https://ntrs.nasa.gov/api/citations/20190027563/downloads/20190027563.pdf
 https://nss.org/settlement/nasa/spaceresvol2/thermalmanagement.html
 - **Battery** 400Wh/kg
 - https://en.wikipedia.org/wiki/Electrical_system_of_the_International_Space_Station
+- However, even this pales in comparison to Voyager 1, which was launched on Sept. 5th, 1977 and reached the Asteroid Belt on Dec. 10th, 1977 – a total of 96 days. And then there was the Voyager 2 probe, which launched 15 days after Voyager 1 (on Sept. 20th), but still managed to arrive on the same date – which works out to a total travel time of 81 days.
