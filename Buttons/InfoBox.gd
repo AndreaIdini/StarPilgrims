@@ -5,8 +5,8 @@ func _ready():
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+#func _process(delta):
+	#pass
 
 func _on_label_humans_mouse_entered():
 	self.text = "Your adorable humans, the source of your primary objectives and joy. Never forget to keep them warm and fed. \n \n" + \

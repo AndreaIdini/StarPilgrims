@@ -17,8 +17,8 @@ Constructing the BOLAS station wins the game."
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+#func _process(_delta):
+	#pass
 
 func _on_build_bolas_pressed():
 	if station.matter > required_matter && station.solar_power_installed > required_power :

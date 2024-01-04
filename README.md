@@ -1,6 +1,16 @@
+# Star Pilgrims
+
 ## Project description
 
+This is the github repository for the project of the not-so-idle game "Star Pilgrims".
+The README.md is still a jumbled mess of notes. Eventually, contribution is organised through t.me/scienza group.
+
 ## Game Mechanics
+
+The main game mechanic is expanding and building through GUI, with an eye for realism in the quantities employed so no ridicolous exponential growth and upgrade popping up. It is quite "hardcore" with actions and decision that have consequences that can kill your playthrough and force you to start again. 
+It takes some time to explore everything, but unfortunately there is no save mechanic as of yet.
+
+It is slightly story driven, no spoilers.
 
 ### Resources
 
@@ -10,13 +20,9 @@
 
 Expansions cost Matter + Credits, Consume or produce Energy and Matter, maybe Credits.
 
-Credits are earned through services (such as hosting people or experiments), especially early game
+Credits are earned through services (such as hosting people or computing), especially early game
 
-Services consume matter and energy.
-
-Missions and Events help or hinder.
-
-Evaluate logarithmic curve for credits earning in factory in function of the number of humans, maybe difficult to balance
+Modules consume matter and energy.
 
 ### Costs:
 	
@@ -36,34 +42,9 @@ Launches of matter and humans need to be planned in advance, they have a cost in
 At a certain points it will be possible to change orbit, this will change the rate at which drones can accumulate matter but also cost and time needed for orbital launches, needing a more self-sufficient outpost but allowing for more resource accumulation.
 
 Given the rocket equation
-$ \Delta V/v_e = \log (m_i/m_f)$,
+$$ \Delta V/v_e = \log (m_i/m_f),$$
 where $\Delta V$ is the velocity difference, fundamental in rocket manouvering, $v_e$ is the velocity at exhaust is equal to the natural logarithm of the ratio between initial and final mass.
 Given that for Asteroid Belt from LEO $\Delta V \approx 10 km/s$ (has to be doubled to slow down and give wiggle room) and $v_e$ for experimental ion thruster can be 100km/s, the ratio between initial and final mass is just e^{1/5}, so one needs 20% of the total mass of the object using the mentioned ion engine. In this condition the transfer time according to the paper is ~1 year or more, so additional velocity is very much needed.
-
-## Story snippets
-
-### Intro
-
-People have dreamt of the stars since time immemorial
-
-[...]
-
-This is the story of the last human migration. This is its first step.
-
-### Tutorial
-
-Hello, welcome to Space Station 1. Don't be startled! We needed to jumpstart the waking process and you might miss many operating parameters. I'm here to provide guidance!
-
-Space Station 1 (S1) is the first station of the Space United Combine (SUC). You are the AI that has to attend to this branch of SUC in the generational effort of making a self-sustaining space environment for human habitation. Your final mission is even grander, it will become clear with time.
-
-------
-
-There are three fundamental resource types:
-	- Energy, both stored and power production. We need it to keep things running, and basically everything costs energy up here. Careful that not having enough energy will increase the risk of malfunctions!
-	- Matter. For now you'll need to pay credits for matter to be delivered from Earth, but we need to think of a better way to satisfy the basic needs.
-	- Credits. Right now you need credits to maintain your upkeep, order Matter, and expand. You can obtain credits hosting humans and providing other services.
-	
-Humans need oxygen, food and energy to survive. Alas, this is inefficient but necessary! You primary purpose is to make human flourish up here, if a human were to die because of lack of resources you and your station will be dismantled and will be a terrible hit to our program!
 
 ### Events
 
@@ -78,3 +59,11 @@ https://nss.org/settlement/nasa/spaceresvol2/thermalmanagement.html
 - However, even this pales in comparison to Voyager 1, which was launched on Sept. 5th, 1977 and reached the Asteroid Belt on Dec. 10th, 1977 – a total of 96 days. And then there was the Voyager 2 probe, which launched 15 days after Voyager 1 (on Sept. 20th), but still managed to arrive on the same date – which works out to a total travel time of 81 days.
 - https://www.sciencedirect.com/science/article/abs/pii/S0094576517311220. This examination of Main Belt asteroids as prospective targets for mining and exploration missions has found that within a delta-v of 8 km, starting from LEO, one can access 3986 MBAs
 - https://descanso.jpl.nasa.gov/SciTechBook/series1/Goebel_02_Chap2_thruster.pdf Exhaust ion thrusters: 100 km/s.
+
+## TODO
+
+- Check the orbital dynamics and cost and the relation between number of engine, time of flight, and matter consumption
+- Evaluate logarithmic curve for credits earning in factory in function of the number of humans, maybe difficult to balance. Evalaute a discount in credits for the cost of modules and other expenses after construction of factory.
+- Implement Missions and Events so that can help or hinder.
+
+
