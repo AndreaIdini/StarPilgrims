@@ -85,6 +85,8 @@ See you after some days that you've flourished!", "Bye")
 		await text_scroll("Now you have the neccessary characteristic to take flight to true space, with your brave crew under your guidance","")
 		await text_scroll("Be mindful that the trip will take time, energy, and the power output of your solar panels will change, together with the price of launches. You'll need enough provision to survive it. If you're feeling competitive, Voyager 2 still holds the record at 81 days. Goodspeed!", "Thanks")
 		storyStep=7
+		
+		%ContainerTravelButton.show()
 
 	if storyStep <= 7 && station.orbit_Asteroid:
 		storyStep=9999
@@ -93,6 +95,8 @@ See you after some days that you've flourished!", "Bye")
 		await text_scroll("A new station with centrifugal gravity needs an awful lot of materials, but now you have materials all around you, you just need enough power, drones and an eye on the situation.","")
 		await text_scroll("You don't need my help anymore! Besides, the time delay is starting to get on my nerves...", "Do you have nerves? See you when I see you!")
 		storyStep=8
+		
+		$"../PanelStation/ModuleBuild/ContainerBOLASButton".show()
 	
 func start_tutorial():
 

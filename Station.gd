@@ -219,8 +219,7 @@ var Modules = [STARTING]
 @onready var container_engine = %ContainerEngine
 @onready var container_factory = %ContainerFactory
 
-
-
+@onready var container_travel = %ContainerTravelButton
 @onready var container_build_drone = %ContainerBuildDrone
 
 
@@ -230,8 +229,13 @@ func _ready():
 		print("cheat mode")
 		matter = 10000
 		energy = 200
-		Modules.append_array([SOLAR, SOLAR, SOLAR, SOLAR, SOLAR, BATTERY, BATTERY, BATTERY, DRONE, COMPUTING])
-	
+		#Modules.append_array([SOLAR, SOLAR, SOLAR, SOLAR, SOLAR, BATTERY, BATTERY, BATTERY, DRONE, COMPUTING])
+		Modules.append_array([SOLAR, SOLAR, SOLAR, SOLAR, SOLAR, SOLAR, SOLAR, SOLAR, SOLAR, SOLAR, SOLAR, SOLAR, SOLAR, SOLAR, SOLAR, SOLAR, SOLAR, SOLAR, SOLAR, SOLAR,
+		SOLAR, SOLAR, SOLAR, SOLAR, SOLAR, SOLAR, SOLAR, SOLAR, SOLAR, SOLAR, SOLAR, SOLAR, SOLAR, SOLAR, SOLAR, SOLAR, SOLAR, SOLAR, SOLAR, SOLAR,
+		BATTERY, BATTERY, BATTERY,  BATTERY, BATTERY, BATTERY, DRONE, DRONE, COMPUTING, ENGINE, ENGINE, ENGINE, ENGINE])
+		humans = 3
+		drones = 6
+		
 	print("Station ready: ")
 	for module in Modules:
 		print("- ", module["name"])
@@ -292,9 +296,25 @@ func station_properties():
 	$ModuleBuild/ContainerLiving/CountLiving.text = str(Modules.count(BASIC_LIVING))
 	$ModuleBuild/ContainerComputing/CountComputing.text = str(Modules.count(COMPUTING))
 	$ModuleBuild/ContainerDroneBay/CountDroneBay.text = str(Modules.count(DRONE))
+	$ModuleBuild/ContainerEngine/CountEngine.text = str(Modules.count(DRONE))
+	$ModuleBuild/ContainerFactory/CountFactory.text = str(Modules.count(FACTORY))
+	$ModuleBuild/ContainerHotel/CountHotel.text = str(Modules.count(LUXURY_LIVING))
 	
 	if Modules.count(LUXURY_LIVING) > 0:
 		humans_rent = 50
+	
+	if orbit_Asteroid:
+		drones_matter_mining = 50.
+
+func station_mass():
+	var mass = 0.
+	for module in Modules:
+		mass += module["build_matter"]
+		
+	mass += 0.1*humans
+	mass += $"../LaunchBuild".drone_matter_cost*drones
+	mass += matter
+	return mass
 
 func hide_unaffordable():
 	container_solar_panel.hide()
@@ -366,8 +386,15 @@ func print_state():
 	print('matter ', matter)
 
 func solar_power(p,t):
-	var mod = sin(t*3.141)+0.4
-	if mod > 0:
-		return p*mod
+	
+	if orbit_Asteroid:
+		return p*0.25
+	elif container_travel.travel_in_progress:
+		return p/(1. + container_travel.travel_counter/container_travel.travel_tot_time)/(1. + container_travel.travel_counter/container_travel.travel_tot_time)
 	else:
-		return 0.
+		var mod = sin(t*3.141)+0.4
+		
+		if mod > 0:
+			return p*mod
+		else:
+			return 0.

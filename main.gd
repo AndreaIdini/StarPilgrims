@@ -22,17 +22,20 @@ func _ready():
 	if station.cheat:
 		print("cheat credits")
 		credits = 100000
+		event_box.storyStep = 6
+		
 	update_show()
-
-	entrance_Dialogs()
+	
+	if event_box.storyStep == 0:
+		entrance_Dialogs()
 	
 	print('initialized')
 	#print(station.starting)
 	
 func entrance_Dialogs():
-	#story_box.start_story()
-	#await %Button.button_up
-	#print("story done")
+	story_box.start_story()
+	await %Button.button_up
+	print("story done")
 
 	event_box.start_tutorial()
 	await $EventBox/Button.button_up
