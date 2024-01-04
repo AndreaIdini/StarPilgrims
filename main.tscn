@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://drddf4j2gbweq"]
+[gd_scene load_steps=26 format=3 uid="uid://drddf4j2gbweq"]
 
 [ext_resource type="Texture2D" uid="uid://b2nler7tmsvhs" path="res://Asset/SpaceStation1.png" id="1_5p6ln"]
 [ext_resource type="Script" path="res://main.gd" id="1_7tmd3"]
@@ -16,8 +16,10 @@
 [ext_resource type="Texture2D" uid="uid://dwme1p8lf0yit" path="res://Asset/StarrySky1.png" id="13_1pqwx"]
 [ext_resource type="Texture2D" uid="uid://odjc7vaotsk4" path="res://Asset/AI_noBackground.png" id="13_4216q"]
 [ext_resource type="Script" path="res://EventBox.gd" id="13_e2jex"]
+[ext_resource type="Script" path="res://Buttons/ContainerBOLASButton.gd" id="13_nmipx"]
 [ext_resource type="Script" path="res://StoryBox.gd" id="13_nqmeh"]
 [ext_resource type="Script" path="res://MenuButton.gd" id="17_3hbk4"]
+[ext_resource type="Script" path="res://Buttons/InfoBox.gd" id="20_ukp5a"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ws068"]
 bg_color = Color(0.239216, 0.239216, 0.239216, 1)
@@ -154,9 +156,9 @@ anchor_top = -0.615
 anchor_right = 1.168
 anchor_bottom = -0.615
 offset_left = -388.944
-offset_top = 87.985
-offset_right = -291.944
-offset_bottom = 121.985
+offset_top = 72.985
+offset_right = -36.944
+offset_bottom = 106.985
 theme_override_font_sizes/font_size = 24
 text = "Humans"
 
@@ -183,9 +185,9 @@ anchor_top = -0.615
 anchor_right = 1.168
 anchor_bottom = -0.615
 offset_left = -388.944
-offset_top = 265.985
+offset_top = 167.985
 offset_right = -243.944
-offset_bottom = 299.985
+offset_bottom = 201.985
 theme_override_font_sizes/font_size = 24
 text = "Experiments"
 
@@ -211,9 +213,9 @@ anchor_top = -0.615
 anchor_right = 1.168
 anchor_bottom = -0.615
 offset_left = -388.944
-offset_top = 143.985
-offset_right = -219.944
-offset_bottom = 177.985
+offset_top = 121.985
+offset_right = -36.944
+offset_bottom = 155.985
 theme_override_font_sizes/font_size = 24
 text = "Mining Drones"
 
@@ -718,6 +720,7 @@ offset_top = 426.0
 offset_right = 671.0
 offset_bottom = 465.0
 size_flags_horizontal = 0
+script = ExtResource("13_nmipx")
 
 [node name="BuildBOLAS" type="Button" parent="PanelStation/ModuleBuild/ContainerBOLASButton"]
 layout_mode = 2
@@ -960,16 +963,35 @@ text = "Menu"
 flat = false
 script = ExtResource("17_3hbk4")
 
+[node name="InfoBox" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 707.0
+offset_top = 312.0
+offset_right = 1102.0
+offset_bottom = 562.0
+theme_override_font_sizes/normal_font_size = 16
+script = ExtResource("20_ukp5a")
+
+[connection signal="mouse_entered" from="PanelStation/LabelPayload/LabelHumans" to="InfoBox" method="_on_label_humans_mouse_entered"]
 [connection signal="pressed" from="PanelStation/Sprite/ContainerTravelButton/TravelButton" to="PanelStation/Sprite/ContainerTravelButton" method="_on_travel_button_pressed"]
+[connection signal="mouse_entered" from="PanelStation/ModuleBuild/ContainerSolarPanel" to="InfoBox" method="_on_container_solar_panel_mouse_entered"]
 [connection signal="pressed" from="PanelStation/ModuleBuild/ContainerSolarPanel/ContainerSolarButton/BuildSolar" to="PanelStation/ModuleBuild/ContainerSolarPanel" method="_on_build_pressed"]
+[connection signal="mouse_entered" from="PanelStation/ModuleBuild/ContainerBattery" to="InfoBox" method="_on_container_battery_mouse_entered"]
 [connection signal="pressed" from="PanelStation/ModuleBuild/ContainerBattery/ContainerBatteryButton/BuildBattery" to="PanelStation/ModuleBuild/ContainerBattery" method="_on_build_pressed"]
+[connection signal="mouse_entered" from="PanelStation/ModuleBuild/ContainerLiving" to="InfoBox" method="_on_container_living_mouse_entered"]
 [connection signal="pressed" from="PanelStation/ModuleBuild/ContainerLiving/ContainerLivingButton/BuildLiving" to="PanelStation/ModuleBuild/ContainerLiving" method="_on_build_pressed"]
+[connection signal="mouse_entered" from="PanelStation/ModuleBuild/ContainerComputing" to="InfoBox" method="_on_container_computing_mouse_entered"]
 [connection signal="pressed" from="PanelStation/ModuleBuild/ContainerComputing/ContainerComputingButton/BuildComputing" to="PanelStation/ModuleBuild/ContainerComputing" method="_on_build_pressed"]
+[connection signal="mouse_entered" from="PanelStation/ModuleBuild/ContainerDroneBay" to="InfoBox" method="_on_container_drone_bay_mouse_entered"]
 [connection signal="pressed" from="PanelStation/ModuleBuild/ContainerDroneBay/ContainerDroneButton/BuildDroneBay" to="PanelStation/ModuleBuild/ContainerDroneBay" method="_on_build_pressed"]
+[connection signal="mouse_entered" from="PanelStation/ModuleBuild/ContainerHotel" to="InfoBox" method="_on_container_hotel_mouse_entered"]
 [connection signal="pressed" from="PanelStation/ModuleBuild/ContainerHotel/ContainerHotelButton/BuildHotel" to="PanelStation/ModuleBuild/ContainerHotel" method="_on_build_pressed"]
+[connection signal="mouse_entered" from="PanelStation/ModuleBuild/ContainerEngine" to="InfoBox" method="_on_container_engine_mouse_entered"]
 [connection signal="pressed" from="PanelStation/ModuleBuild/ContainerEngine/ContainerEngineButton/BuildEngine" to="PanelStation/ModuleBuild/ContainerEngine" method="_on_build_pressed"]
+[connection signal="mouse_entered" from="PanelStation/ModuleBuild/ContainerFactory" to="InfoBox" method="_on_container_factory_mouse_entered"]
 [connection signal="pressed" from="PanelStation/ModuleBuild/ContainerFactory/ContainerFactoryButton/BuildFactory" to="PanelStation/ModuleBuild/ContainerFactory" method="_on_build_pressed"]
-[connection signal="pressed" from="PanelStation/ModuleBuild/ContainerBOLASButton/BuildBOLAS" to="PanelStation/ModuleBuild/ContainerFactory" method="_on_build_pressed"]
+[connection signal="mouse_entered" from="PanelStation/ModuleBuild/ContainerBOLASButton" to="InfoBox" method="_on_container_bolas_button_mouse_entered"]
+[connection signal="pressed" from="PanelStation/ModuleBuild/ContainerBOLASButton/BuildBOLAS" to="PanelStation/ModuleBuild/ContainerBOLASButton" method="_on_build_bolas_pressed"]
 [connection signal="pressed" from="LaunchBuild/ContainerLaunchH/LaunchHumans" to="LaunchBuild" method="_on_launch_humans_pressed"]
 [connection signal="pressed" from="LaunchBuild/ContainerLaunchM/LaunchMatter" to="LaunchBuild" method="_on_launch_matter_pressed"]
 [connection signal="pressed" from="LaunchBuild/ContainerBuildDrone/BuildMiningDrone" to="LaunchBuild" method="_on_build_drone_pressed"]
@@ -977,3 +999,4 @@ script = ExtResource("17_3hbk4")
 [connection signal="mouse_exited" from="EventBox" to="EventBox" method="_on_mouse_exited"]
 [connection signal="pressed" from="EventBox/Button" to="EventBox" method="_on_button_pressed"]
 [connection signal="pressed" from="StoryBox/Button" to="StoryBox" method="_on_button_pressed"]
+[connection signal="mouse_entered" from="InfoBox" to="InfoBox" method="_on_mouse_entered"]

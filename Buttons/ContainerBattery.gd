@@ -13,11 +13,19 @@ const ModuleBuild = preload("res://ModuleBuild.gd")
 var Building_Event: ModuleBuild
 
 var pressed = false
+var description
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	moduleType = station.BATTERY
-
+	
+	description = moduleType["description"] + "\n \n" + \
+	"battery:             " + str(moduleType["battery"]) + " kWh \n" + \
+	"building material: " + str(moduleType["build_matter"]) + " ton \n" + \
+	"build energy:      " + str(moduleType["build_energy"]) + " kWh \n" + \
+	"build credits:     " + str(moduleType["build_credits"]) + "\n" + \
+	"upkeep:            " + str(moduleType["upkeep_matter"]) + " kg/d +" + str(moduleType["upkeep_power"]) + " kW" 
+	
 	progress_bar = get_child(1).get_child(1)
 	labelCounter = get_child(0)
 

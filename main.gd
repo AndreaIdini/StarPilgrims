@@ -22,7 +22,7 @@ func _ready():
 	if station.cheat:
 		print("cheat credits")
 		credits = 100000
-		event_box.storyStep = 6
+		event_box.storyStep = 9
 		
 	update_show()
 	
@@ -90,4 +90,3 @@ I hope you have enough credits to financially recover from this", "Accept")
 			if credits < $LaunchBuild.cost_to_launch_humans:
 				story_box.game_over()
 			
-

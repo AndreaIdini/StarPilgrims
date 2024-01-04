@@ -1,7 +1,7 @@
 extends Node
 
 class_name Station
-var cheat = true
+var cheat = false
 
 var time = 0.
 
@@ -147,7 +147,7 @@ const DRONE = {
 
 const LUXURY_LIVING = {
 	"name": "Luxury Living Facilities",
-	"description": "A 0g Hotel module, comparatively luxurious respect to the spartan life of astronauts. With amenities and corresponding need energy and material upkeep. It starts the more mainstream age of space tourism, increasing the credits earned per human",
+	"description": "A 0g Hotel module, luxurious respect to the spartan life of astronauts. With amenities and corresponding need energy and material upkeep. It starts the more mainstream age of space tourism, increasing the credits earned per human",
 	"power": 0.,                 # KW
 	"battery": 50.,              # KWh
 	"living_space": 10,          # Capacity for Humans
@@ -235,7 +235,8 @@ func _ready():
 		BATTERY, BATTERY, BATTERY,  BATTERY, BATTERY, BATTERY, DRONE, DRONE, COMPUTING, ENGINE, ENGINE, ENGINE, ENGINE])
 		humans = 3
 		drones = 6
-		
+		orbit_Asteroid = true
+		$ModuleBuild/ContainerBOLASButton.show()
 	print("Station ready: ")
 	for module in Modules:
 		print("- ", module["name"])
