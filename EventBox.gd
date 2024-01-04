@@ -11,7 +11,7 @@ var text_speed = 0.03
 var skip = false
 var mouseIn = false
 var nextDialog = false
-var storyStep = 3
+var storyStep = 0
 var timeCount = 0
 
 func _ready():
