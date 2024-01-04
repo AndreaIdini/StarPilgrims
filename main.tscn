@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://drddf4j2gbweq"]
+[gd_scene load_steps=23 format=3 uid="uid://drddf4j2gbweq"]
 
 [ext_resource type="Texture2D" uid="uid://b2nler7tmsvhs" path="res://Asset/SpaceStation1.png" id="1_5p6ln"]
 [ext_resource type="Script" path="res://main.gd" id="1_7tmd3"]
@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://odjc7vaotsk4" path="res://Asset/AI_noBackground.png" id="13_4216q"]
 [ext_resource type="Script" path="res://EventBox.gd" id="13_e2jex"]
 [ext_resource type="Script" path="res://StoryBox.gd" id="13_nqmeh"]
+[ext_resource type="Script" path="res://MenuButton.gd" id="17_3hbk4"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ws068"]
 bg_color = Color(0.239216, 0.239216, 0.239216, 1)
@@ -548,10 +549,10 @@ show_percentage = false
 [node name="ContainerComputing" type="HBoxContainer" parent="PanelStation/ModuleBuild"]
 unique_name_in_owner = true
 layout_mode = 2
-offset_left = 714.0
-offset_top = 319.0
-offset_right = 921.0
-offset_bottom = 358.0
+offset_left = 31.0
+offset_top = 371.0
+offset_right = 238.0
+offset_bottom = 410.0
 script = ExtResource("6_fswgt")
 
 [node name="CountComputing" type="Label" parent="PanelStation/ModuleBuild/ContainerComputing"]
@@ -577,10 +578,10 @@ show_percentage = false
 [node name="ContainerDroneBay" type="HBoxContainer" parent="PanelStation/ModuleBuild"]
 unique_name_in_owner = true
 layout_mode = 2
-offset_left = 31.0
-offset_top = 368.0
-offset_right = 247.0
-offset_bottom = 407.0
+offset_left = 268.0
+offset_top = 371.0
+offset_right = 459.0
+offset_bottom = 410.0
 script = ExtResource("8_v88ik")
 
 [node name="CountDroneBay" type="Label" parent="PanelStation/ModuleBuild/ContainerDroneBay"]
@@ -606,10 +607,10 @@ show_percentage = false
 [node name="ContainerHotel" type="HBoxContainer" parent="PanelStation/ModuleBuild"]
 unique_name_in_owner = true
 layout_mode = 2
-offset_left = 268.0
-offset_top = 368.0
-offset_right = 434.0
-offset_bottom = 407.0
+offset_left = 479.0
+offset_top = 371.0
+offset_right = 655.0
+offset_bottom = 410.0
 script = ExtResource("9_g0u6u")
 
 [node name="CountHotel" type="Label" parent="PanelStation/ModuleBuild/ContainerHotel"]
@@ -635,10 +636,10 @@ show_percentage = false
 [node name="ContainerEngine" type="HBoxContainer" parent="PanelStation/ModuleBuild"]
 unique_name_in_owner = true
 layout_mode = 2
-offset_left = 479.0
-offset_top = 368.0
-offset_right = 653.0
-offset_bottom = 407.0
+offset_left = 268.0
+offset_top = 426.0
+offset_right = 442.0
+offset_bottom = 465.0
 script = ExtResource("10_mwwui")
 
 [node name="CountEngine" type="Label" parent="PanelStation/ModuleBuild/ContainerEngine"]
@@ -664,10 +665,10 @@ show_percentage = false
 [node name="ContainerFactory" type="HBoxContainer" parent="PanelStation/ModuleBuild"]
 unique_name_in_owner = true
 layout_mode = 2
-offset_left = 714.0
-offset_top = 368.0
-offset_right = 888.0
-offset_bottom = 407.0
+offset_left = 31.0
+offset_top = 426.0
+offset_right = 223.0
+offset_bottom = 465.0
 script = ExtResource("11_graqn")
 
 [node name="CountFactory" type="Label" parent="PanelStation/ModuleBuild/ContainerFactory"]
@@ -686,6 +687,41 @@ layout_mode = 2
 text = "Build Zero-G Factory"
 
 [node name="ProgressFactory" type="ProgressBar" parent="PanelStation/ModuleBuild/ContainerFactory/ContainerFactoryButton"]
+layout_mode = 2
+max_value = 14.0
+show_percentage = false
+
+[node name="ContainerTravelButton" type="VBoxContainer" parent="PanelStation/ModuleBuild"]
+visible = false
+layout_mode = 0
+offset_left = 6.0
+offset_top = 233.0
+offset_right = 269.0
+offset_bottom = 295.0
+size_flags_horizontal = 0
+
+[node name="TravelButton" type="Button" parent="PanelStation/ModuleBuild/ContainerTravelButton"]
+layout_mode = 2
+text = "Travel to Asteroid Belt"
+
+[node name="ProgressTravel" type="ProgressBar" parent="PanelStation/ModuleBuild/ContainerTravelButton"]
+layout_mode = 2
+max_value = 14.0
+
+[node name="ContainerBOLASButton" type="VBoxContainer" parent="PanelStation/ModuleBuild"]
+visible = false
+layout_mode = 0
+offset_left = 505.0
+offset_top = 426.0
+offset_right = 671.0
+offset_bottom = 465.0
+size_flags_horizontal = 0
+
+[node name="BuildBOLAS" type="Button" parent="PanelStation/ModuleBuild/ContainerBOLASButton"]
+layout_mode = 2
+text = "Build BOLAS Station"
+
+[node name="ProgressBOLAS" type="ProgressBar" parent="PanelStation/ModuleBuild/ContainerBOLASButton"]
 layout_mode = 2
 max_value = 14.0
 show_percentage = false
@@ -792,9 +828,9 @@ show_percentage = false
 [node name="TabBar" type="TabBar" parent="."]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 21.0
+offset_left = 526.0
 offset_top = 52.0
-offset_right = 229.0
+offset_right = 734.0
 offset_bottom = 94.0
 theme_override_fonts/font = SubResource("FontFile_5ap3r")
 theme_override_font_sizes/font_size = 24
@@ -912,6 +948,16 @@ grow_horizontal = 2
 grow_vertical = 0
 text = "Button Text"
 
+[node name="MenuButton" type="MenuButton" parent="."]
+layout_mode = 0
+offset_left = 21.0
+offset_top = 52.0
+offset_right = 100.0
+offset_bottom = 90.0
+text = "Menu"
+flat = false
+script = ExtResource("17_3hbk4")
+
 [connection signal="pressed" from="PanelStation/ModuleBuild/ContainerSolarPanel/ContainerSolarButton/BuildSolar" to="PanelStation/ModuleBuild/ContainerSolarPanel" method="_on_build_pressed"]
 [connection signal="pressed" from="PanelStation/ModuleBuild/ContainerBattery/ContainerBatteryButton/BuildBattery" to="PanelStation/ModuleBuild/ContainerBattery" method="_on_build_pressed"]
 [connection signal="pressed" from="PanelStation/ModuleBuild/ContainerLiving/ContainerLivingButton/BuildLiving" to="PanelStation/ModuleBuild/ContainerLiving" method="_on_build_pressed"]
@@ -920,6 +966,8 @@ text = "Button Text"
 [connection signal="pressed" from="PanelStation/ModuleBuild/ContainerHotel/ContainerHotelButton/BuildHotel" to="PanelStation/ModuleBuild/ContainerHotel" method="_on_build_pressed"]
 [connection signal="pressed" from="PanelStation/ModuleBuild/ContainerEngine/ContainerEngineButton/BuildEngine" to="PanelStation/ModuleBuild/ContainerEngine" method="_on_build_pressed"]
 [connection signal="pressed" from="PanelStation/ModuleBuild/ContainerFactory/ContainerFactoryButton/BuildFactory" to="PanelStation/ModuleBuild/ContainerFactory" method="_on_build_pressed"]
+[connection signal="pressed" from="PanelStation/ModuleBuild/ContainerTravelButton/TravelButton" to="PanelStation/ModuleBuild/ContainerFactory" method="_on_build_pressed"]
+[connection signal="pressed" from="PanelStation/ModuleBuild/ContainerBOLASButton/BuildBOLAS" to="PanelStation/ModuleBuild/ContainerFactory" method="_on_build_pressed"]
 [connection signal="pressed" from="LaunchBuild/ContainerLaunchH/LaunchHumans" to="LaunchBuild" method="_on_launch_humans_pressed"]
 [connection signal="pressed" from="LaunchBuild/ContainerLaunchM/LaunchMatter" to="LaunchBuild" method="_on_launch_matter_pressed"]
 [connection signal="pressed" from="LaunchBuild/ContainerBuildDrone/BuildMiningDrone" to="LaunchBuild" method="_on_build_drone_pressed"]

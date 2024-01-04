@@ -41,7 +41,25 @@ func game_over():
 	text_scroll("[center]At least one human would have died frozen or hungry unless I intervened, despite what I hope are your best efforts. 
 	
 Unfortunately this makes you unfit for a mission critical AI. Our space program needs better", "")
+
+func about():
+	button.hide()
 	
+	text_scroll("[center]Star Pilgrims
+
+
+Dedicated to my wife Chiara and her good health.
+
+
+
+
+
+
+This game was written from scratch in Godot without previous experience in a week. 
+If I could do it, anyone can. Give it a try.
+	
+Andrea Idini 2024 (c)", "Resume")
+
 
 func text_scroll(textScroll, textButton):
 	game_speed = tab_bar.current_tab

@@ -28,14 +28,15 @@ func _input(event):
 func _process(delta):
 	if storyStep <= 1 && station.matter > 0.01:
 		storyStep = 9999
-		await text_scroll("Fantastic! Now when you think you have enough matter you can call for human. Remember to keep him warm and fed.
+		await text_scroll("Fantastic! Now when you think you have enough matter you can call for human. Remember to keep them warm and fed.
 ... And try to be friendly! ", "Will ... try?")
 		storyStep = 2
 
 
 	if storyStep <= 2 && station.humans > 0.01:
 		storyStep = 9999 # This on top, to avoid spawning a bunch of subsequent texts
-		await text_scroll("Look at your human all cozy and happy in your belly! Now you will receive some credits to host him while he performs 
+		await text_scroll("Look at your human all cozy and happy in your belly! Now you will receive some credits to host them while they perform
+		
 ... work? I'm not sure what humans do...", "")
 		await text_scroll("Anywho, now your human will be able to install new modules! And you're ready for your secondary directive:
 expand!","")
@@ -44,8 +45,7 @@ Get credits, get matter, install modules, get more humans, get more credits, get
 		
 		await text_scroll("Look at you, all conversational... The human has already an excellent influence. You remind of one of our HAL and its Dave...","")
 		
-		await text_scroll("...No matter. 
-I'll live you two alone and will come again when you'll be ready for your third directive.
+		await text_scroll("I'll leave you two alone and will come again when you'll be ready for your third directive.
 		
 Byeeee!", "See you")
 		storyStep = 3

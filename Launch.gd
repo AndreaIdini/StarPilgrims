@@ -100,5 +100,5 @@ func _on_build_drone_pressed():
 		build_in_progress = true
 		build_counter = 0
 	
-	progress_build_md.max_value = time_to_build_drone
+	progress_build_md.max_value = time_to_build_drone/log(station.humans+1)*log(2)
 
