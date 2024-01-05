@@ -13,8 +13,13 @@ var travel_in_progress = false
 var travel_counter = 0.
 var travel_tot_time = 9999999.
 
-var mass_cost
-var energy_cost
+var mass_cost = 0.
+var energy_cost = 0.
+
+var tot_mass_cost
+var tot_energy_cost
+
+var description
 
 # Called when the node enters the scene tree for the first time.
 func _ready():	
@@ -45,9 +50,12 @@ func _physics_process(delta):
 			
 			self.hide()
 			return
-			
-		station.energy += - energy_cost/travel_tot_time/24*delta
-		station.matter += - mass_cost/travel_tot_time*delta
+		
+		energy_cost = tot_energy_cost/travel_tot_time/24
+		mass_cost = tot_energy_cost/travel_tot_time/1000
+
+		station.energy += - energy_cost*delta
+		station.matter += - mass_cost*delta
 		
 		if station.energy < 0 || station.matter < 0:
 			travel_in_progress = false
@@ -62,7 +70,7 @@ func _on_travel_button_pressed():
 	travel_tot_time = travel_cost[2]
 	progress_bar.max_value = travel_tot_time
 	
-	print(station.matter > travel_cost[1] && station.power, " ", station.solar_power_installed > travel_cost[0]/travel_tot_time/24.)
+	print(travel_cost[1], " ton ", travel_cost[0]/travel_tot_time/24., " kW")
 	if station.matter > travel_cost[1] && station.solar_power_installed > travel_cost[0]/travel_tot_time/24.:
 		print("here")
 		if ! travel_in_progress:
@@ -79,8 +87,22 @@ func calculate_travel_cost():
 	var station_mass = station.station_mass()
 	var engines = station.Modules.count(station.ENGINE)
 	
-	mass_cost = station_mass/5. * min(4, sqrt(engines))
-	energy_cost = station_mass*2./3. * 20 * engines # E = DeltaV*m. 1J = 0.27*10^-3 Wh => ton * km/s = 10^6J approx kWh 
+	tot_mass_cost = station_mass/5. * min(4, sqrt(engines))
+	tot_energy_cost = station_mass*2./3. * 20 * engines # E = DeltaV*m. 1J = 0.27*10^-3 Wh => ton * km/s = 10^6J approx kWh 
 	
-	var time = 600/engines
-	return [energy_cost,mass_cost, time]
+	var time = 600./engines
+	return [tot_energy_cost,tot_mass_cost, time]
+
+
+func _on_mouse_entered():
+	if ! travel_in_progress:
+		var travel_cost = calculate_travel_cost()
+		var en = travel_cost[0]/1000.
+		description = "The long journey to the asteroid belt will test the capabilities of your spaceship
+it will take:\n\n" + \
+	 	"      " + str(ceil(travel_cost[2])) + " days\n" + \
+	 	str("%10.1f" % travel_cost[1]) + " tons \n" + \
+	 	str("%10.1f" % en) + " MWh \n" + \
+		"\nto make the journey. Good Luck!"
+
+	pass # Replace with function body.

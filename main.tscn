@@ -986,6 +986,8 @@ script = ExtResource("20_ukp5a")
 [connection signal="mouse_entered" from="PanelStation/LabelPayload/LabelHumans" to="InfoBox" method="_on_label_humans_mouse_entered"]
 [connection signal="mouse_entered" from="PanelStation/LabelPayload/LabelHumans/Hitbox" to="InfoBox" method="_on_label_humans_mouse_entered"]
 [connection signal="mouse_entered" from="PanelStation/LabelPayload/LabelDrones/ColorRect" to="InfoBox" method="_on_label_drone_mouse_entered"]
+[connection signal="mouse_entered" from="PanelStation/Sprite/ContainerTravelButton" to="PanelStation/Sprite/ContainerTravelButton" method="_on_mouse_entered"]
+[connection signal="mouse_entered" from="PanelStation/Sprite/ContainerTravelButton" to="InfoBox" method="_on_container_travel_button_mouse_entered"]
 [connection signal="pressed" from="PanelStation/Sprite/ContainerTravelButton/TravelButton" to="PanelStation/Sprite/ContainerTravelButton" method="_on_travel_button_pressed"]
 [connection signal="mouse_entered" from="PanelStation/ModuleBuild/ContainerSolarPanel" to="InfoBox" method="_on_container_solar_panel_mouse_entered"]
 [connection signal="pressed" from="PanelStation/ModuleBuild/ContainerSolarPanel/ContainerSolarButton/BuildSolar" to="PanelStation/ModuleBuild/ContainerSolarPanel" method="_on_build_pressed"]

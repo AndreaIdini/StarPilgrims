@@ -22,7 +22,7 @@ func _ready():
 	if station.cheat:
 		print("cheat credits")
 		credits = 100000
-		event_box.storyStep = 9
+		event_box.storyStep = 0
 		
 	update_show()
 	

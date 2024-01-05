@@ -60,8 +60,12 @@ If I could do it, anyone can. Give it a try.
 	
 Andrea Idini 2024 (c)", "Resume")
 
-func BOLAS_built():
-	text_scroll("[center]BOLAS station has been built, providing a self-sufficient outpost with artificial gravity to humanity at the edge of the asteroid belt. From this vantage position you can continue expanding, building an ever larger human presence, with larger factories and industrial processes while preparing for true independence.
+func BOLAS_built(days):
+	text_scroll("[center]BOLAS station has been built in
+
+" + str(ceil(days)) + " days
+
+	 providing a self-sufficient outpost with artificial gravity to humanity at the edge of the asteroid belt. From this vantage position you can continue expanding, building an ever larger human presence, with larger factories and industrial processes while preparing for true independence.
 	
 BOLAS station will continue expanding from its core, in preparation for its true mission: the long jump to alpha centauri.
 

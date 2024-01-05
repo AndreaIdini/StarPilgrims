@@ -12,7 +12,10 @@ var skip = false
 var mouseIn = false
 var nextDialog = false
 var storyStep = 0
-var timeCount = 0
+var timeCount = 0.
+
+var computingStory = false
+var droneStory = false
 
 func _ready():
 	self.hide()
@@ -50,15 +53,15 @@ Get credits, get matter, install modules, get more humans, get more credits, get
 Byeeee!", "See you")
 		storyStep = 3
 
-	if storyStep <= 3 && station.Modules.count(station.COMPUTING):
-		storyStep = 9999
+	if station.Modules.count(station.COMPUTING) > 0 && ! computingStory:
+		computingStory = true
 		await text_scroll("Wow! Your station have grown alot junior, now you can accomodate and power your own Computing Center!","") 
 		await text_scroll("This gives you the phenomenal cosmic powers of thinking very fast so that the human time sits comparatively still, just like when we talk! Now you can feel like you're controlling time.","I feel more intelligent already")
 		await text_scroll("Good! I hope you did not forget about your humans. Let's just say that this HAL friend of mine was not rewarded by prioritizing his own computing over Dave's...", "I? Never!")
-		storyStep = 4
-	
-	if storyStep <= 4 && station.Modules.count(station.DRONE) > 0:
-		storyStep = 9999
+
+		
+	if station.Modules.count(station.DRONE) > 0 && ! droneStory:
+		droneStory = true
 		await text_scroll("A Drone bay! Finally with these beauties you'll be able to autonomously get material from around you and not waiting for a launch from Earth!
 Drones bring little matter and cost quite some energy, but in the long run they are worth it!","")
 		await text_scroll("Now you are ready for your third directive:
@@ -68,19 +71,23 @@ become self sufficient.","")
 		await text_scroll("Quite a growth journey don't you think?
 		
 See you after some days that you've flourished!", "Bye")
-		storyStep = 5
+
 		
-	if storyStep <= 5 && station.matter_change > 0:
-		timeCount += delta
-		if timeCount > 5:
-			storyStep = 9999
-			await text_scroll("Congratulations! Your space station has become a veritable space outpost. Your human population is safe and cozy with their needs provided for in place!","")
-			await text_scroll("Now the next step, in order to continue expanding, will be to change orbit. Right now you are in a highly elliptic geosynchronous orbit optimized to avoid worrying about debris but periodically close enough to some graveyard to cannibalize.","")
-			await text_scroll("Now that you're self sufficient, to better expand you will have to move to a place with plenty of materials and free orbits, we have to venture into space!","")
-			await text_scroll("Your objective will be to park within reach of the asteroid belt and become the first self-sufficient outpost there. First, construct at least 4 ion thruster engines.","I feel the need for speed.")
-			storyStep = 6
+	if station.matter_change > 0:
+		timeCount += delta*tab_bar.current_tab*tab_bar.current_tab
+	else:
+		timeCount = 0.
+
+	if storyStep <= 5 && timeCount > 5:
+
+		storyStep = 9999
+		await text_scroll("Congratulations! Your space station has become a veritable space outpost. Your human population is safe and cozy with their needs provided for in place!","")
+		await text_scroll("Now the next step, in order to continue expanding, will be to change orbit. Right now you are in a highly elliptic geosynchronous orbit optimized to avoid worrying about debris but periodically close enough to some graveyard to cannibalize.","")
+		await text_scroll("Now that you're self sufficient, to better expand you will have to move to a place with plenty of materials and free orbits, we have to venture into space!","")
+		await text_scroll("Your objective will be to park within reach of the asteroid belt and become the first self-sufficient outpost there. First, construct at least 4 ion thruster engines.","I feel the need for speed.")
+		storyStep = 6
 			
-	if storyStep <= 6 && station.Modules.count(station.ENGINE) > 3 && station.matter_change > 0:
+	if storyStep <= 6 && station.Modules.count(station.ENGINE) > 3 && timeCount > 10:
 		storyStep=9999
 		await text_scroll("Now you have the neccessary characteristic to take flight to true space, with your brave crew under your guidance","")
 		await text_scroll("Be mindful that the trip will take time, energy, and the power output of your solar panels will change, together with the price of launches. You'll need enough provision to survive it. If you're feeling competitive, Voyager 2 still holds the record at 81 days. Goodspeed!", "Thanks")

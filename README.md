@@ -8,9 +8,13 @@ The README.md is still a jumbled mess of notes. Eventually, contribution is orga
 ## Game Mechanics
 
 The main game mechanic is expanding and building through GUI, with an eye for realism in the quantities employed so no ridicolous exponential growth and upgrade popping up. It is quite "hardcore" with actions and decision that have consequences that can kill your playthrough and force you to start again. 
-It takes some time to explore everything, but unfortunately there is no save mechanic as of yet.
+It takes some time to explore everything (latest playthrough took me 1h), but unfortunately there is no save mechanic as of yet.
 
-It is slightly story driven, no spoilers.
+It is slightly story driven, no spoilers here.
+
+I appreciate any feedback and PR you will like to provide, even just to make order and refactoring.
+
+## Notes
 
 ### Resources
 
@@ -20,7 +24,7 @@ It is slightly story driven, no spoilers.
 
 Expansions cost Matter + Credits, Consume or produce Energy and Matter, maybe Credits.
 
-Credits are earned through services (such as hosting people or computing), especially early game
+Credits are earned through services (such as hosting people or computing).
 
 Modules consume matter and energy.
 
@@ -65,5 +69,6 @@ https://nss.org/settlement/nasa/spaceresvol2/thermalmanagement.html
 - Check the orbital dynamics and cost and the relation between number of engine, time of flight, and matter consumption
 - Evaluate logarithmic curve for credits earning in factory in function of the number of humans, maybe difficult to balance. Evalaute a discount in credits for the cost of modules and other expenses after construction of factory.
 - Implement Missions and Events so that can help or hinder.
+- Make UI rescalable.
 
 

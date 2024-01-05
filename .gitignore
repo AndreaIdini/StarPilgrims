@@ -2,3 +2,5 @@
 .godot/
 *.tmp
 addons/godot-git-plugin/
+Exports/
+*.exe

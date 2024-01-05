@@ -12,13 +12,13 @@ var drones = 0
 
 var battery_cap                 # KWh
 var power                       # KW
-var pow_consumption
+var pow_consumption=0.
 var solar_power_installed       # kW
 var modules_upkeep              # KW
 var power_construction=0.       # KW
 
 var matter_transf = 0.
-var matter_change
+var matter_change = 0.
 var modules_matter_transf
 
 var humans_cap
@@ -235,7 +235,8 @@ func _ready():
 		BATTERY, BATTERY, BATTERY,  BATTERY, BATTERY, BATTERY, DRONE, DRONE, COMPUTING, ENGINE, ENGINE, ENGINE, ENGINE])
 		humans = 3
 		drones = 6
-		orbit_Asteroid = true
+		orbit_Asteroid = false
+		
 		$ModuleBuild/ContainerBOLASButton.show()
 	print("Station ready: ")
 	for module in Modules:
@@ -266,17 +267,27 @@ func _physics_process(delta):
 
 func update_visuals():
 	count_matter.text = str("%10.2f" % matter)
-	count_power.text = str("%10.1f" % solar_power_installed)
 	count_energy.text = str("%10.1f" % energy) + "/" + str("%10.1f" % battery_cap)
-	count_matter_transf.text = str(matter_change)
 	count_humans.text = str(humans) + "/" + str(humans_cap)
-	count_consumption.text = str(pow_consumption)
-	
 	count_drones.text = str(drones) + "/" + str(drones_cap)
 	
 	progress_bar.max_value = battery_cap
 	progress_bar.value = energy
+	
+	var solar_label = solar_power_installed
+	var mass_label = matter_change
+	var power_label = pow_consumption
 
+	if container_travel.travel_in_progress:		
+		power_label = pow_consumption + container_travel.energy_cost
+		
+		mass_label = matter_change - container_travel.mass_cost*1000
+		solar_label = solar_power_installed/(1. + container_travel.travel_counter/container_travel.travel_tot_time)/(1. + container_travel.travel_counter/container_travel.travel_tot_time) 
+
+	count_power.text = str("%10.1f" % solar_label)
+	count_matter_transf.text = str("%10.1f" % mass_label)
+	count_consumption.text = str("%10.1f" % power_label)
+	
 func station_properties():
 	humans_cap = 0
 	drones_cap = 0
@@ -297,7 +308,7 @@ func station_properties():
 	$ModuleBuild/ContainerLiving/CountLiving.text = str(Modules.count(BASIC_LIVING))
 	$ModuleBuild/ContainerComputing/CountComputing.text = str(Modules.count(COMPUTING))
 	$ModuleBuild/ContainerDroneBay/CountDroneBay.text = str(Modules.count(DRONE))
-	$ModuleBuild/ContainerEngine/CountEngine.text = str(Modules.count(DRONE))
+	$ModuleBuild/ContainerEngine/CountEngine.text = str(Modules.count(ENGINE))
 	$ModuleBuild/ContainerFactory/CountFactory.text = str(Modules.count(FACTORY))
 	$ModuleBuild/ContainerHotel/CountHotel.text = str(Modules.count(LUXURY_LIVING))
 	
@@ -306,6 +317,10 @@ func station_properties():
 	
 	if orbit_Asteroid:
 		drones_matter_mining = 50.
+		drones_energy_upkeep = 15.
+		solar_power_installed = solar_power_installed*0.25
+		
+	update_visuals()
 
 func station_mass():
 	var mass = 0.
@@ -389,7 +404,7 @@ func print_state():
 func solar_power(p,t):
 	
 	if orbit_Asteroid:
-		return p*0.25
+		return p #  *0.25
 	elif container_travel.travel_in_progress:
 		return p/(1. + container_travel.travel_counter/container_travel.travel_tot_time)/(1. + container_travel.travel_counter/container_travel.travel_tot_time)
 	else:

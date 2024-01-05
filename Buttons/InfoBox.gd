@@ -49,5 +49,5 @@ func _on_container_factory_mouse_entered():
 func _on_container_bolas_button_mouse_entered():
 	self.text = $"../PanelStation/ModuleBuild/ContainerBOLASButton".description
 
-
-
+func _on_container_travel_button_mouse_entered():
+	self.text = %ContainerTravelButton.description
