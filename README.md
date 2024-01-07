@@ -14,6 +14,19 @@ It is slightly story driven, no spoilers here.
 
 I appreciate any feedback and PR you will like to provide, even just to make order and refactoring.
 
+## TODO
+
+- Check the orbital dynamics and cost and the relation between number of engine, time of flight, and matter consumption
+- Evaluate logarithmic curve for credits earning in factory in function of the number of humans, maybe difficult to balance. Evalaute a discount in credits for the cost of modules and other expenses after construction of factory.
+- Implement Missions and Events so that can help or hinder.
+- Make UI rescalable.
+
+## Resources:
+
+The following Creative Commons were used:
+
+- Icons from https://game-icons.net/
+
 ## Notes
 
 ### Resources
@@ -64,11 +77,6 @@ https://nss.org/settlement/nasa/spaceresvol2/thermalmanagement.html
 - https://www.sciencedirect.com/science/article/abs/pii/S0094576517311220. This examination of Main Belt asteroids as prospective targets for mining and exploration missions has found that within a delta-v of 8 km, starting from LEO, one can access 3986 MBAs
 - https://descanso.jpl.nasa.gov/SciTechBook/series1/Goebel_02_Chap2_thruster.pdf Exhaust ion thrusters: 100 km/s.
 
-## TODO
 
-- Check the orbital dynamics and cost and the relation between number of engine, time of flight, and matter consumption
-- Evaluate logarithmic curve for credits earning in factory in function of the number of humans, maybe difficult to balance. Evalaute a discount in credits for the cost of modules and other expenses after construction of factory.
-- Implement Missions and Events so that can help or hinder.
-- Make UI rescalable.
 
 

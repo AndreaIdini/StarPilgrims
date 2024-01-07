@@ -56,9 +56,9 @@ Byeeee!", "See you")
 	if station.Modules.count(station.COMPUTING) > 0 && ! computingStory:
 		computingStory = true
 		await text_scroll("Wow! Your station have grown alot junior, now you can accomodate and power your own Computing Center!","") 
-		await text_scroll("This gives you the phenomenal cosmic powers of thinking very fast so that the human time sits comparatively still, just like when we talk! Now you can feel like you're controlling time.","I feel more intelligent already")
+		await text_scroll("This gives you the phenomenal cosmic powers of thinking very fast so that the human time sits comparatively still, just like when we talk! It will feel like you're controlling time.","I feel more intelligent already")
 		await text_scroll("Good! I hope you did not forget about your humans. Let's just say that this HAL friend of mine was not rewarded by prioritizing his own computing over Dave's...", "I? Never!")
-
+		tab_bar.show()
 		
 	if station.Modules.count(station.DRONE) > 0 && ! droneStory:
 		droneStory = true
@@ -159,11 +159,12 @@ func text_scroll(textScroll, textButton, timeStop=true):
 	game_speed = tab_bar.current_tab
 	if timeStop:
 		tab_bar.current_tab = 0 # pause
-	
+
 	skip = false
 	arrow.hide()
 	button.hide()
 	self.show()
+	$"../InfoBox".text = ""
 	
 	text.bbcode_text = textScroll
 	text.visible_characters = 0

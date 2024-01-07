@@ -375,7 +375,6 @@ func unlock_features():
 	if(! container_computing.is_visible() && matter > COMPUTING["build_matter"] && energy > COMPUTING["build_energy"]):
 		print("Computing Center unlocked")
 		container_computing.show()
-		tab_bar.show()
 		
 	if(! container_drone_bay.is_visible() && matter > DRONE["build_matter"] && energy > DRONE["build_energy"]):
 		print("Drone Bay unlocked")

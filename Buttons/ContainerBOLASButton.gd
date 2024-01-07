@@ -5,7 +5,7 @@ extends VBoxContainer
 
 var required_matter = 5000.
 var required_power = 2000.
-var required_credits = 5000
+var required_credits = 5000000
 var description
 # Called when the node enters the scene tree for the first time.
 func _ready():

@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://drddf4j2gbweq"]
+[gd_scene load_steps=30 format=3 uid="uid://drddf4j2gbweq"]
 
 [ext_resource type="Texture2D" uid="uid://b2nler7tmsvhs" path="res://Asset/SpaceStation1.png" id="1_5p6ln"]
 [ext_resource type="Script" path="res://main.gd" id="1_7tmd3"]
@@ -18,8 +18,13 @@
 [ext_resource type="Script" path="res://EventBox.gd" id="13_e2jex"]
 [ext_resource type="Script" path="res://Buttons/ContainerBOLASButton.gd" id="13_nmipx"]
 [ext_resource type="Script" path="res://StoryBox.gd" id="13_nqmeh"]
+[ext_resource type="Texture2D" uid="uid://78g4vg21m6pa" path="res://Asset/pause-button_small.png" id="15_jmjrd"]
+[ext_resource type="Texture2D" uid="uid://c4gu707c1y77c" path="res://Asset/play-button_small.png" id="16_nocyy"]
 [ext_resource type="Script" path="res://MenuButton.gd" id="17_3hbk4"]
+[ext_resource type="Texture2D" uid="uid://crh7psltq8evy" path="res://Asset/fast-forward-button_small.png" id="17_ssp6w"]
+[ext_resource type="Texture2D" uid="uid://duvc32gwemxs8" path="res://Asset/next-button_small.png" id="18_0xb8i"]
 [ext_resource type="Script" path="res://Buttons/InfoBox.gd" id="20_ukp5a"]
+[ext_resource type="Texture2D" uid="uid://b7ptlrcaomldx" path="res://Asset/plain-arrow.png" id="21_jkw4m"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ws068"]
 bg_color = Color(0.239216, 0.239216, 0.239216, 1)
@@ -61,22 +66,6 @@ corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
-[sub_resource type="FontFile" id="FontFile_5ap3r"]
-cache/0/24/0/ascent = 0.0
-cache/0/24/0/descent = 0.0
-cache/0/24/0/underline_position = 0.0
-cache/0/24/0/underline_thickness = 0.0
-cache/0/24/0/scale = 1.0
-cache/0/24/0/kerning_overrides/24/0 = Vector2(0, 0)
-cache/0/24/0/kerning_overrides/16/0 = Vector2(0, 0)
-cache/0/16/0/ascent = 0.0
-cache/0/16/0/descent = 0.0
-cache/0/16/0/underline_position = 0.0
-cache/0/16/0/underline_thickness = 0.0
-cache/0/16/0/scale = 1.0
-cache/0/16/0/kerning_overrides/24/0 = Vector2(0, 0)
-cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
-
 [node name="Control" type="Control"]
 layout_mode = 3
 anchors_preset = 0
@@ -92,8 +81,8 @@ anchor_top = 0.734
 anchor_bottom = 0.734
 offset_left = 21.0
 offset_top = 62.832
-offset_right = 1139.0
-offset_bottom = 546.832
+offset_right = 1247.0
+offset_bottom = 628.832
 theme_override_styles/panel = SubResource("StyleBoxFlat_ws068")
 script = ExtResource("2_oc6wt")
 
@@ -114,9 +103,10 @@ layout_mode = 1
 anchors_preset = -1
 anchor_top = 6.59
 anchor_bottom = 6.59
-offset_top = -745.1
-offset_right = 353.0
-offset_bottom = -711.1
+offset_left = 26.0
+offset_top = -668.1
+offset_right = 379.0
+offset_bottom = -634.1
 theme_override_font_sizes/font_size = 24
 text = "Credits"
 
@@ -495,9 +485,9 @@ offset_bottom = 40.0
 unique_name_in_owner = true
 layout_mode = 2
 offset_left = 31.0
-offset_top = 319.0
+offset_top = 329.0
 offset_right = 238.0
-offset_bottom = 358.0
+offset_bottom = 368.0
 script = ExtResource("5_ree1l")
 
 [node name="CountSolar" type="Label" parent="PanelStation/ModuleBuild/ContainerSolarPanel"]
@@ -524,9 +514,9 @@ show_percentage = false
 unique_name_in_owner = true
 layout_mode = 2
 offset_left = 268.0
-offset_top = 319.0
+offset_top = 329.0
 offset_right = 475.0
-offset_bottom = 358.0
+offset_bottom = 368.0
 script = ExtResource("5_tsak2")
 
 [node name="CountBattery" type="Label" parent="PanelStation/ModuleBuild/ContainerBattery"]
@@ -553,9 +543,9 @@ show_percentage = false
 unique_name_in_owner = true
 layout_mode = 2
 offset_left = 479.0
-offset_top = 319.0
+offset_top = 329.0
 offset_right = 686.0
-offset_bottom = 358.0
+offset_bottom = 368.0
 script = ExtResource("6_yq5dq")
 
 [node name="CountLiving" type="Label" parent="PanelStation/ModuleBuild/ContainerLiving"]
@@ -582,9 +572,9 @@ show_percentage = false
 unique_name_in_owner = true
 layout_mode = 2
 offset_left = 31.0
-offset_top = 371.0
+offset_top = 391.0
 offset_right = 238.0
-offset_bottom = 410.0
+offset_bottom = 430.0
 script = ExtResource("6_fswgt")
 
 [node name="CountComputing" type="Label" parent="PanelStation/ModuleBuild/ContainerComputing"]
@@ -611,9 +601,9 @@ show_percentage = false
 unique_name_in_owner = true
 layout_mode = 2
 offset_left = 268.0
-offset_top = 371.0
+offset_top = 391.0
 offset_right = 459.0
-offset_bottom = 410.0
+offset_bottom = 430.0
 script = ExtResource("8_v88ik")
 
 [node name="CountDroneBay" type="Label" parent="PanelStation/ModuleBuild/ContainerDroneBay"]
@@ -640,9 +630,9 @@ show_percentage = false
 unique_name_in_owner = true
 layout_mode = 2
 offset_left = 479.0
-offset_top = 371.0
+offset_top = 391.0
 offset_right = 655.0
-offset_bottom = 410.0
+offset_bottom = 430.0
 script = ExtResource("9_g0u6u")
 
 [node name="CountHotel" type="Label" parent="PanelStation/ModuleBuild/ContainerHotel"]
@@ -669,9 +659,9 @@ show_percentage = false
 unique_name_in_owner = true
 layout_mode = 2
 offset_left = 268.0
-offset_top = 426.0
+offset_top = 454.0
 offset_right = 442.0
-offset_bottom = 465.0
+offset_bottom = 493.0
 script = ExtResource("10_mwwui")
 
 [node name="CountEngine" type="Label" parent="PanelStation/ModuleBuild/ContainerEngine"]
@@ -698,9 +688,9 @@ show_percentage = false
 unique_name_in_owner = true
 layout_mode = 2
 offset_left = 31.0
-offset_top = 426.0
+offset_top = 454.0
 offset_right = 223.0
-offset_bottom = 465.0
+offset_bottom = 493.0
 script = ExtResource("11_graqn")
 
 [node name="CountFactory" type="Label" parent="PanelStation/ModuleBuild/ContainerFactory"]
@@ -727,9 +717,9 @@ show_percentage = false
 visible = false
 layout_mode = 0
 offset_left = 505.0
-offset_top = 426.0
+offset_top = 442.0
 offset_right = 671.0
-offset_bottom = 465.0
+offset_bottom = 481.0
 size_flags_horizontal = 0
 script = ExtResource("13_nmipx")
 
@@ -749,9 +739,9 @@ anchor_left = 12.545
 anchor_top = 0.8
 anchor_right = 12.545
 anchor_bottom = 0.8
-offset_left = -404.14
+offset_left = -270.14
 offset_top = 14.4
-offset_right = -251.14
+offset_right = -117.14
 offset_bottom = 48.4
 theme_override_font_sizes/font_size = 24
 text = "Days Elapsed"
@@ -781,9 +771,9 @@ script = ExtResource("4_oiuw7")
 [node name="ContainerLaunchH" type="VBoxContainer" parent="LaunchBuild"]
 layout_mode = 2
 offset_left = -611.0
-offset_top = 541.0
+offset_top = 619.0
 offset_right = -349.0
-offset_bottom = 580.0
+offset_bottom = 658.0
 size_flags_horizontal = 8
 size_flags_vertical = 8
 
@@ -800,9 +790,9 @@ show_percentage = false
 [node name="ContainerLaunchM" type="VBoxContainer" parent="LaunchBuild"]
 layout_mode = 2
 offset_left = -897.0
-offset_top = 541.0
+offset_top = 619.0
 offset_right = -635.0
-offset_bottom = 615.0
+offset_bottom = 693.0
 size_flags_horizontal = 0
 
 [node name="LaunchMatter" type="Button" parent="LaunchBuild/ContainerLaunchM"]
@@ -825,9 +815,9 @@ step = 0.1
 unique_name_in_owner = true
 layout_mode = 0
 offset_left = -325.0
-offset_top = 541.0
+offset_top = 619.0
 offset_right = -63.0
-offset_bottom = 580.0
+offset_bottom = 658.0
 size_flags_horizontal = 8
 size_flags_vertical = 8
 
@@ -844,27 +834,100 @@ show_percentage = false
 [node name="TabBar" type="TabBar" parent="."]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 448.0
+offset_left = 569.0
 offset_top = 52.0
-offset_right = 656.0
+offset_right = 731.0
 offset_bottom = 94.0
-theme_override_fonts/font = SubResource("FontFile_5ap3r")
-theme_override_font_sizes/font_size = 24
 tab_count = 4
 current_tab = 1
-tab_0/title = "⏸"
-tab_1/title = "▶"
-tab_2/title = "⏩"
-tab_3/title = "⏭"
+tab_0/title = ""
+tab_0/icon = ExtResource("15_jmjrd")
+tab_1/title = ""
+tab_1/icon = ExtResource("16_nocyy")
+tab_2/title = ""
+tab_2/icon = ExtResource("17_ssp6w")
+tab_3/title = ""
+tab_3/icon = ExtResource("18_0xb8i")
 
-[node name="EventBox" type="ColorRect" parent="."]
+[node name="StoryBox" type="TextureRect" parent="."]
 unique_name_in_owner = true
 visible = false
 layout_mode = 0
-offset_left = 707.0
-offset_top = 317.0
-offset_right = 1139.0
-offset_bottom = 585.0
+offset_top = 41.0
+offset_right = 1278.0
+offset_bottom = 759.0
+texture = ExtResource("13_1pqwx")
+expand_mode = 1
+stretch_mode = 1
+script = ExtResource("13_nqmeh")
+
+[node name="ColorRect" type="ColorRect" parent="StoryBox"]
+layout_mode = 0
+offset_right = 1278.0
+offset_bottom = 718.0
+color = Color(0, 0, 0, 0.635294)
+
+[node name="Text" type="RichTextLabel" parent="StoryBox"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.458
+anchor_top = -0.468
+anchor_right = -0.458
+anchor_bottom = -0.468
+offset_left = 952.324
+offset_top = 436.024
+offset_right = 1501.32
+offset_bottom = 904.024
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "Text Here"
+scroll_following = true
+
+[node name="Button" type="Button" parent="StoryBox"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -54.5
+offset_top = -55.0
+offset_right = 54.5
+offset_bottom = -24.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Button Text"
+
+[node name="MenuButton" type="MenuButton" parent="."]
+layout_mode = 0
+offset_left = 21.0
+offset_top = 52.0
+offset_right = 100.0
+offset_bottom = 90.0
+text = "Menu"
+flat = false
+script = ExtResource("17_3hbk4")
+
+[node name="InfoBox" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 744.0
+offset_top = 311.0
+offset_right = 1213.0
+offset_bottom = 609.0
+theme_override_font_sizes/normal_font_size = 16
+script = ExtResource("20_ukp5a")
+
+[node name="EventBox" type="ColorRect" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 789.0
+offset_top = 392.0
+offset_right = 1221.0
+offset_bottom = 660.0
 color = Color(0.239216, 0.282353, 0.313726, 0.917647)
 script = ExtResource("13_e2jex")
 
@@ -902,86 +965,14 @@ grow_horizontal = 2
 grow_vertical = 0
 text = "Ok"
 
-[node name="Arrow" type="Label" parent="EventBox"]
+[node name="Arrow" type="TextureRect" parent="EventBox"]
 layout_mode = 0
-offset_left = 406.0
-offset_top = 210.0
-offset_right = 429.0
-offset_bottom = 265.0
-theme_override_font_sizes/font_size = 40
-text = "🢛"
-
-[node name="StoryBox" type="TextureRect" parent="."]
-unique_name_in_owner = true
-visible = false
-layout_mode = 0
-offset_top = 40.0
-offset_right = 1153.0
-offset_bottom = 691.0
-texture = ExtResource("13_1pqwx")
+offset_left = 390.0
+offset_top = 229.0
+offset_right = 418.0
+offset_bottom = 257.0
+texture = ExtResource("21_jkw4m")
 expand_mode = 1
-stretch_mode = 1
-script = ExtResource("13_nqmeh")
-
-[node name="ColorRect" type="ColorRect" parent="StoryBox"]
-layout_mode = 0
-offset_right = 1153.0
-offset_bottom = 651.0
-color = Color(0, 0, 0, 0.635294)
-
-[node name="Text" type="RichTextLabel" parent="StoryBox"]
-unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = -1
-anchor_left = -0.458
-anchor_top = -0.468
-anchor_right = -0.458
-anchor_bottom = -0.468
-offset_left = 836.074
-offset_top = 389.668
-offset_right = 1385.07
-offset_bottom = 857.668
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/normal_font_size = 20
-bbcode_enabled = true
-text = "Text Here"
-scroll_following = true
-
-[node name="Button" type="Button" parent="StoryBox"]
-unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -54.5
-offset_top = -55.0
-offset_right = 54.5
-offset_bottom = -24.0
-grow_horizontal = 2
-grow_vertical = 0
-text = "Button Text"
-
-[node name="MenuButton" type="MenuButton" parent="."]
-layout_mode = 0
-offset_left = 21.0
-offset_top = 52.0
-offset_right = 100.0
-offset_bottom = 90.0
-text = "Menu"
-flat = false
-script = ExtResource("17_3hbk4")
-
-[node name="InfoBox" type="RichTextLabel" parent="."]
-layout_mode = 0
-offset_left = 707.0
-offset_top = 312.0
-offset_right = 1102.0
-offset_bottom = 562.0
-theme_override_font_sizes/normal_font_size = 16
-script = ExtResource("20_ukp5a")
 
 [connection signal="mouse_entered" from="PanelStation/LabelPayload/LabelHumans" to="InfoBox" method="_on_label_humans_mouse_entered"]
 [connection signal="mouse_entered" from="PanelStation/LabelPayload/LabelHumans/Hitbox" to="InfoBox" method="_on_label_humans_mouse_entered"]
@@ -1010,8 +1001,8 @@ script = ExtResource("20_ukp5a")
 [connection signal="pressed" from="LaunchBuild/ContainerLaunchH/LaunchHumans" to="LaunchBuild" method="_on_launch_humans_pressed"]
 [connection signal="pressed" from="LaunchBuild/ContainerLaunchM/LaunchMatter" to="LaunchBuild" method="_on_launch_matter_pressed"]
 [connection signal="pressed" from="LaunchBuild/ContainerBuildDrone/BuildMiningDrone" to="LaunchBuild" method="_on_build_drone_pressed"]
+[connection signal="pressed" from="StoryBox/Button" to="StoryBox" method="_on_button_pressed"]
+[connection signal="mouse_entered" from="InfoBox" to="InfoBox" method="_on_mouse_entered"]
 [connection signal="mouse_entered" from="EventBox" to="EventBox" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="EventBox" to="EventBox" method="_on_mouse_exited"]
 [connection signal="pressed" from="EventBox/Button" to="EventBox" method="_on_button_pressed"]
-[connection signal="pressed" from="StoryBox/Button" to="StoryBox" method="_on_button_pressed"]
-[connection signal="mouse_entered" from="InfoBox" to="InfoBox" method="_on_mouse_entered"]
