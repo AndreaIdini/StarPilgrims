@@ -35,12 +35,12 @@ Something that will happen, even though we don't know when. This is the story of
  Here it is its first step.
 ", "Let's embark on this adventure!")
 
-func game_over():
+func game_over(texten="At least one human would have died frozen or hungry unless I intervened, despite what I hope are your best efforts. 
+	
+Unfortunately this makes you unfit for a mission critical AI. Our space program needs better"):
 	button.hide()
-	
-	text_scroll("[center]At least one human would have died frozen or hungry unless I intervened, despite what I hope are your best efforts. 
-	
-Unfortunately this makes you unfit for a mission critical AI. Our space program needs better", "")
+	$"../PanelStation".hide()
+	text_scroll("[center]"+texten, "")
 
 func about():
 	button.hide()

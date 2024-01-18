@@ -52,7 +52,7 @@ func _physics_process(delta):
 			return
 		
 		energy_cost = tot_energy_cost/travel_tot_time/24
-		mass_cost = tot_energy_cost/travel_tot_time/1000
+		mass_cost = tot_energy_cost/travel_tot_time/100
 
 		station.energy += - energy_cost*delta
 		station.matter += - mass_cost*delta

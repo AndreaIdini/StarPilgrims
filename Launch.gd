@@ -32,8 +32,13 @@ var drone_energy_cost = 100 # kWh
 
 var travelling = false
 
+var description_humans = ""
+var description_matter = ""
+var description_drone = ""
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	update_descriptions()
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -105,3 +110,7 @@ func _on_build_drone_pressed():
 	
 	progress_build_md.max_value = time_to_build_drone/log(station.humans+1)*log(2)
 
+func update_descriptions():
+	description_humans = "Will launch an astronaut adding them to your station's crew.\nIt takes time to get them ready and you pay in advance.\n\ntime to launch: " + str(time_to_launch_humans) + "\ncost to launch: " + str(cost_to_launch_humans) + "\nhumans: " + str(humans_transported)
+	description_matter = "Will launch some matter. \n\ntime to launch: " + str(time_to_launch_matter) + "\ncost to launch: " + str(matter_cost) + " credits/ton\nhumans: " + str(humans_transported)
+	description_drone = "Will build a faithful little drone that will collect matter for you \n\ntime to build: " + str(time_to_build_drone) + "\nmatter cost: " + str(drone_matter_cost) + " ton\nenergy cost: "+ str(drone_energy_cost) + " kWh"

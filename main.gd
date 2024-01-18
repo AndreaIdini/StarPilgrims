@@ -63,30 +63,50 @@ func _physics_process(delta):
 
 	if station.matter < 0 && ! matter_crisis:
 		matter_crisis = true
+		
+		if %ContainerTravelButton.travel_in_progress || station.orbit_Asteroid:
+			story_box.game_over("I cannot help you delivering matter so far away from Earth!
+			
+			Your humans are really in a pickle now! 
+			You have not satisfied your directives and you will be moved to more menial jobs, try to plan ahead next time!")
+		
 		# Put two alternatives
 		await event_box.text_scroll("You've run out of matter, your humans are starving!
 		
-I can send you rapidly some emergency provision, but it's going to cost you 300 credits for 100 kg!", "Accept")
+I can send you rapidly some emergency provision, but it's going to cost you 500 credits for 100 kg!", "Accept")
 		
-		if credits > 300:
-			credits -= 300
+		if credits > 500:
+			credits -= 500
 			station.matter += 0.1
 		else:
 			story_box.game_over()
+			
 		matter_crisis = false
-		
+	
+	if station.humans == 0:
+		energy_crisis = false
+	
 	if station.energy < 0 && ! energy_crisis:
 		energy_crisis = true
 		
+		if %ContainerTravelButton.travel_in_progress || station.orbit_Asteroid:
+			story_box.game_over("I cannot rescue your humans so far away from Earth!
+				
+				You have not satisfied your directives and you will be moved to more menial jobs, try to plan ahead next time!")
+			station.humans = 0
+			
 		if station.humans > 0:
 			await event_box.text_scroll("You've run out of energy, your life support system is off!
 		
 Your humans need to evacuate immediately for their safety.
 I hope you have enough credits to financially recover from this", "Accept")
 		
-			credits -= 300
+			credits -= 500
 			station.humans = 0
 		
 			if credits < $LaunchBuild.cost_to_launch_humans:
-				story_box.game_over()
+				story_box.game_over("")
 			
+			print(energy_crisis)
+	
+	pass

@@ -51,3 +51,12 @@ func _on_container_bolas_button_mouse_entered():
 
 func _on_container_travel_button_mouse_entered():
 	self.text = %ContainerTravelButton.description
+	
+func _on_container_launch_h_mouse_entered():
+	self.text = $"../LaunchBuild".description_humans
+
+func _on_container_launch_m_mouse_entered():
+	self.text = $"../LaunchBuild".description_matter
+	
+func _on_container_build_drone_mouse_entered():
+	self.text = $"../LaunchBuild".description_drone

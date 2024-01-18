@@ -1,7 +1,7 @@
 extends Node
 
 class_name Station
-var cheat = false
+var cheat = true
 
 var time = 0.
 
@@ -321,6 +321,7 @@ func station_properties():
 		solar_power_installed = solar_power_installed*0.25
 		
 	update_visuals()
+	$"../LaunchBuild".update_descriptions()
 
 func station_mass():
 	var mass = 0.
