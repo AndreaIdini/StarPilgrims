@@ -4,3 +4,4 @@
 addons/godot-git-plugin/
 Exports/
 *.exe
+*.import

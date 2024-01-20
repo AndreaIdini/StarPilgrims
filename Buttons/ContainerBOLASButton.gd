@@ -23,7 +23,8 @@ Constructing the BOLAS station wins the game."
 	#pass
 
 func _on_build_bolas_pressed():
-	if station.matter > required_matter && station.solar_power_installed > required_power :
+	if station.matter > required_matter && station.solar_power_installed > required_power && $"../../..".credits > required_credits:
+		$"../../../StoryBox/Bolas".show()
 		story_box.BOLAS_built(station.time)
 		
 	pass # Replace with function body.

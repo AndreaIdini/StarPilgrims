@@ -32,7 +32,9 @@ Few visionaries over decades kept the dream alive, with projects and achievement
 This is a story of something much more ambitious than any other project in history. More ambitious than a Mars colony or a Dyson sphere.
 Something that will happen, even though we don't know when. This is the story of the last human migration.
 																										
- Here it is its first step.
+ Here it is its first step to the coming age of the
+
+[b][color=white][font_size=40] Star Pilgrims [/font_size] [/color][/b]
 ", "Let's embark on this adventure!")
 
 func game_over(texten="At least one human would have died frozen or hungry unless I intervened, despite what I hope are your best efforts. 
@@ -45,8 +47,7 @@ Unfortunately this makes you unfit for a mission critical AI. Our space program 
 
 func about():
 	button.hide()
-	
-	text_scroll("[center]Star Pilgrims
+	await text_scroll("[center][b][color=white][font_size=40] Star Pilgrims [/font_size] [/color][/b]
 
 
 Dedicated to my wife Chiara and her good health.
@@ -57,10 +58,13 @@ Dedicated to my wife Chiara and her good health.
 
 
 This game was written from scratch in Godot without previous experience in a week. 
-If I could do it, anyone can. Give it a try.
+If I could do it, anyone can. Give it a try. Code is available on github.
+	
+	
 	
 Andrea Idini 2024 (c)", "Resume")
 
+	
 func BOLAS_built(days):
 	text_scroll("[center]BOLAS station has been built in
 
@@ -76,6 +80,9 @@ func text_scroll(textScroll, textButton):
 	game_speed = tab_bar.current_tab
 	tab_bar.current_tab = 0 # pause
 	button.hide()
+	%EventBox.hide()
+	$"../InfoBox".text = ""
+	
 	self.show()
 	text.bbcode_text = textScroll
 	text.visible_characters = 0
@@ -94,6 +101,7 @@ func text_scroll(textScroll, textButton):
 		button.text = textButton
 		button.show()
 	skip = false
+	%EventBox.show()
 
 func _on_button_pressed():
 	over = true

@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://drddf4j2gbweq"]
+[gd_scene load_steps=34 format=3 uid="uid://drddf4j2gbweq"]
 
 [ext_resource type="Texture2D" uid="uid://b2nler7tmsvhs" path="res://Asset/SpaceStation1.png" id="1_5p6ln"]
 [ext_resource type="Script" path="res://main.gd" id="1_7tmd3"]
@@ -27,6 +27,8 @@
 [ext_resource type="Texture2D" uid="uid://duvc32gwemxs8" path="res://Asset/next-button_small.png" id="18_0xb8i"]
 [ext_resource type="Script" path="res://Buttons/InfoBox.gd" id="20_ukp5a"]
 [ext_resource type="Texture2D" uid="uid://b7ptlrcaomldx" path="res://Asset/plain-arrow.png" id="21_jkw4m"]
+[ext_resource type="FontFile" uid="uid://cheaeyn4xqc2l" path="res://Asset/Pixel12x10.ttf" id="23_yaorp"]
+[ext_resource type="Texture2D" uid="uid://d2irfm1no6m53" path="res://Asset/BOLAS.png" id="28_24hbh"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ws068"]
 bg_color = Color(0.239216, 0.239216, 0.239216, 1)
@@ -508,7 +510,9 @@ size_flags_horizontal = 0
 
 [node name="BuildSolar" type="Button" parent="PanelStation/ModuleBuild/ContainerSolarPanel/ContainerSolarButton"]
 layout_mode = 2
+size_flags_vertical = 3
 text = "Build Solar Array Wing"
+alignment = 0
 
 [node name="ProgressSolar" type="ProgressBar" parent="PanelStation/ModuleBuild/ContainerSolarPanel/ContainerSolarButton"]
 layout_mode = 2
@@ -518,9 +522,9 @@ show_percentage = false
 [node name="ContainerBattery" type="HBoxContainer" parent="PanelStation/ModuleBuild"]
 unique_name_in_owner = true
 layout_mode = 2
-offset_left = 289.0
+offset_left = 275.0
 offset_top = 329.0
-offset_right = 500.0
+offset_right = 512.0
 offset_bottom = 368.0
 script = ExtResource("5_tsak2")
 
@@ -535,11 +539,12 @@ vertical_alignment = 1
 
 [node name="ContainerBatteryButton" type="VBoxContainer" parent="PanelStation/ModuleBuild/ContainerBattery"]
 layout_mode = 2
-size_flags_horizontal = 0
+size_flags_horizontal = 3
 
 [node name="BuildBattery" type="Button" parent="PanelStation/ModuleBuild/ContainerBattery/ContainerBatteryButton"]
 layout_mode = 2
 text = "Build Battery Stack"
+alignment = 0
 
 [node name="ProgressBattery" type="ProgressBar" parent="PanelStation/ModuleBuild/ContainerBattery/ContainerBatteryButton"]
 layout_mode = 2
@@ -549,9 +554,9 @@ show_percentage = false
 [node name="ContainerLiving" type="HBoxContainer" parent="PanelStation/ModuleBuild"]
 unique_name_in_owner = true
 layout_mode = 2
-offset_left = 520.0
+offset_left = 517.0
 offset_top = 329.0
-offset_right = 747.0
+offset_right = 754.0
 offset_bottom = 368.0
 script = ExtResource("6_yq5dq")
 
@@ -566,11 +571,12 @@ vertical_alignment = 1
 
 [node name="ContainerLivingButton" type="VBoxContainer" parent="PanelStation/ModuleBuild/ContainerLiving"]
 layout_mode = 2
-size_flags_horizontal = 0
+size_flags_horizontal = 3
 
 [node name="BuildLiving" type="Button" parent="PanelStation/ModuleBuild/ContainerLiving/ContainerLivingButton"]
 layout_mode = 2
 text = "Build Living Quarters"
+alignment = 0
 
 [node name="ProgressLiving" type="ProgressBar" parent="PanelStation/ModuleBuild/ContainerLiving/ContainerLivingButton"]
 layout_mode = 2
@@ -582,8 +588,10 @@ unique_name_in_owner = true
 layout_mode = 2
 offset_left = 31.0
 offset_top = 391.0
-offset_right = 238.0
+offset_right = 269.0
 offset_bottom = 430.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("6_fswgt")
 
 [node name="CountComputing" type="Label" parent="PanelStation/ModuleBuild/ContainerComputing"]
@@ -597,11 +605,15 @@ vertical_alignment = 1
 
 [node name="ContainerComputingButton" type="VBoxContainer" parent="PanelStation/ModuleBuild/ContainerComputing"]
 layout_mode = 2
-size_flags_horizontal = 0
+size_flags_horizontal = 3
+size_flags_vertical = 4
+alignment = 2
 
 [node name="BuildComputing" type="Button" parent="PanelStation/ModuleBuild/ContainerComputing/ContainerComputingButton"]
 layout_mode = 2
 text = "Build Data Center"
+alignment = 0
+icon_alignment = 1
 
 [node name="ProgressComputing" type="ProgressBar" parent="PanelStation/ModuleBuild/ContainerComputing/ContainerComputingButton"]
 layout_mode = 2
@@ -611,9 +623,9 @@ show_percentage = false
 [node name="ContainerDroneBay" type="HBoxContainer" parent="PanelStation/ModuleBuild"]
 unique_name_in_owner = true
 layout_mode = 2
-offset_left = 289.0
+offset_left = 275.0
 offset_top = 391.0
-offset_right = 480.0
+offset_right = 512.0
 offset_bottom = 430.0
 script = ExtResource("8_v88ik")
 
@@ -628,11 +640,12 @@ vertical_alignment = 1
 
 [node name="ContainerDroneButton" type="VBoxContainer" parent="PanelStation/ModuleBuild/ContainerDroneBay"]
 layout_mode = 2
-size_flags_horizontal = 0
+size_flags_horizontal = 3
 
 [node name="BuildDroneBay" type="Button" parent="PanelStation/ModuleBuild/ContainerDroneBay/ContainerDroneButton"]
 layout_mode = 2
 text = "Build Drone Bay"
+alignment = 0
 
 [node name="ProgressDroneBay" type="ProgressBar" parent="PanelStation/ModuleBuild/ContainerDroneBay/ContainerDroneButton"]
 layout_mode = 2
@@ -642,9 +655,9 @@ show_percentage = false
 [node name="ContainerHotel" type="HBoxContainer" parent="PanelStation/ModuleBuild"]
 unique_name_in_owner = true
 layout_mode = 2
-offset_left = 520.0
+offset_left = 517.0
 offset_top = 391.0
-offset_right = 726.0
+offset_right = 754.0
 offset_bottom = 430.0
 script = ExtResource("9_g0u6u")
 
@@ -659,11 +672,12 @@ vertical_alignment = 1
 
 [node name="ContainerHotelButton" type="VBoxContainer" parent="PanelStation/ModuleBuild/ContainerHotel"]
 layout_mode = 2
-size_flags_horizontal = 0
+size_flags_horizontal = 3
 
 [node name="BuildHotel" type="Button" parent="PanelStation/ModuleBuild/ContainerHotel/ContainerHotelButton"]
 layout_mode = 2
 text = "Build Zero-G Hotel"
+alignment = 0
 
 [node name="ProgressHotel" type="ProgressBar" parent="PanelStation/ModuleBuild/ContainerHotel/ContainerHotelButton"]
 layout_mode = 2
@@ -673,10 +687,12 @@ show_percentage = false
 [node name="ContainerEngine" type="HBoxContainer" parent="PanelStation/ModuleBuild"]
 unique_name_in_owner = true
 layout_mode = 2
-offset_left = 289.0
+offset_left = 275.0
 offset_top = 454.0
-offset_right = 493.0
+offset_right = 512.0
 offset_bottom = 493.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("10_mwwui")
 
 [node name="CountEngine" type="Label" parent="PanelStation/ModuleBuild/ContainerEngine"]
@@ -690,11 +706,12 @@ vertical_alignment = 1
 
 [node name="ContainerEngineButton" type="VBoxContainer" parent="PanelStation/ModuleBuild/ContainerEngine"]
 layout_mode = 2
-size_flags_horizontal = 0
+size_flags_horizontal = 3
 
 [node name="BuildEngine" type="Button" parent="PanelStation/ModuleBuild/ContainerEngine/ContainerEngineButton"]
 layout_mode = 2
 text = "Build Ion Thruster"
+alignment = 0
 
 [node name="ProgressEngine" type="ProgressBar" parent="PanelStation/ModuleBuild/ContainerEngine/ContainerEngineButton"]
 layout_mode = 2
@@ -706,7 +723,7 @@ unique_name_in_owner = true
 layout_mode = 2
 offset_left = 31.0
 offset_top = 454.0
-offset_right = 223.0
+offset_right = 269.0
 offset_bottom = 493.0
 script = ExtResource("11_graqn")
 
@@ -721,11 +738,12 @@ vertical_alignment = 1
 
 [node name="ContainerFactoryButton" type="VBoxContainer" parent="PanelStation/ModuleBuild/ContainerFactory"]
 layout_mode = 2
-size_flags_horizontal = 0
+size_flags_horizontal = 3
 
 [node name="BuildFactory" type="Button" parent="PanelStation/ModuleBuild/ContainerFactory/ContainerFactoryButton"]
 layout_mode = 2
 text = "Build Zero-G Factory"
+alignment = 0
 
 [node name="ProgressFactory" type="ProgressBar" parent="PanelStation/ModuleBuild/ContainerFactory/ContainerFactoryButton"]
 layout_mode = 2
@@ -733,10 +751,11 @@ max_value = 14.0
 show_percentage = false
 
 [node name="ContainerBOLASButton" type="VBoxContainer" parent="PanelStation/ModuleBuild"]
+visible = false
 layout_mode = 0
-offset_left = 576.0
+offset_left = 573.0
 offset_top = 454.0
-offset_right = 742.0
+offset_right = 754.0
 offset_bottom = 493.0
 size_flags_horizontal = 0
 script = ExtResource("13_nmipx")
@@ -744,6 +763,7 @@ script = ExtResource("13_nmipx")
 [node name="BuildBOLAS" type="Button" parent="PanelStation/ModuleBuild/ContainerBOLASButton"]
 layout_mode = 2
 text = "Build BOLAS Station"
+alignment = 0
 
 [node name="ProgressBOLAS" type="ProgressBar" parent="PanelStation/ModuleBuild/ContainerBOLASButton"]
 layout_mode = 2
@@ -757,9 +777,9 @@ anchor_left = 12.545
 anchor_top = 0.8
 anchor_right = 12.545
 anchor_bottom = 0.8
-offset_left = -270.14
+offset_left = -296.14
 offset_top = 14.4
-offset_right = -117.14
+offset_right = -143.14
 offset_bottom = 48.4
 theme_override_font_sizes/font_size = 24
 text = "Days Elapsed"
@@ -867,78 +887,6 @@ tab_2/icon = ExtResource("17_ssp6w")
 tab_3/title = ""
 tab_3/icon = ExtResource("18_0xb8i")
 
-[node name="StoryBox" type="TextureRect" parent="."]
-unique_name_in_owner = true
-visible = false
-layout_mode = 0
-offset_top = 41.0
-offset_right = 1278.0
-offset_bottom = 759.0
-texture = ExtResource("13_1pqwx")
-expand_mode = 1
-stretch_mode = 1
-script = ExtResource("13_nqmeh")
-
-[node name="ColorRect" type="ColorRect" parent="StoryBox"]
-layout_mode = 0
-offset_right = 1278.0
-offset_bottom = 718.0
-color = Color(0, 0, 0, 0.635294)
-
-[node name="Text" type="RichTextLabel" parent="StoryBox"]
-unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = -1
-anchor_left = -0.458
-anchor_top = -0.468
-anchor_right = -0.458
-anchor_bottom = -0.468
-offset_left = 952.324
-offset_top = 436.024
-offset_right = 1501.32
-offset_bottom = 904.024
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/normal_font_size = 20
-bbcode_enabled = true
-text = "Text Here"
-scroll_following = true
-
-[node name="Button" type="Button" parent="StoryBox"]
-unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -54.5
-offset_top = -55.0
-offset_right = 54.5
-offset_bottom = -24.0
-grow_horizontal = 2
-grow_vertical = 0
-text = "Button Text"
-
-[node name="MenuButton" type="MenuButton" parent="."]
-layout_mode = 0
-offset_left = 21.0
-offset_top = 52.0
-offset_right = 100.0
-offset_bottom = 90.0
-text = "Menu"
-flat = false
-script = ExtResource("17_3hbk4")
-
-[node name="InfoBox" type="RichTextLabel" parent="."]
-layout_mode = 0
-offset_left = 787.0
-offset_top = 311.0
-offset_right = 1213.0
-offset_bottom = 609.0
-theme_override_font_sizes/normal_font_size = 16
-script = ExtResource("20_ukp5a")
-
 [node name="EventBox" type="ColorRect" parent="."]
 unique_name_in_owner = true
 layout_mode = 0
@@ -964,6 +912,7 @@ offset_left = 48.0
 offset_top = 38.0
 offset_right = 395.0
 offset_bottom = 217.0
+theme_override_fonts/normal_font = ExtResource("23_yaorp")
 theme_override_font_sizes/normal_font_size = 20
 bbcode_enabled = true
 text = "Hello, welcome to Space Station 1. Don't be startled! We needed to jumpstart the waking process and you might miss many operating parameters. 
@@ -991,6 +940,93 @@ offset_right = 418.0
 offset_bottom = 257.0
 texture = ExtResource("21_jkw4m")
 expand_mode = 1
+
+[node name="InfoBox" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 787.0
+offset_top = 311.0
+offset_right = 1213.0
+offset_bottom = 609.0
+theme_override_font_sizes/normal_font_size = 16
+script = ExtResource("20_ukp5a")
+
+[node name="StoryBox" type="TextureRect" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_top = 41.0
+offset_right = 1278.0
+offset_bottom = 759.0
+texture = ExtResource("13_1pqwx")
+expand_mode = 1
+stretch_mode = 1
+script = ExtResource("13_nqmeh")
+
+[node name="ColorRect" type="ColorRect" parent="StoryBox"]
+layout_mode = 0
+offset_right = 1278.0
+offset_bottom = 718.0
+color = Color(0, 0, 0, 0.635294)
+
+[node name="Bolas" type="Sprite2D" parent="StoryBox"]
+visible = false
+position = Vector2(1061, 512)
+scale = Vector2(0.431152, 0.431152)
+texture = ExtResource("28_24hbh")
+
+[node name="Text" type="RichTextLabel" parent="StoryBox"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.458
+anchor_top = -0.468
+anchor_right = -0.458
+anchor_bottom = -0.468
+offset_left = 952.324
+offset_top = 436.024
+offset_right = 1501.32
+offset_bottom = 904.024
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0.913725, 0.933333, 0.184314, 1)
+theme_override_fonts/normal_font = ExtResource("23_yaorp")
+theme_override_fonts/bold_font = ExtResource("5_i7pv1")
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "People have dreamt about the stars since time immemorial. 
+	
+	These dreams became much more realistic with the discovery of flight in 1783 by the Montgolfier brothers in Versailles. 
+	The 20th century saw the first heavier than air flight by the famous Wright brothers in 1903, 
+	a fighter jet capable of Mach 0.83 in 1942, and 
+	soon after the space race put a man on a Moon in 1969. "
+scroll_following = true
+
+[node name="Button" type="Button" parent="StoryBox"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -54.5
+offset_top = -55.0
+offset_right = 54.5
+offset_bottom = -24.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("23_yaorp")
+theme_override_font_sizes/font_size = 24
+text = "Button Text"
+
+[node name="MenuButton" type="MenuButton" parent="."]
+layout_mode = 0
+offset_left = 21.0
+offset_top = 52.0
+offset_right = 100.0
+offset_bottom = 90.0
+text = "Menu"
+flat = false
+script = ExtResource("17_3hbk4")
 
 [connection signal="mouse_entered" from="PanelStation/LabelPayload/LabelHumans" to="InfoBox" method="_on_label_humans_mouse_entered"]
 [connection signal="mouse_entered" from="PanelStation/LabelPayload/LabelHumans/Hitbox" to="InfoBox" method="_on_label_humans_mouse_entered"]
@@ -1036,8 +1072,8 @@ expand_mode = 1
 [connection signal="mouse_entered" from="LaunchBuild/ContainerBuildDrone" to="InfoBox" method="_on_container_build_drone_mouse_entered"]
 [connection signal="mouse_entered" from="LaunchBuild/ContainerBuildDrone/BuildMiningDrone" to="InfoBox" method="_on_container_build_drone_mouse_entered"]
 [connection signal="pressed" from="LaunchBuild/ContainerBuildDrone/BuildMiningDrone" to="LaunchBuild" method="_on_build_drone_pressed"]
-[connection signal="pressed" from="StoryBox/Button" to="StoryBox" method="_on_button_pressed"]
-[connection signal="mouse_entered" from="InfoBox" to="InfoBox" method="_on_mouse_entered"]
 [connection signal="mouse_entered" from="EventBox" to="EventBox" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="EventBox" to="EventBox" method="_on_mouse_exited"]
 [connection signal="pressed" from="EventBox/Button" to="EventBox" method="_on_button_pressed"]
+[connection signal="mouse_entered" from="InfoBox" to="InfoBox" method="_on_mouse_entered"]
+[connection signal="pressed" from="StoryBox/Button" to="StoryBox" method="_on_button_pressed"]
