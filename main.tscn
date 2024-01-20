@@ -1,11 +1,13 @@
-[gd_scene load_steps=30 format=3 uid="uid://drddf4j2gbweq"]
+[gd_scene load_steps=32 format=3 uid="uid://drddf4j2gbweq"]
 
 [ext_resource type="Texture2D" uid="uid://b2nler7tmsvhs" path="res://Asset/SpaceStation1.png" id="1_5p6ln"]
 [ext_resource type="Script" path="res://main.gd" id="1_7tmd3"]
 [ext_resource type="Script" path="res://Station.gd" id="2_oc6wt"]
 [ext_resource type="Script" path="res://Launch.gd" id="4_oiuw7"]
+[ext_resource type="FontFile" uid="uid://c7qik7sno301b" path="res://Asset/First In Line.otf" id="5_i7pv1"]
 [ext_resource type="Script" path="res://Buttons/ContainerSolarPanel.gd" id="5_ree1l"]
 [ext_resource type="Script" path="res://Buttons/ContainerBattery.gd" id="5_tsak2"]
+[ext_resource type="FontFile" uid="uid://cpbviiltpflav" path="res://Asset/casio-fx-702p.ttf" id="6_3qpvv"]
 [ext_resource type="Script" path="res://Buttons/ContainerComputing.gd" id="6_fswgt"]
 [ext_resource type="Script" path="res://Buttons/ContainerLiving.gd" id="6_yq5dq"]
 [ext_resource type="Script" path="res://Buttons/ContainerDroneBay.gd" id="8_v88ik"]
@@ -92,9 +94,9 @@ anchors_preset = -1
 anchor_left = 1.0
 anchor_right = 1.0
 offset_left = -389.0
-offset_top = 24.0
+offset_top = 40.0
 offset_right = -14.0
-offset_bottom = 214.0
+offset_bottom = 230.0
 theme_override_font_sizes/font_size = 28
 text = "Crew and Payload"
 
@@ -104,9 +106,9 @@ anchors_preset = -1
 anchor_top = 6.59
 anchor_bottom = 6.59
 offset_left = 26.0
-offset_top = -668.1
+offset_top = -679.1
 offset_right = 379.0
-offset_bottom = -634.1
+offset_bottom = -645.1
 theme_override_font_sizes/font_size = 24
 text = "Credits"
 
@@ -470,10 +472,11 @@ horizontal_alignment = 2
 layout_mode = 1
 anchors_preset = -1
 offset_left = 289.0
-offset_top = 24.0
-offset_right = 622.0
-offset_bottom = 63.0
-theme_override_font_sizes/font_size = 28
+offset_top = 34.0
+offset_right = 732.0
+offset_bottom = 73.0
+theme_override_fonts/font = ExtResource("5_i7pv1")
+theme_override_font_sizes/font_size = 40
 text = "Composite Space Station"
 
 [node name="ModuleBuild" type="Control" parent="PanelStation"]
@@ -494,8 +497,10 @@ script = ExtResource("5_ree1l")
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 1
-theme_override_font_sizes/font_size = 24
-text = "??"
+theme_override_fonts/font = ExtResource("6_3qpvv")
+theme_override_font_sizes/font_size = 20
+text = "???"
+vertical_alignment = 1
 
 [node name="ContainerSolarButton" type="VBoxContainer" parent="PanelStation/ModuleBuild/ContainerSolarPanel"]
 layout_mode = 2
@@ -513,9 +518,9 @@ show_percentage = false
 [node name="ContainerBattery" type="HBoxContainer" parent="PanelStation/ModuleBuild"]
 unique_name_in_owner = true
 layout_mode = 2
-offset_left = 268.0
+offset_left = 289.0
 offset_top = 329.0
-offset_right = 475.0
+offset_right = 500.0
 offset_bottom = 368.0
 script = ExtResource("5_tsak2")
 
@@ -523,8 +528,10 @@ script = ExtResource("5_tsak2")
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 1
-theme_override_font_sizes/font_size = 24
-text = "??"
+theme_override_fonts/font = ExtResource("6_3qpvv")
+theme_override_font_sizes/font_size = 20
+text = "???"
+vertical_alignment = 1
 
 [node name="ContainerBatteryButton" type="VBoxContainer" parent="PanelStation/ModuleBuild/ContainerBattery"]
 layout_mode = 2
@@ -542,9 +549,9 @@ show_percentage = false
 [node name="ContainerLiving" type="HBoxContainer" parent="PanelStation/ModuleBuild"]
 unique_name_in_owner = true
 layout_mode = 2
-offset_left = 479.0
+offset_left = 520.0
 offset_top = 329.0
-offset_right = 686.0
+offset_right = 747.0
 offset_bottom = 368.0
 script = ExtResource("6_yq5dq")
 
@@ -552,8 +559,10 @@ script = ExtResource("6_yq5dq")
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 1
-theme_override_font_sizes/font_size = 24
-text = "??"
+theme_override_fonts/font = ExtResource("6_3qpvv")
+theme_override_font_sizes/font_size = 20
+text = "???"
+vertical_alignment = 1
 
 [node name="ContainerLivingButton" type="VBoxContainer" parent="PanelStation/ModuleBuild/ContainerLiving"]
 layout_mode = 2
@@ -581,8 +590,10 @@ script = ExtResource("6_fswgt")
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 1
-theme_override_font_sizes/font_size = 24
-text = "??"
+theme_override_fonts/font = ExtResource("6_3qpvv")
+theme_override_font_sizes/font_size = 20
+text = "???"
+vertical_alignment = 1
 
 [node name="ContainerComputingButton" type="VBoxContainer" parent="PanelStation/ModuleBuild/ContainerComputing"]
 layout_mode = 2
@@ -600,9 +611,9 @@ show_percentage = false
 [node name="ContainerDroneBay" type="HBoxContainer" parent="PanelStation/ModuleBuild"]
 unique_name_in_owner = true
 layout_mode = 2
-offset_left = 268.0
+offset_left = 289.0
 offset_top = 391.0
-offset_right = 459.0
+offset_right = 480.0
 offset_bottom = 430.0
 script = ExtResource("8_v88ik")
 
@@ -610,8 +621,10 @@ script = ExtResource("8_v88ik")
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 1
-theme_override_font_sizes/font_size = 24
-text = "??"
+theme_override_fonts/font = ExtResource("6_3qpvv")
+theme_override_font_sizes/font_size = 20
+text = "???"
+vertical_alignment = 1
 
 [node name="ContainerDroneButton" type="VBoxContainer" parent="PanelStation/ModuleBuild/ContainerDroneBay"]
 layout_mode = 2
@@ -629,9 +642,9 @@ show_percentage = false
 [node name="ContainerHotel" type="HBoxContainer" parent="PanelStation/ModuleBuild"]
 unique_name_in_owner = true
 layout_mode = 2
-offset_left = 479.0
+offset_left = 520.0
 offset_top = 391.0
-offset_right = 655.0
+offset_right = 726.0
 offset_bottom = 430.0
 script = ExtResource("9_g0u6u")
 
@@ -639,8 +652,10 @@ script = ExtResource("9_g0u6u")
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 1
-theme_override_font_sizes/font_size = 24
-text = "??"
+theme_override_fonts/font = ExtResource("6_3qpvv")
+theme_override_font_sizes/font_size = 20
+text = "???"
+vertical_alignment = 1
 
 [node name="ContainerHotelButton" type="VBoxContainer" parent="PanelStation/ModuleBuild/ContainerHotel"]
 layout_mode = 2
@@ -658,9 +673,9 @@ show_percentage = false
 [node name="ContainerEngine" type="HBoxContainer" parent="PanelStation/ModuleBuild"]
 unique_name_in_owner = true
 layout_mode = 2
-offset_left = 268.0
+offset_left = 289.0
 offset_top = 454.0
-offset_right = 442.0
+offset_right = 493.0
 offset_bottom = 493.0
 script = ExtResource("10_mwwui")
 
@@ -668,8 +683,10 @@ script = ExtResource("10_mwwui")
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 1
-theme_override_font_sizes/font_size = 24
-text = "??"
+theme_override_fonts/font = ExtResource("6_3qpvv")
+theme_override_font_sizes/font_size = 20
+text = "???"
+vertical_alignment = 1
 
 [node name="ContainerEngineButton" type="VBoxContainer" parent="PanelStation/ModuleBuild/ContainerEngine"]
 layout_mode = 2
@@ -697,8 +714,10 @@ script = ExtResource("11_graqn")
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 1
-theme_override_font_sizes/font_size = 24
-text = "??"
+theme_override_fonts/font = ExtResource("6_3qpvv")
+theme_override_font_sizes/font_size = 20
+text = "???"
+vertical_alignment = 1
 
 [node name="ContainerFactoryButton" type="VBoxContainer" parent="PanelStation/ModuleBuild/ContainerFactory"]
 layout_mode = 2
@@ -714,12 +733,11 @@ max_value = 14.0
 show_percentage = false
 
 [node name="ContainerBOLASButton" type="VBoxContainer" parent="PanelStation/ModuleBuild"]
-visible = false
 layout_mode = 0
-offset_left = 505.0
-offset_top = 442.0
-offset_right = 671.0
-offset_bottom = 481.0
+offset_left = 576.0
+offset_top = 454.0
+offset_right = 742.0
+offset_bottom = 493.0
 size_flags_horizontal = 0
 script = ExtResource("13_nmipx")
 
@@ -914,7 +932,7 @@ script = ExtResource("17_3hbk4")
 
 [node name="InfoBox" type="RichTextLabel" parent="."]
 layout_mode = 0
-offset_left = 744.0
+offset_left = 787.0
 offset_top = 311.0
 offset_right = 1213.0
 offset_bottom = 609.0
@@ -979,30 +997,44 @@ expand_mode = 1
 [connection signal="mouse_entered" from="PanelStation/LabelPayload/LabelDrones/ColorRect" to="InfoBox" method="_on_label_drone_mouse_entered"]
 [connection signal="mouse_entered" from="PanelStation/Sprite/ContainerTravelButton" to="PanelStation/Sprite/ContainerTravelButton" method="_on_mouse_entered"]
 [connection signal="mouse_entered" from="PanelStation/Sprite/ContainerTravelButton" to="InfoBox" method="_on_container_travel_button_mouse_entered"]
+[connection signal="mouse_entered" from="PanelStation/Sprite/ContainerTravelButton/TravelButton" to="PanelStation/Sprite/ContainerTravelButton" method="_on_mouse_entered"]
+[connection signal="mouse_entered" from="PanelStation/Sprite/ContainerTravelButton/TravelButton" to="InfoBox" method="_on_container_travel_button_mouse_entered"]
 [connection signal="pressed" from="PanelStation/Sprite/ContainerTravelButton/TravelButton" to="PanelStation/Sprite/ContainerTravelButton" method="_on_travel_button_pressed"]
 [connection signal="mouse_entered" from="PanelStation/ModuleBuild/ContainerSolarPanel" to="InfoBox" method="_on_container_solar_panel_mouse_entered"]
+[connection signal="mouse_entered" from="PanelStation/ModuleBuild/ContainerSolarPanel/ContainerSolarButton/BuildSolar" to="InfoBox" method="_on_container_solar_panel_mouse_entered"]
 [connection signal="pressed" from="PanelStation/ModuleBuild/ContainerSolarPanel/ContainerSolarButton/BuildSolar" to="PanelStation/ModuleBuild/ContainerSolarPanel" method="_on_build_pressed"]
 [connection signal="mouse_entered" from="PanelStation/ModuleBuild/ContainerBattery" to="InfoBox" method="_on_container_battery_mouse_entered"]
+[connection signal="mouse_entered" from="PanelStation/ModuleBuild/ContainerBattery/ContainerBatteryButton/BuildBattery" to="InfoBox" method="_on_container_battery_mouse_entered"]
 [connection signal="pressed" from="PanelStation/ModuleBuild/ContainerBattery/ContainerBatteryButton/BuildBattery" to="PanelStation/ModuleBuild/ContainerBattery" method="_on_build_pressed"]
 [connection signal="mouse_entered" from="PanelStation/ModuleBuild/ContainerLiving" to="InfoBox" method="_on_container_living_mouse_entered"]
+[connection signal="mouse_entered" from="PanelStation/ModuleBuild/ContainerLiving/ContainerLivingButton/BuildLiving" to="InfoBox" method="_on_container_living_mouse_entered"]
 [connection signal="pressed" from="PanelStation/ModuleBuild/ContainerLiving/ContainerLivingButton/BuildLiving" to="PanelStation/ModuleBuild/ContainerLiving" method="_on_build_pressed"]
 [connection signal="mouse_entered" from="PanelStation/ModuleBuild/ContainerComputing" to="InfoBox" method="_on_container_computing_mouse_entered"]
+[connection signal="mouse_entered" from="PanelStation/ModuleBuild/ContainerComputing/ContainerComputingButton/BuildComputing" to="InfoBox" method="_on_container_computing_mouse_entered"]
 [connection signal="pressed" from="PanelStation/ModuleBuild/ContainerComputing/ContainerComputingButton/BuildComputing" to="PanelStation/ModuleBuild/ContainerComputing" method="_on_build_pressed"]
 [connection signal="mouse_entered" from="PanelStation/ModuleBuild/ContainerDroneBay" to="InfoBox" method="_on_container_drone_bay_mouse_entered"]
+[connection signal="mouse_entered" from="PanelStation/ModuleBuild/ContainerDroneBay/ContainerDroneButton/BuildDroneBay" to="InfoBox" method="_on_container_drone_bay_mouse_entered"]
 [connection signal="pressed" from="PanelStation/ModuleBuild/ContainerDroneBay/ContainerDroneButton/BuildDroneBay" to="PanelStation/ModuleBuild/ContainerDroneBay" method="_on_build_pressed"]
 [connection signal="mouse_entered" from="PanelStation/ModuleBuild/ContainerHotel" to="InfoBox" method="_on_container_hotel_mouse_entered"]
+[connection signal="mouse_entered" from="PanelStation/ModuleBuild/ContainerHotel/ContainerHotelButton/BuildHotel" to="InfoBox" method="_on_container_hotel_mouse_entered"]
 [connection signal="pressed" from="PanelStation/ModuleBuild/ContainerHotel/ContainerHotelButton/BuildHotel" to="PanelStation/ModuleBuild/ContainerHotel" method="_on_build_pressed"]
 [connection signal="mouse_entered" from="PanelStation/ModuleBuild/ContainerEngine" to="InfoBox" method="_on_container_engine_mouse_entered"]
+[connection signal="mouse_entered" from="PanelStation/ModuleBuild/ContainerEngine/ContainerEngineButton/BuildEngine" to="InfoBox" method="_on_container_engine_mouse_entered"]
 [connection signal="pressed" from="PanelStation/ModuleBuild/ContainerEngine/ContainerEngineButton/BuildEngine" to="PanelStation/ModuleBuild/ContainerEngine" method="_on_build_pressed"]
 [connection signal="mouse_entered" from="PanelStation/ModuleBuild/ContainerFactory" to="InfoBox" method="_on_container_factory_mouse_entered"]
+[connection signal="mouse_entered" from="PanelStation/ModuleBuild/ContainerFactory/ContainerFactoryButton/BuildFactory" to="InfoBox" method="_on_container_factory_mouse_entered"]
 [connection signal="pressed" from="PanelStation/ModuleBuild/ContainerFactory/ContainerFactoryButton/BuildFactory" to="PanelStation/ModuleBuild/ContainerFactory" method="_on_build_pressed"]
 [connection signal="mouse_entered" from="PanelStation/ModuleBuild/ContainerBOLASButton" to="InfoBox" method="_on_container_bolas_button_mouse_entered"]
+[connection signal="mouse_entered" from="PanelStation/ModuleBuild/ContainerBOLASButton/BuildBOLAS" to="InfoBox" method="_on_container_bolas_button_mouse_entered"]
 [connection signal="pressed" from="PanelStation/ModuleBuild/ContainerBOLASButton/BuildBOLAS" to="PanelStation/ModuleBuild/ContainerBOLASButton" method="_on_build_bolas_pressed"]
 [connection signal="mouse_entered" from="LaunchBuild/ContainerLaunchH" to="InfoBox" method="_on_container_launch_h_mouse_entered"]
+[connection signal="mouse_entered" from="LaunchBuild/ContainerLaunchH/LaunchHumans" to="InfoBox" method="_on_container_launch_h_mouse_entered"]
 [connection signal="pressed" from="LaunchBuild/ContainerLaunchH/LaunchHumans" to="LaunchBuild" method="_on_launch_humans_pressed"]
 [connection signal="mouse_entered" from="LaunchBuild/ContainerLaunchM" to="InfoBox" method="_on_container_launch_m_mouse_entered"]
+[connection signal="mouse_entered" from="LaunchBuild/ContainerLaunchM/LaunchMatter" to="InfoBox" method="_on_container_launch_m_mouse_entered"]
 [connection signal="pressed" from="LaunchBuild/ContainerLaunchM/LaunchMatter" to="LaunchBuild" method="_on_launch_matter_pressed"]
 [connection signal="mouse_entered" from="LaunchBuild/ContainerBuildDrone" to="InfoBox" method="_on_container_build_drone_mouse_entered"]
+[connection signal="mouse_entered" from="LaunchBuild/ContainerBuildDrone/BuildMiningDrone" to="InfoBox" method="_on_container_build_drone_mouse_entered"]
 [connection signal="pressed" from="LaunchBuild/ContainerBuildDrone/BuildMiningDrone" to="LaunchBuild" method="_on_build_drone_pressed"]
 [connection signal="pressed" from="StoryBox/Button" to="StoryBox" method="_on_button_pressed"]
 [connection signal="mouse_entered" from="InfoBox" to="InfoBox" method="_on_mouse_entered"]

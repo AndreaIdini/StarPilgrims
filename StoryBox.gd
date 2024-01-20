@@ -40,6 +40,7 @@ func game_over(texten="At least one human would have died frozen or hungry unles
 Unfortunately this makes you unfit for a mission critical AI. Our space program needs better"):
 	button.hide()
 	$"../PanelStation".hide()
+	%EventBox.hide()
 	text_scroll("[center]"+texten, "")
 
 func about():

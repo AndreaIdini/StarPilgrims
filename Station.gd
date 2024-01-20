@@ -303,14 +303,14 @@ func station_properties():
 		humans_cap += module["living_space"]
 		drones_cap += module["drone_bays"]
 		
-	$ModuleBuild/ContainerSolarPanel/CountSolar.text = str(Modules.count(SOLAR))
-	$ModuleBuild/ContainerBattery/CountBattery.text = str(Modules.count(BATTERY))
-	$ModuleBuild/ContainerLiving/CountLiving.text = str(Modules.count(BASIC_LIVING))
-	$ModuleBuild/ContainerComputing/CountComputing.text = str(Modules.count(COMPUTING))
-	$ModuleBuild/ContainerDroneBay/CountDroneBay.text = str(Modules.count(DRONE))
-	$ModuleBuild/ContainerEngine/CountEngine.text = str(Modules.count(ENGINE))
-	$ModuleBuild/ContainerFactory/CountFactory.text = str(Modules.count(FACTORY))
-	$ModuleBuild/ContainerHotel/CountHotel.text = str(Modules.count(LUXURY_LIVING))
+	$ModuleBuild/ContainerSolarPanel/CountSolar.text = str("%3d" % Modules.count(SOLAR))
+	$ModuleBuild/ContainerBattery/CountBattery.text = str("%3d" % Modules.count(BATTERY))
+	$ModuleBuild/ContainerLiving/CountLiving.text = str("%3d" % Modules.count(BASIC_LIVING))
+	$ModuleBuild/ContainerComputing/CountComputing.text = str("%3d" % Modules.count(COMPUTING))
+	$ModuleBuild/ContainerDroneBay/CountDroneBay.text = str("%3d" % Modules.count(DRONE))
+	$ModuleBuild/ContainerEngine/CountEngine.text = str("%3d" % Modules.count(ENGINE))
+	$ModuleBuild/ContainerFactory/CountFactory.text = str("%3d" % Modules.count(FACTORY))
+	$ModuleBuild/ContainerHotel/CountHotel.text = str("%3d" % Modules.count(LUXURY_LIVING))
 	
 	if Modules.count(LUXURY_LIVING) > 0:
 		humans_rent = 50

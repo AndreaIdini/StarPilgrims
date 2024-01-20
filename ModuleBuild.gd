@@ -50,7 +50,7 @@ func _physics_process(delta):
 			station.Modules.append(moduleType)
 			station.station_properties()
 			
-			labelCounter.text = str(counter)
+			labelCounter.text = str("%3d" % counter)
 			progress_bar.value = 0
 			build_in_progress = false
 
