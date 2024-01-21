@@ -37,7 +37,11 @@ func curiosity_events():
 					eventStep = -1
 					await text_scroll("Did you know that the Earth orbits are starting to get pretty crowded? A little bolt crossing orbits hits a tens of thousands km/h, faster than a rocket, potentially creating devastating damage to objects. Tens of satellites per year are destroyed by collision with space debris. If the orbits are very crowded it can happen that a bolt destroying one satellite would release other bolts that would hit other satellite in a cascade of debris crowding the orbit so much to make it impossible to traverse the orbit. This event is called Kessler syndrome. Scary stuff!")
 					eventStep = 1
-				1: eventStep = 2
+				1: 
+					eventStep = -2
+					await text_scroll("Did you know that what is called space is often just higher layers of Earth atmosphere? It's true, the international space station used to be in the thermosphere still protected by Earth's residual heat and magnetic field. We're much further out to avoid debris and bad neighbours.")
+					eventStep = 2
+				# Placeholder
 				2: eventStep = 3
 				3: eventStep = 4
 				# Asteroid Gold
