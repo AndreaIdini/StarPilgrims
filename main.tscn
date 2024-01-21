@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://drddf4j2gbweq"]
+[gd_scene load_steps=35 format=3 uid="uid://drddf4j2gbweq"]
 
 [ext_resource type="Texture2D" uid="uid://b2nler7tmsvhs" path="res://Asset/SpaceStation1.png" id="1_5p6ln"]
 [ext_resource type="Script" path="res://main.gd" id="1_7tmd3"]
@@ -27,6 +27,7 @@
 [ext_resource type="Texture2D" uid="uid://duvc32gwemxs8" path="res://Asset/next-button_small.png" id="18_0xb8i"]
 [ext_resource type="Script" path="res://Buttons/InfoBox.gd" id="20_ukp5a"]
 [ext_resource type="Texture2D" uid="uid://b7ptlrcaomldx" path="res://Asset/plain-arrow.png" id="21_jkw4m"]
+[ext_resource type="Script" path="res://CuriosityBox.gd" id="22_n4oy2"]
 [ext_resource type="FontFile" uid="uid://cheaeyn4xqc2l" path="res://Asset/Pixel12x10.ttf" id="23_yaorp"]
 [ext_resource type="Texture2D" uid="uid://d2irfm1no6m53" path="res://Asset/BOLAS.png" id="28_24hbh"]
 
@@ -489,10 +490,10 @@ offset_bottom = 40.0
 [node name="ContainerSolarPanel" type="HBoxContainer" parent="PanelStation/ModuleBuild"]
 unique_name_in_owner = true
 layout_mode = 2
-offset_left = 31.0
-offset_top = 329.0
-offset_right = 238.0
-offset_bottom = 368.0
+offset_left = 12.0
+offset_top = 342.0
+offset_right = 249.0
+offset_bottom = 381.0
 script = ExtResource("5_ree1l")
 
 [node name="CountSolar" type="Label" parent="PanelStation/ModuleBuild/ContainerSolarPanel"]
@@ -522,10 +523,10 @@ show_percentage = false
 [node name="ContainerBattery" type="HBoxContainer" parent="PanelStation/ModuleBuild"]
 unique_name_in_owner = true
 layout_mode = 2
-offset_left = 275.0
-offset_top = 329.0
-offset_right = 512.0
-offset_bottom = 368.0
+offset_left = 256.0
+offset_top = 342.0
+offset_right = 493.0
+offset_bottom = 381.0
 script = ExtResource("5_tsak2")
 
 [node name="CountBattery" type="Label" parent="PanelStation/ModuleBuild/ContainerBattery"]
@@ -554,10 +555,10 @@ show_percentage = false
 [node name="ContainerLiving" type="HBoxContainer" parent="PanelStation/ModuleBuild"]
 unique_name_in_owner = true
 layout_mode = 2
-offset_left = 517.0
-offset_top = 329.0
-offset_right = 754.0
-offset_bottom = 368.0
+offset_left = 498.0
+offset_top = 342.0
+offset_right = 735.0
+offset_bottom = 381.0
 script = ExtResource("6_yq5dq")
 
 [node name="CountLiving" type="Label" parent="PanelStation/ModuleBuild/ContainerLiving"]
@@ -586,10 +587,10 @@ show_percentage = false
 [node name="ContainerComputing" type="HBoxContainer" parent="PanelStation/ModuleBuild"]
 unique_name_in_owner = true
 layout_mode = 2
-offset_left = 31.0
-offset_top = 391.0
-offset_right = 269.0
-offset_bottom = 430.0
+offset_left = 12.0
+offset_top = 404.0
+offset_right = 250.0
+offset_bottom = 443.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("6_fswgt")
@@ -623,10 +624,10 @@ show_percentage = false
 [node name="ContainerDroneBay" type="HBoxContainer" parent="PanelStation/ModuleBuild"]
 unique_name_in_owner = true
 layout_mode = 2
-offset_left = 275.0
-offset_top = 391.0
-offset_right = 512.0
-offset_bottom = 430.0
+offset_left = 256.0
+offset_top = 404.0
+offset_right = 493.0
+offset_bottom = 443.0
 script = ExtResource("8_v88ik")
 
 [node name="CountDroneBay" type="Label" parent="PanelStation/ModuleBuild/ContainerDroneBay"]
@@ -655,10 +656,10 @@ show_percentage = false
 [node name="ContainerHotel" type="HBoxContainer" parent="PanelStation/ModuleBuild"]
 unique_name_in_owner = true
 layout_mode = 2
-offset_left = 517.0
-offset_top = 391.0
-offset_right = 754.0
-offset_bottom = 430.0
+offset_left = 498.0
+offset_top = 404.0
+offset_right = 735.0
+offset_bottom = 443.0
 script = ExtResource("9_g0u6u")
 
 [node name="CountHotel" type="Label" parent="PanelStation/ModuleBuild/ContainerHotel"]
@@ -687,10 +688,10 @@ show_percentage = false
 [node name="ContainerEngine" type="HBoxContainer" parent="PanelStation/ModuleBuild"]
 unique_name_in_owner = true
 layout_mode = 2
-offset_left = 275.0
-offset_top = 454.0
-offset_right = 512.0
-offset_bottom = 493.0
+offset_left = 256.0
+offset_top = 467.0
+offset_right = 493.0
+offset_bottom = 506.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("10_mwwui")
@@ -721,10 +722,10 @@ show_percentage = false
 [node name="ContainerFactory" type="HBoxContainer" parent="PanelStation/ModuleBuild"]
 unique_name_in_owner = true
 layout_mode = 2
-offset_left = 31.0
-offset_top = 454.0
-offset_right = 269.0
-offset_bottom = 493.0
+offset_left = 12.0
+offset_top = 467.0
+offset_right = 250.0
+offset_bottom = 506.0
 script = ExtResource("11_graqn")
 
 [node name="CountFactory" type="Label" parent="PanelStation/ModuleBuild/ContainerFactory"]
@@ -753,10 +754,10 @@ show_percentage = false
 [node name="ContainerBOLASButton" type="VBoxContainer" parent="PanelStation/ModuleBuild"]
 visible = false
 layout_mode = 0
-offset_left = 573.0
-offset_top = 454.0
-offset_right = 754.0
-offset_bottom = 493.0
+offset_left = 554.0
+offset_top = 467.0
+offset_right = 735.0
+offset_bottom = 506.0
 size_flags_horizontal = 0
 script = ExtResource("13_nmipx")
 
@@ -861,7 +862,7 @@ size_flags_vertical = 8
 
 [node name="BuildMiningDrone" type="Button" parent="LaunchBuild/ContainerBuildDrone"]
 layout_mode = 2
-text = "Bulid Mining Drone"
+text = "Build Mining Drone"
 
 [node name="ProgressBuildMD" type="ProgressBar" parent="LaunchBuild/ContainerBuildDrone"]
 unique_name_in_owner = true
@@ -886,6 +887,69 @@ tab_2/title = ""
 tab_2/icon = ExtResource("17_ssp6w")
 tab_3/title = ""
 tab_3/icon = ExtResource("18_0xb8i")
+
+[node name="InfoBox" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 787.0
+offset_top = 311.0
+offset_right = 1213.0
+offset_bottom = 609.0
+theme_override_font_sizes/normal_font_size = 16
+script = ExtResource("20_ukp5a")
+
+[node name="CuriosityBox" type="ColorRect" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 789.0
+offset_top = 392.0
+offset_right = 1221.0
+offset_bottom = 660.0
+color = Color(0.188235, 0.305882, 0.254902, 0.917647)
+script = ExtResource("22_n4oy2")
+
+[node name="Avatar" type="TextureRect" parent="CuriosityBox"]
+layout_mode = 0
+offset_left = -29.0
+offset_top = -28.0
+offset_right = 56.0
+offset_bottom = 52.0
+texture = ExtResource("13_4216q")
+expand_mode = 1
+
+[node name="Text" type="RichTextLabel" parent="CuriosityBox"]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 38.0
+offset_right = 395.0
+offset_bottom = 217.0
+theme_override_fonts/normal_font = ExtResource("23_yaorp")
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "Did you know, blablabla?
+I'm here to provide guidance!"
+
+[node name="Button" type="Button" parent="CuriosityBox"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -19.0
+offset_top = -16.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Ok"
+
+[node name="Arrow" type="TextureRect" parent="CuriosityBox"]
+layout_mode = 0
+offset_left = 390.0
+offset_top = 229.0
+offset_right = 418.0
+offset_bottom = 257.0
+texture = ExtResource("21_jkw4m")
+expand_mode = 1
 
 [node name="EventBox" type="ColorRect" parent="."]
 unique_name_in_owner = true
@@ -941,17 +1005,9 @@ offset_bottom = 257.0
 texture = ExtResource("21_jkw4m")
 expand_mode = 1
 
-[node name="InfoBox" type="RichTextLabel" parent="."]
-layout_mode = 0
-offset_left = 787.0
-offset_top = 311.0
-offset_right = 1213.0
-offset_bottom = 609.0
-theme_override_font_sizes/normal_font_size = 16
-script = ExtResource("20_ukp5a")
-
 [node name="StoryBox" type="TextureRect" parent="."]
 unique_name_in_owner = true
+visible = false
 layout_mode = 0
 offset_top = 41.0
 offset_right = 1278.0
@@ -1072,8 +1128,11 @@ script = ExtResource("17_3hbk4")
 [connection signal="mouse_entered" from="LaunchBuild/ContainerBuildDrone" to="InfoBox" method="_on_container_build_drone_mouse_entered"]
 [connection signal="mouse_entered" from="LaunchBuild/ContainerBuildDrone/BuildMiningDrone" to="InfoBox" method="_on_container_build_drone_mouse_entered"]
 [connection signal="pressed" from="LaunchBuild/ContainerBuildDrone/BuildMiningDrone" to="LaunchBuild" method="_on_build_drone_pressed"]
+[connection signal="mouse_entered" from="InfoBox" to="InfoBox" method="_on_mouse_entered"]
+[connection signal="mouse_entered" from="CuriosityBox" to="CuriosityBox" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="CuriosityBox" to="CuriosityBox" method="_on_mouse_exited"]
+[connection signal="pressed" from="CuriosityBox/Button" to="CuriosityBox" method="_on_button_pressed"]
 [connection signal="mouse_entered" from="EventBox" to="EventBox" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="EventBox" to="EventBox" method="_on_mouse_exited"]
 [connection signal="pressed" from="EventBox/Button" to="EventBox" method="_on_button_pressed"]
-[connection signal="mouse_entered" from="InfoBox" to="InfoBox" method="_on_mouse_entered"]
 [connection signal="pressed" from="StoryBox/Button" to="StoryBox" method="_on_button_pressed"]

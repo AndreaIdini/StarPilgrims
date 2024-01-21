@@ -76,7 +76,7 @@ https://nss.org/settlement/nasa/spaceresvol2/thermalmanagement.html
 - However, even this pales in comparison to Voyager 1, which was launched on Sept. 5th, 1977 and reached the Asteroid Belt on Dec. 10th, 1977 – a total of 96 days. And then there was the Voyager 2 probe, which launched 15 days after Voyager 1 (on Sept. 20th), but still managed to arrive on the same date – which works out to a total travel time of 81 days.
 - https://www.sciencedirect.com/science/article/abs/pii/S0094576517311220. This examination of Main Belt asteroids as prospective targets for mining and exploration missions has found that within a delta-v of 8 km, starting from LEO, one can access 3986 MBAs
 - https://descanso.jpl.nasa.gov/SciTechBook/series1/Goebel_02_Chap2_thruster.pdf Exhaust ion thrusters: 100 km/s.
-
+- https://www.asterank.com/
 
 
 
