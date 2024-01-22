@@ -25,8 +25,8 @@ func _physics_process(delta):
 
 func curiosity_events():
 										# Better 30-45 and range(0,200)
-	if %EventBox.storyStep > 2 && eventTimeCount > 15:
-		var event = randi_range(0,30)
+	if %EventBox.storyStep > 2 && eventTimeCount > 45:
+		var event = randi_range(0,200)
 
 		if event == 0:
 			eventTimeCount = 0.
