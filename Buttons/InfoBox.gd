@@ -23,31 +23,31 @@ func _on_mouse_entered():
 	pass # Replace with function body.
 
 func _on_container_solar_panel_mouse_entered():
-	self.text = %ContainerSolarPanel.description
+	self.text = %ContainerSolarPanel.update_description()
 
 func _on_container_battery_mouse_entered():
-	self.text = %ContainerBattery.description
+	self.text = %ContainerBattery.update_description()
 
 func _on_container_living_mouse_entered():
-	self.text = %ContainerLiving.description
+	self.text = %ContainerLiving.update_description()
 
 func _on_container_computing_mouse_entered():
-	self.text = %ContainerComputing.description
+	self.text = %ContainerComputing.update_description()
 
 func _on_container_drone_bay_mouse_entered():
-	self.text = %ContainerDroneBay.description
+	self.text = %ContainerDroneBay.update_description()
 
 func _on_container_hotel_mouse_entered():
-	self.text = %ContainerHotel.description
+	self.text = %ContainerHotel.update_description()
 
 func _on_container_engine_mouse_entered():
-	self.text = %ContainerEngine.description
+	self.text = %ContainerEngine.update_description()
 
 func _on_container_factory_mouse_entered():
-	self.text = %ContainerFactory.description
+	self.text = %ContainerFactory.update_description()
 
 func _on_container_bolas_button_mouse_entered():
-	self.text = $"../PanelStation/ModuleBuild/ContainerBOLASButton".description
+	self.text = $"../PanelStation/ModuleBuild/ContainerBOLASButton".update_description()
 
 func _on_container_travel_button_mouse_entered():
 	self.text = %ContainerTravelButton.description

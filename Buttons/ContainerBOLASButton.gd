@@ -5,6 +5,7 @@ extends VBoxContainer
 
 var required_matter = 5000.
 var required_power = 2000.
+var original_credits = 5000000
 var required_credits = 5000000
 var description
 # Called when the node enters the scene tree for the first time.
@@ -13,10 +14,19 @@ func _ready():
 
 building material: " + str(required_matter) + " ton \n" + \
 "required power output: " + str(required_power) + " kW\n" +\
-"required credits: " + str(required_credits) + "\n
+"required credits: " + str(original_credits) + "\n
 Constructing the BOLAS station wins the game."
 #Will enable humans to comfortably live and work and is the first stage of transforming a self-sufficient outpost to an independent colony capable of further greatness.
 	pass # Replace with function body.
+
+func update_description():
+	required_credits = original_credits/log(station.Modules.count(station.FACTORY)+2.)*log(2.)
+	return "The BOLAS station is arranged as two modules tethered with a partially flexible connection. While these module orbit each other, they generate an artificial gravity through their relative motion. 
+
+building material: " + str(required_matter) + " ton \n" + \
+"required power output: " + str(required_power) + " kW\n" +\
+"required credits: " + str("%10d" % required_credits) + "\n
+Constructing the BOLAS station wins the game."
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(_delta):

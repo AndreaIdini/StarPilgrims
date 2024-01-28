@@ -61,7 +61,7 @@ At a certain points it will be possible to change orbit, this will change the ra
 Given the rocket equation
 $$ \Delta V/v_e = \log (m_i/m_f),$$
 where $\Delta V$ is the velocity difference, fundamental in rocket manouvering, $v_e$ is the velocity at exhaust is equal to the natural logarithm of the ratio between initial and final mass.
-Given that for Asteroid Belt from LEO $\Delta V \approx 10 km/s$ (has to be doubled to slow down and give wiggle room) and $v_e$ for experimental ion thruster can be 100km/s, the ratio between initial and final mass is just e^{1/5}, so one needs 20% of the total mass of the object using the mentioned ion engine. In this condition the transfer time according to the paper is ~1 year or more, so additional velocity is very much needed.
+Given that for Asteroid Belt from LEO $\Delta V \approx 10 km/s$ (has to be doubled to slow down and give wiggle room) and $v_e$ for experimental ion thruster can be 100km/s, the ratio between initial and final mass is just e^{1/5}, so one needs 20% of the total mass of the object using the mentioned ion engine. In this condition the transfer time according to the paper [1] is ~1 year or more, so additional velocity is very much needed.
 
 ### Events
 
@@ -74,7 +74,7 @@ https://nss.org/settlement/nasa/spaceresvol2/thermalmanagement.html
 - **Battery** 400Wh/kg
 - https://en.wikipedia.org/wiki/Electrical_system_of_the_International_Space_Station
 - However, even this pales in comparison to Voyager 1, which was launched on Sept. 5th, 1977 and reached the Asteroid Belt on Dec. 10th, 1977 – a total of 96 days. And then there was the Voyager 2 probe, which launched 15 days after Voyager 1 (on Sept. 20th), but still managed to arrive on the same date – which works out to a total travel time of 81 days.
-- https://www.sciencedirect.com/science/article/abs/pii/S0094576517311220. This examination of Main Belt asteroids as prospective targets for mining and exploration missions has found that within a delta-v of 8 km, starting from LEO, one can access 3986 MBAs
+- [1] https://www.sciencedirect.com/science/article/abs/pii/S0094576517311220. This examination of Main Belt asteroids as prospective targets for mining and exploration missions has found that within a delta-v of 8 km, starting from LEO, one can access 3986 MBAs
 - https://descanso.jpl.nasa.gov/SciTechBook/series1/Goebel_02_Chap2_thruster.pdf Exhaust ion thrusters: 100 km/s.
 - https://www.asterank.com/
 

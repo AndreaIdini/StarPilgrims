@@ -25,7 +25,7 @@ func _init(type, bar, label, stat, ctrl):
 	
 	counter = int(labelCounter.text)
 	
-	build_time = moduleType["build_time"]/log(station.humans+1)*log(2)
+	build_time = moduleType["build_time"]/log(station.humans+1.)*log(2)
 	progress_bar.max_value = build_time # Set the maximum value of the progress bar
 	build_in_progress = true
 	build_counter = 0.
@@ -44,7 +44,7 @@ func _physics_process(delta):
 		progress_bar.value = build_counter
 
 		if build_counter > build_time:
-			control.credits += - moduleType["build_credits"]
+			control.credits += - moduleType["build_credits"]/log(station.Modules.count(station.FACTORY)+2.)*log(2.)
 			
 			counter += 1
 			station.Modules.append(moduleType)

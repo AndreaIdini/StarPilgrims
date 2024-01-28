@@ -82,15 +82,21 @@ func _on_travel_button_pressed():
 			station.drones_energy_upkeep = 0.
 
 # TODO: check this orbital mechanics and make this function more realistic, especially with respect to the number of engines
+# Right now I assume DeltaV reachable proportional to number of engines...
 func calculate_travel_cost():
 
 	var station_mass = station.station_mass()
 	var engines = station.Modules.count(station.ENGINE)
+	var deltaV = 20 #km/s
+	var distance = 1.2 #AU, 1 AU = 1.5*10^8 km
+	var v_e = 100 #km/s exhaust of ion engine
 	
-	tot_mass_cost = station_mass/5. * min(4, sqrt(engines))
-	tot_energy_cost = station_mass*2./3. * 20 * engines # E = DeltaV*m. 1J = 0.27*10^-3 Wh => ton * km/s = 10^6J approx kWh 
+	var final_mass = station_mass/exp(deltaV*engines/2./v_e)
 	
-	var time = 600./engines
+	tot_mass_cost = station_mass - final_mass
+	tot_energy_cost = station_mass * deltaV * engines/2 # E = DeltaV*m. DeltaV=20km/s. 1J = 0.27*10^-3 Wh => ton * km/s = 10^6J approx kWh 
+	
+	var time = 400.*distance/(engines/2) # t = ~400 days at deltaV for 1 UA
 	return [tot_energy_cost,tot_mass_cost, time]
 
 
@@ -98,11 +104,13 @@ func _on_mouse_entered():
 	if ! travel_in_progress:
 		var travel_cost = calculate_travel_cost()
 		var en = travel_cost[0]/1000.
-		description = "The long journey to the asteroid belt will test the capabilities of your spaceship
-it will take:\n\n" + \
+		var dry_mass = station.station_mass() - station.matter
+		description = "The long journey to the asteroid belt will test the capabilities of your spaceship. The bare mass of the spaceship is\n" + \
+		str("%10.1f" % dry_mass) + " tons\n" + \
+		"It will take:\n" + \
 	 	"      " + str(ceil(travel_cost[2])) + " days\n" + \
 	 	str("%10.1f" % travel_cost[1]) + " tons \n" + \
 	 	str("%10.1f" % en) + " MWh \n" + \
-		"\nto make the journey. Good Luck!"
+		"\nto make the journey.\n\nGood Luck!"
 
 	pass # Replace with function body.
