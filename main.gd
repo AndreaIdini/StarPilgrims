@@ -83,9 +83,6 @@ I can send you rapidly some emergency provision, but it's going to cost you 500 
 			
 		matter_crisis = false
 	
-	if station.humans == 0:
-		energy_crisis = false
-	
 	if station.energy < 0 && ! energy_crisis:
 		energy_crisis = true
 		
@@ -100,13 +97,18 @@ I can send you rapidly some emergency provision, but it's going to cost you 500 
 		
 Your humans need to evacuate immediately for their safety.
 I hope you have enough credits to financially recover from this", "Accept")
-		
-			credits -= 500
+			credits -= 500*ceil(station.humans/4)
 			station.humans = 0
-		
 			if credits < $LaunchBuild.cost_to_launch_humans:
-				story_box.game_over("")
+				story_box.game_over()
+		else:
 			
-			print(energy_crisis)
-	
+			if station.pow_consumption*1.83 > station.solar_power_installed: # factor 1.83 is the integration of power over the day cycle
+				if station.drones > 0:
+					await event_box.text_scroll("Your energy is still insufficient! The drones are taking too much, release half of them", "Accept")
+					station.drones = floor(station.drones/2)
+				else:
+					story_box.game_over("You don't have enough energy to sustain your station's basic functions.\n\nYou are forced to shut down and drift in space until your husk is recycled by some other drone.\n\n\n\n\n\n(If you're given name is Andrea, you might consider this a win)")
+		
+		energy_crisis = false
 	pass
