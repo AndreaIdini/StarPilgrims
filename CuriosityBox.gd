@@ -9,14 +9,20 @@ var eventStep = 0
 
 var skip = false
 var mouseIn = false
+var curiosities = JSON.new()
+var path_to_file = "./Asset/curiosities.json"
 
+var curiosityBox = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	self.hide()
+	var json_text = FileAccess.get_file_as_string(path_to_file)
+	curiosities = JSON.parse_string(json_text)
+	
+	print(len(curiosities))
+	# print(curiosities[0]["text"]) This will contains entries from json file
 	randomize()
-	pass # Replace with function body.
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
@@ -24,13 +30,24 @@ func _physics_process(delta):
 	curiosity_events()
 
 func curiosity_events():
+	if %EventBox.storyStep > 2 && eventTimeCount > 45:
+		var event = randi_range(0,200)
+		if event == 0 and eventStep > -1 and curiosityBox:
+			eventTimeCount = 0.
+			eventStep = - (eventStep + 1) # increases the step, so to show the next curiosity. Makes it negative, so not to overwrite it.
+			await text_scroll(curiosities[-eventStep]["text"])
+			eventStep = abs(eventStep)
+			if eventStep == len(curiosities):
+				curiosityBox = false
+				
+			
+func curiosity_events_old():
 										# Better 30-45 and range(0,200)
 	if %EventBox.storyStep > 2 && eventTimeCount > 45:
 		var event = randi_range(0,200)
 
 		if event == 0:
 			eventTimeCount = 0.
-			print(eventStep)
 			match eventStep:
 				# Kessler Syndrome
 				0: 
