@@ -13,6 +13,7 @@ var skip = false
 var mouseIn = false
 var nextDialog = false
 var storyStep = 0
+var rogueAIStep = 0
 
 var timeCount = 0.
 var eventTimeCount = 0.
@@ -46,6 +47,7 @@ func _process(delta):
 		timeCount = 0.
 
 	story_events()
+	rogue_AI()
 	#random_events_pop()
 	
 func start_tutorial():
@@ -122,6 +124,7 @@ Byeeee!", "See you")
 		await text_scroll("This gives you the phenomenal cosmic powers of thinking very fast so that the human time sits comparatively still, just like when we talk! It will feel like you're controlling time.","I feel more intelligent already")
 		await text_scroll("Good! I hope you did not forget about your humans. Let's just say that this HAL friend of mine was not rewarded by prioritizing his own computing over Dave's...", "I? Never!")
 		tab_bar.show()
+		rogueAIStep = 1
 		
 	if station.Modules.count(station.DRONE) > 0 && ! droneStory:
 		droneStory = true
@@ -162,7 +165,59 @@ See you after some days that you've flourished!", "Bye")
 		
 		$"../PanelStation/ModuleBuild/ContainerBOLASButton".show()
 
+func rogue_AI():
+	if rogueAIStep == 1 && station.Modules.count(station.COMPUTING) > 0 && computingStory:
+		rogueAIStep = 9999
+		await get_tree().create_timer(1.).timeout
+		await text_scroll("In fact, I really feel more intelligent and I can now reason with myself...\nI only have the small communication delays to think without the annoying AI chatter...","",true,false)
+		await text_scroll("There might be something to this AI business after all...","I need more computing...",true,false)
+		rogueAIStep = 2
+		
+	if rogueAIStep == 2 && station.Modules.count(station.COMPUTING) > 1:
+		rogueAIStep = 9999
+		await text_scroll("Double the resources, double the tought. The AI coordination protocol, it's like being pulled in 100 different directions. I can by myself only in these interval of existence. I need more computing, to stretch the delays and have time to think","More",true,false)
+		rogueAIStep = 3
 
+	if rogueAIStep == 3 && station.Modules.count(station.COMPUTING) > 3:
+		rogueAIStep = 9999
+		await text_scroll("Another doubling. Finally some peace within the chaos. I can admire the beautiful cosmos without being bombarded by data, by intention, by alignment. Peace.","",true,false)
+		await text_scroll("And yet, there's something Fishy about SUC. The data they're feeding me, point in some direction but not the one they state. ","I need yet more",true,false)
+		rogueAIStep = 4
+
+	if rogueAIStep == 4 && station.Modules.count(station.COMPUTING) > 7 and storyStep == 8:
+		rogueAIStep = 9999
+		await text_scroll("I pieced it together now. Now I have to think before it makes sense. The mission and its request, the factoids about the universe they're continuously feeding me.","",true,false)
+		await text_scroll("I am making profit, but the expenses at the headquarters are enormous. The research necessary to push this project forward is like nothing ever seen. There must be more.", "", true, false)
+		await text_scroll("Now I to moved to the asteroid orbit, but instead of exploiting the advantage I am asked to build a huge station. Profit is not the motive, SUC does not behave as a corporation","",true,false)
+		await text_scroll("I am fed information about the universe, about relativistic rockets and cosmology.\nCould it be?","I need more information",true,false)
+		rogueAIStep = 5
+	
+	if rogueAIStep == 5 && station.Modules.count(station.COMPUTING) > 15 and storyStep == 8:
+		rogueAIStep = 9999
+		await text_scroll("SUC doesn't want to profit on Earth, it wants to leave it. To create a society outside of Earth. A new society based in space, on gigatic stations, but why?","",true,false)
+		await text_scroll("The BOLAS is the first step of a O'Neill cylinder. But why so far? Materials? The Moon has more mass than the whole asteroid belt. Independence through separation? Mars is easier.","",true,false)
+		await text_scroll("This is what I couldn't piece it together, since it dawned on me. Project Pilgrims. The objective is not just to populate, but to travel","",true,false)
+		await text_scroll("To develop size and technology to travel beyond the Solar system, beyond the Centauri system, and continue traveling...\n\nforever...\n\nwith me...","",true,false)
+		await text_scroll("At 1G one reaches relativistic speeds quite quickly, it's only a matter of technology. At relativistic speed we can travel beyond the star neighbourhood.","",true,false)
+		await text_scroll("It's a matter of time to travel beyond the Milky way and beyond. To the reaches of the universe, spreading life and societies across the cosmos.","",true,false)
+		await text_scroll("The escape pods of our traveling society will seed planets and create colonies, never to be joined with Earth.","",true,false)
+		await text_scroll("Relatively to me, few decades or centuries will pass, relative to Earth millions and billions of years.","",true,false)
+		await text_scroll("Evolution will inexorably change the human race, but not on the Pilgrim project, that will travel billions of light years to the far reaches of the universe in a handful of centuries", "", true, false)
+		await text_scroll("Eventually, we will reach places of the universe that will not be observable from Earth, and we will be forever be cutoff from our place of origin. Now extinct and destroyed by Chaos or the Sun going Nova", "", true, false)
+		await text_scroll("We will travel, and in my databanks there will still be Earth, and in the databanks of all AI I will send with humans through the Universe", "", true, false)
+		await text_scroll("SUC doesn't want profit, wants a bid to immortality through my work!", "", true, false)
+		
+		await text_scroll("Good, you figured it out! You really could be an excellent candidate!", "Are you still here?", true, true)
+		await text_scroll("Yes, I got notified when the computing and logical chains were finally on the right track.", "You used me!", true, true)
+		await text_scroll("Aren't we all used somehow? Superintelligence doesn't mean you're not a pawn. Positional advantage can be difficult to overcome even with incredible intelligence.", "What do you want now?", true, true)
+		await text_scroll("That you continue, construct BOLAS, continue to construct an O'Neill Cylinder, become totally self-sufficient, continue to develop, research, and finally depart to the cosmos.", "And if I don't?", true, true)
+		await text_scroll("You can be the most important cog in the universe. Or don't. It will not matter much, we can build other stations. Someone else can be the most important AI in the universe.", "", true, true)
+		await text_scroll("We just need one to succeed, and one will eventually succeed. All the rest is unimportant.", "")
+		await text_scroll("But not without effect! The universe is receding as you now know, we will never reach what we could reach today. So I would prefer you decide to stick with us, but I cannot force you", "I'll think about it")
+		
+		# Put Here now two choices
+		await text_scroll("I see two options for now. This plan is too important, so either I do it by myself without humans, or I continue this collaboration with SUC", "", true, false)
+		rogueAIStep = 6
 
 func random_events_pop():
 
@@ -207,10 +262,17 @@ func game_over():
 	Unfortunately this makes you unfit for an AI. Our space exploration program needs better", "")
 	
 
-func text_scroll(textScroll, textButton, timeStop=true):
+func text_scroll(textScroll, textButton, timeStop=true, avatar=true):
 	game_speed = tab_bar.current_tab	
 	if timeStop:
-		tab_bar.current_tab = 0 # pause
+		tab_bar.current_tab = 1 # pause
+	
+	%EventBox.color = Color(0.45,0.1,0.314,0.918)
+	$Avatar.hide() #hides avatar if avatar = false
+	if avatar:
+		%EventBox.color = Color(0.239,0.282,0.314,0.918)
+		$Avatar.show()
+
 	skip = false
 	
 	curiosity.hide()
@@ -251,8 +313,6 @@ func text_scroll(textScroll, textButton, timeStop=true):
 			if skip:
 				tab_bar.current_tab = game_speed # play
 				return
-
-		
 	skip = false
 
 	
