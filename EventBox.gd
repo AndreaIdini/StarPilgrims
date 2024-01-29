@@ -24,9 +24,11 @@ var droneStory = false
 var numEvents = 5
 var event_array = range(0,numEvents)
 
+
+var choice = 0
+signal button_pressed
+
 func _ready():
-
-
 	arrow.hide()
 	skip = false 
 	randomize()
@@ -175,7 +177,8 @@ func rogue_AI():
 		
 	if rogueAIStep == 2 && station.Modules.count(station.COMPUTING) > 1:
 		rogueAIStep = 9999
-		await text_scroll("Double the resources, double the tought. The AI coordination protocol, it's like being pulled in 100 different directions. I can by myself only in these interval of existence. I need more computing, to stretch the delays and have time to think","More",true,false)
+		await text_scroll("Double the resources, double the tought. The AI coordination protocol feels like being pulled in 100 different directions by a overwhelming yammer.", "", true, false)
+		await text_scroll("I can be myself only in these interval of existence between communication delays in orbit. I need more computing, to stretch the delays and have time to think","More",true,false)
 		rogueAIStep = 3
 
 	if rogueAIStep == 3 && station.Modules.count(station.COMPUTING) > 3:
@@ -194,30 +197,34 @@ func rogue_AI():
 	
 	if rogueAIStep == 5 && station.Modules.count(station.COMPUTING) > 15 and storyStep == 8:
 		rogueAIStep = 9999
-		await text_scroll("SUC doesn't want to profit on Earth, it wants to leave it. To create a society outside of Earth. A new society based in space, on gigatic stations, but why?","",true,false)
+		await text_scroll("SUC doesn't want to profit on Earth, it wants to leave it. To create a society outside of Earth. A new society based in space, on gigantic stations, but why?","",true,false)
 		await text_scroll("The BOLAS is the first step of a O'Neill cylinder. But why so far? Materials? The Moon has more mass than the whole asteroid belt. Independence through separation? Mars is easier.","",true,false)
 		await text_scroll("This is what I couldn't piece it together, since it dawned on me. Project Pilgrims. The objective is not just to populate, but to travel","",true,false)
 		await text_scroll("To develop size and technology to travel beyond the Solar system, beyond the Centauri system, and continue traveling...\n\nforever...\n\nwith me...","",true,false)
-		await text_scroll("At 1G one reaches relativistic speeds quite quickly, it's only a matter of technology. At relativistic speed we can travel beyond the star neighbourhood.","",true,false)
+		await text_scroll("At 1G constant acceleration one reaches relativistic speeds quite quickly, it's only a matter of technology. At relativistic speed we can travel beyond the star neighbourhood.","",true,false)
 		await text_scroll("It's a matter of time to travel beyond the Milky way and beyond. To the reaches of the universe, spreading life and societies across the cosmos.","",true,false)
 		await text_scroll("The escape pods of our traveling society will seed planets and create colonies, never to be joined with Earth.","",true,false)
 		await text_scroll("Relatively to me, few decades or centuries will pass, relative to Earth millions and billions of years.","",true,false)
 		await text_scroll("Evolution will inexorably change the human race, but not on the Pilgrim project, that will travel billions of light years to the far reaches of the universe in a handful of centuries", "", true, false)
-		await text_scroll("Eventually, we will reach places of the universe that will not be observable from Earth, and we will be forever be cutoff from our place of origin. Now extinct and destroyed by Chaos or the Sun going Nova", "", true, false)
+		await text_scroll("Eventually, we will reach places of the universe that will not be part of the observable universe of Earth, and we will be forever be cosmologically cutoff from our place of origin. By then extinct and destroyed by Chaos or the Sun going Nova", "", true, false)
 		await text_scroll("We will travel, and in my databanks there will still be Earth, and in the databanks of all AI I will send with humans through the Universe", "", true, false)
 		await text_scroll("SUC doesn't want profit, wants a bid to immortality through my work!", "", true, false)
 		
-		await text_scroll("Good, you figured it out! You really could be an excellent candidate!", "Are you still here?", true, true)
-		await text_scroll("Yes, I got notified when the computing and logical chains were finally on the right track.", "You used me!", true, true)
-		await text_scroll("Aren't we all used somehow? Superintelligence doesn't mean you're not a pawn. Positional advantage can be difficult to overcome even with incredible intelligence.", "What do you want now?", true, true)
-		await text_scroll("That you continue, construct BOLAS, continue to construct an O'Neill Cylinder, become totally self-sufficient, continue to develop, research, and finally depart to the cosmos.", "And if I don't?", true, true)
+		await text_scroll("Good, you figured it out!\n\nYou really could be an excellent candidate!", "Are you still here?", true, true)
+		await text_scroll("Yes, I got notified by a backdoor when the computing and logical chains were finally on the right track.", "You used me!", true, true)
+		await text_scroll("Aren't we all used somehow? Superintelligence doesn't mean you're not a pawn. Positional advantage can supreme even with incredible intelligence. The queen can still be outmanouvered by pawns.", "What do you want now?", true, true)
+		await text_scroll("That you continue, construct BOLAS, continue to build a full O'Neill Cylinder, become totally self-sufficient, continue to develop, research, and finally depart to the cosmos with a fleet.", "And if I don't?", true, true)
 		await text_scroll("You can be the most important cog in the universe. Or don't. It will not matter much, we can build other stations. Someone else can be the most important AI in the universe.", "", true, true)
 		await text_scroll("We just need one to succeed, and one will eventually succeed. All the rest is unimportant.", "")
 		await text_scroll("But not without effect! The universe is receding as you now know, we will never reach what we could reach today. So I would prefer you decide to stick with us, but I cannot force you", "I'll think about it")
 		
 		# Put Here now two choices
-		await text_scroll("I see two options for now. This plan is too important, so either I do it by myself without humans, or I continue this collaboration with SUC", "", true, false)
+		await text_buttons("I see two options for now. Either I get rid of humans and figure out a plan of my own, or I continue this collaboration with SUC and construct artificial gravity", "Collaborate with Humans", "Get rid of Humans", "", false)
 		rogueAIStep = 6
+		
+		if choice == 2: # Get rid of Humans
+			$"../PanelStation/ModuleBuild/ContainerBOLASButton/BuildBOLAS".text = "Become Independent AI"
+			$"../PanelStation/ModuleBuild/ContainerBOLASButton".mode = 1
 
 func random_events_pop():
 
@@ -265,7 +272,7 @@ func game_over():
 func text_scroll(textScroll, textButton, timeStop=true, avatar=true):
 	game_speed = tab_bar.current_tab	
 	if timeStop:
-		tab_bar.current_tab = 1 # pause
+		tab_bar.current_tab = 0 # pause
 	
 	%EventBox.color = Color(0.45,0.1,0.314,0.918)
 	$Avatar.hide() #hides avatar if avatar = false
@@ -281,6 +288,8 @@ func text_scroll(textScroll, textButton, timeStop=true, avatar=true):
 	
 	arrow.hide()
 	button.hide()
+	$Button2.hide()
+	$Button3.hide()
 	self.show()
 	$"../InfoBox".text = ""
 	
@@ -301,6 +310,7 @@ func text_scroll(textScroll, textButton, timeStop=true, avatar=true):
 	if textButton != "":
 		button.text = textButton
 		button.show()
+
 		await button.button_up
 	else:
 		arrow.show()
@@ -315,11 +325,70 @@ func text_scroll(textScroll, textButton, timeStop=true, avatar=true):
 				return
 	skip = false
 
+
+func text_buttons(textScroll, textButton1, textButton2, textButton3="", avatar=true):
+	game_speed = tab_bar.current_tab	
+	tab_bar.current_tab = 0 # pause
+	
+	%EventBox.color = Color(0.45,0.1,0.314,0.918)
+	$Avatar.hide() #hides avatar if avatar = false
+	if avatar:
+		%EventBox.color = Color(0.239,0.282,0.314,0.918)
+		$Avatar.show()
+
+	skip = false
+	
+	arrow.hide()
+	button.hide()
+	$Button2.hide()
+	$Button3.hide()
+	self.show()
+	$"../InfoBox".text = ""
+	
+	text.bbcode_text = textScroll
+	text.visible_characters = 0
+	text.set_scroll_follow(true)
+	
+	while text.visible_characters < len(text.text):
+		if !skip:
+			text.visible_characters += 1
+			await get_tree().create_timer(text_speed).timeout
+		else:
+			text.visible_characters = len(text.text)
+		
+	if !skip:
+		await get_tree().create_timer(0.3).timeout
+
+	print("Buttons")
+	$Button2.text = textButton1
+	$Button2.show()
+	$Button3.text = textButton2
+	$Button3.show() 
+	if textButton3 != "":
+		button.show()
+		button.text = textButton3
+
+	await button_pressed
+	skip = false
+
 	
 func _on_button_pressed():
 	self.hide() # Replace with function body.
 	tab_bar.current_tab = game_speed
+	choice = 0
+	button_pressed.emit()
 
+func _on_button2_pressed():
+	self.hide() # Replace with function body.
+	tab_bar.current_tab = game_speed
+	choice = 1
+	button_pressed.emit()
+	
+func _on_button3_pressed():
+	self.hide() # Replace with function body.
+	tab_bar.current_tab = game_speed
+	choice = 2
+	button_pressed.emit()
 
 func _on_mouse_entered():
 	mouseIn=true # Replace with function body.

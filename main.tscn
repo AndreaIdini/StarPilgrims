@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://drddf4j2gbweq"]
+[gd_scene load_steps=36 format=3 uid="uid://drddf4j2gbweq"]
 
 [ext_resource type="Texture2D" uid="uid://b2nler7tmsvhs" path="res://Asset/SpaceStation1.png" id="1_5p6ln"]
 [ext_resource type="Script" path="res://main.gd" id="1_7tmd3"]
@@ -30,6 +30,7 @@
 [ext_resource type="Script" path="res://CuriosityBox.gd" id="22_n4oy2"]
 [ext_resource type="FontFile" uid="uid://cheaeyn4xqc2l" path="res://Asset/Pixel12x10.ttf" id="23_yaorp"]
 [ext_resource type="Texture2D" uid="uid://d2irfm1no6m53" path="res://Asset/BOLAS.png" id="28_24hbh"]
+[ext_resource type="Texture2D" uid="uid://b7olq1fnnb7cn" path="res://Asset/AIStation.png" id="30_l41wr"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ws068"]
 bg_color = Color(0.239216, 0.239216, 0.239216, 1)
@@ -1005,6 +1006,29 @@ offset_bottom = 257.0
 texture = ExtResource("21_jkw4m")
 expand_mode = 1
 
+[node name="Button2" type="Button" parent="EventBox"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -31.0
+offset_right = 39.0
+grow_vertical = 0
+text = "Ok"
+
+[node name="Button3" type="Button" parent="EventBox"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -39.0
+offset_top = -31.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Ok"
+
 [node name="StoryBox" type="TextureRect" parent="."]
 unique_name_in_owner = true
 visible = false
@@ -1028,6 +1052,12 @@ visible = false
 position = Vector2(1061, 512)
 scale = Vector2(0.431152, 0.431152)
 texture = ExtResource("28_24hbh")
+
+[node name="AiStation" type="Sprite2D" parent="StoryBox"]
+visible = false
+position = Vector2(190, 524)
+scale = Vector2(0.341797, 0.341797)
+texture = ExtResource("30_l41wr")
 
 [node name="Text" type="RichTextLabel" parent="StoryBox"]
 unique_name_in_owner = true
@@ -1135,4 +1165,6 @@ script = ExtResource("17_3hbk4")
 [connection signal="mouse_entered" from="EventBox" to="EventBox" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="EventBox" to="EventBox" method="_on_mouse_exited"]
 [connection signal="pressed" from="EventBox/Button" to="EventBox" method="_on_button_pressed"]
+[connection signal="pressed" from="EventBox/Button2" to="EventBox" method="_on_button2_pressed"]
+[connection signal="pressed" from="EventBox/Button3" to="EventBox" method="_on_button3_pressed"]
 [connection signal="pressed" from="StoryBox/Button" to="StoryBox" method="_on_button_pressed"]

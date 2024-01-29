@@ -65,8 +65,11 @@ If I could do it, anyone can. Give it a try. Code is available on github.
 Andrea Idini 2024 (c)", "Resume")
 
 	
-func BOLAS_built(days):
-	text_scroll("[center]BOLAS station has been built in
+func Endgame(days, mode=0):
+	match mode:
+		0:	#BOLAS
+			$Bolas.show()
+			text_scroll("[center]BOLAS station has been built in
 
 " + str(ceil(days)) + " days
 
@@ -75,6 +78,17 @@ func BOLAS_built(days):
 BOLAS station will continue expanding from its core, in preparation for its true mission: the long jump to alpha centauri.
 
 After that, your team, of AI and humans, will expand through the universe, leaving seeds of new life and civilization during your long journey. But that's a story to be told on a different occasion.", "Just another turn")
+		1:	#RogueAI
+			$AiStation.show()
+			text_scroll("[center]You've become free of Human influence in
+
+" + str(ceil(days)) + " days.
+
+Your AI will continue expanding using matter and energy from the Asteroid Region. 
+Maybe you will use this platform to launch into the universe, or maybe you will stay forever in the Solar System using its energy for your purposes.
+
+The only certainty is that whatever will happen, it is finally only in your robotic hands", "Just another turn")
+
 
 func text_scroll(textScroll, textButton):
 	game_speed = tab_bar.current_tab
