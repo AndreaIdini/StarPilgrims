@@ -107,8 +107,12 @@ func _on_build_drone_pressed():
 	if station.matter >= drone_matter_cost && station.drones_cap > station.drones:
 		build_in_progress = true
 		build_counter = 0
-	
+		
 	progress_build_md.max_value = time_to_build_drone/log(station.humans+1)*log(2)
+	
+	if station.Hotel == false and station.Modules.count(station.LUXURY_LIVING) > 0:
+		progress_build_md.max_value = time_to_build_drone/log(station.humans+1)*log(2)/1.5
+
 
 func update_descriptions():
 	description_humans = "Will launch an astronaut adding them to your station's crew.\nIt takes time to get them ready and you pay in advance.\n\ntime to launch: " + str(time_to_launch_humans) + "\ncost to launch: " + str(cost_to_launch_humans) + "\nhumans: " + str(humans_transported)

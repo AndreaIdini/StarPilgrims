@@ -194,6 +194,8 @@ const FACTORY = {                # Careful to not make it too convenient respect
 }
 
 var Modules = [STARTING]
+var Hotel = true
+
 
 @onready var tab_bar = %TabBar
 
@@ -313,7 +315,10 @@ func station_properties():
 	$ModuleBuild/ContainerHotel/CountHotel.text = str("%3d" % Modules.count(LUXURY_LIVING))
 	
 	if Modules.count(LUXURY_LIVING) > 0:
-		humans_rent = 50
+		if Hotel:
+			humans_rent = 50
+		else:
+			humans_rent = 30	
 	
 	if orbit_Asteroid:
 		drones_matter_mining = 50.

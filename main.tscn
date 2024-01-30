@@ -678,7 +678,7 @@ size_flags_horizontal = 3
 
 [node name="BuildHotel" type="Button" parent="PanelStation/ModuleBuild/ContainerHotel/ContainerHotelButton"]
 layout_mode = 2
-text = "Build Zero-G Hotel"
+text = "Build Luxury Quarters"
 alignment = 0
 
 [node name="ProgressHotel" type="ProgressBar" parent="PanelStation/ModuleBuild/ContainerHotel/ContainerHotelButton"]

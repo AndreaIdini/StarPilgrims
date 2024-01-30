@@ -26,6 +26,9 @@ func _init(type, bar, label, stat, ctrl):
 	counter = int(labelCounter.text)
 	
 	build_time = moduleType["build_time"]/log(station.humans+1.)*log(2)
+	if station.Hotel == false and station.Modules.count(station.LUXURY_LIVING) > 0:
+		build_time = build_time/1.5
+	
 	progress_bar.max_value = build_time # Set the maximum value of the progress bar
 	build_in_progress = true
 	build_counter = 0.

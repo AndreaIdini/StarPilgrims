@@ -9,9 +9,10 @@ func _ready():
 	#pass
 
 func _on_label_humans_mouse_entered():
-	self.text = "Your adorable humans, the source of your primary objectives and joy. Never forget to keep them warm and fed. \n \n" + \
+	self.text = "Your adorable humans, the source of your primary objectives and joy, not to mention credits! Never forget to keep them warm and fed. \n \n" + \
 	"Matter upkeep: " + str($"../PanelStation".humans_matter_upkeep) + " kg/d \n" +\
-	"Energy upkeep: " + str($"../PanelStation".humans_energy_upkeep) + " kW"
+	"Energy upkeep: " + str($"../PanelStation".humans_energy_upkeep) + " kW\n" +\
+	"Credits rent: " + str($"../PanelStation".humans_rent)
 
 func _on_label_drone_mouse_entered():
 	self.text = "Your little worker drones, give them energy and they'll fetch matter from your orbital neighbourhood with great care. \n \n" + \
