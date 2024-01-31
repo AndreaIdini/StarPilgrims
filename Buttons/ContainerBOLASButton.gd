@@ -38,6 +38,14 @@ func update_description():
 					"building material: " + str(required_matter) + " ton \n" + \
 					"required power output: " + str(required_power) + " kW\n" + \
 					"required buildings: 8 Zero-G Factories, 16 Data centers\n\nBuilding the robot factory wins the game."
+		2: #Capitalist
+			$BuildBOLAS.text="Transport 2000 WL10"
+			required_power = 3000.
+			required_matter = 5000.
+			return "Time to finally make some business out of this whole effort. This will harness a small-size metal-rich asteroid to the large engines of the stations and start a long trip, with plenty of matter and energy for the trip.\n\n" +\
+					"travel material: " + str(required_matter) + " ton \n" + \
+					"required power output: " + str(required_power) + " kW\n" + \
+					"required buildings and drones: 16 Ion Thrusters, 50 drones\n\nStarting the transport wins the game."
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(_delta):
 	#pass
@@ -49,7 +57,9 @@ func _on_build_bolas_pressed():
 			condition = station.matter > required_matter && station.solar_power_installed > required_power && $"../../..".credits > required_credits
 		1:	# RogueAI
 			condition = station.matter > required_matter && station.solar_power_installed > required_power && station.Modules.count(station.FACTORY) > 7 and station.Modules.count(station.COMPUTING) > 15
-
+		2:	# Capitalist
+			condition = station.matter > required_matter && station.solar_power_installed > required_power && station.drones > 49 and station.Modules.count(station.ENGINE) > 15
+	
 	if condition:
 		story_box.Endgame(station.time, mode)
 		

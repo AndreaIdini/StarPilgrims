@@ -89,6 +89,16 @@ Maybe you will use this platform to launch into the universe, or maybe you will 
 
 The only certainty is that whatever will happen, it is finally only in your robotic hands", "Just another turn")
 
+		2:	#Capitalist
+			$AsteroidTransport.show()
+			text_scroll("[center]You've fired up the engines and started your trip back to Earth in
+
+" + str(ceil(days)) + " days.
+
+Carrying this major nugget of precious metal you will increase the availability of these materials on Earth, bringing unprecedented value to SUC and to yourself.
+
+Following your counsel SUC operations for the exploitation of the asteroid belt progressively increase over time.
+The other factions were expelled from the board, and for decades were not heard again. Until one unexpected day... ", "Just another turn")
 
 func text_scroll(textScroll, textButton):
 	game_speed = tab_bar.current_tab

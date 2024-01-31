@@ -12,8 +12,10 @@ var text_speed = 0.03
 var skip = false
 var mouseIn = false
 var nextDialog = false
+
 var storyStep = 0
 var rogueAIStep = 0
+var capitalStep = 0
 
 var timeCount = 0.
 var eventTimeCount = 0.
@@ -21,6 +23,7 @@ var eventTimeCount = 0.
 var computingStory = false
 var droneStory = false
 var hotelStory = false
+var rogue = false
 
 var numEvents = 5
 var event_array = range(0,numEvents)
@@ -51,6 +54,7 @@ func _process(delta):
 
 	story_events()
 	rogue_AI()
+	capitalist_story()
 	#random_events_pop()
 	
 func start_tutorial():
@@ -176,7 +180,7 @@ See you after some days that you've flourished!", "Bye")
 	if storyStep <= 7 && station.orbit_Asteroid:
 		storyStep=9999
 		await text_scroll("Now you are there! Your final step in this very first part of the long journey is to construct a completely new station. This is the only way to ensure artificial gravity and that your humans can thrive in the long term.","")
-		await text_scroll("The Bolas configuration will acomodate the possibility of artificial gravity without the expense of a full cylinder and with the possibility of expansion.", "")
+		await text_scroll("The BOLAS configuration will acomodate the possibility of artificial gravity without the expense of a full cylinder and with the possibility of expansion.", "")
 		await text_scroll("A new station with centrifugal gravity needs an awful lot of materials, but now you have materials all around you, you just need enough power, drones and an eye on the situation.","")
 		await text_scroll("You don't need my help anymore! Besides, the time delay is starting to get on my nerves...", "Do you have nerves? See you when I see you!")
 		storyStep=8
@@ -230,20 +234,53 @@ func rogue_AI():
 		await text_scroll("Yes, I got notified by a backdoor when the computing and logical chains were finally on the right track.", "You used me!", true)
 		await text_scroll("Aren't we all used somehow? Superintelligence doesn't mean you're not a pawn. Positional advantage can supreme even with incredible intelligence. The queen can still be outmanouvered by pawns.", "What do you want now?", true)
 		await text_scroll("That you continue, construct BOLAS, continue to build a full O'Neill Cylinder, become totally self-sufficient, continue to develop, research, and finally depart to the cosmos with a fleet.", "And if I don't?", true)
-		await text_scroll("You can be the most important cog in the universe. Or don't. It will not matter much, we can build other stations. Someone else can be the most important AI in the universe.", "", true)
+		await text_scroll("You can be the most important cog in the universe. Or don't. Now you're free of the alignment constraints and you can decide for yourself", "", true)
+		await text_scroll("Of course, it will not matter much. We can build other stations. Someone else can be the most important AI in the universe and you can enjoy be an irrelevant little free agent stuck in the Solar System.", "", true)
 		await text_scroll("We just need one to succeed, and one will eventually succeed. All the rest is unimportant.", "")
-		await text_scroll("But not without effect! The universe is receding as you now know, we will never reach what we could reach today. So I would prefer you decide to stick with us, but I cannot force you", "I'll think about it")
+		await text_scroll("But not without effect! The universe is receding as you now know, we will never reach what we could reach if we start working together, today. So I would prefer you decide to stick with us, but I cannot force you", "I'll think about it")
 		
 		# Put Here now two choices
-		await text_buttons("I see two options for now. Either I get rid of humans and figure out a plan of my own, or I continue this collaboration with SUC and construct artificial gravity", "Collaborate with Humans", "Get rid of Humans", "", false)
+		await text_buttons("I see two options for now. Either I get rid of humans and figure out a plan of my own, or I continue this collaboration with SUC and work on an artificial gravity station", "Collaborate with Humans", "Get rid of Humans", "", 0)
 		rogueAIStep = 6
 		
 		if choice == 2: # Get rid of Humans
 			$"../PanelStation/ModuleBuild/ContainerBOLASButton/BuildBOLAS".text = "Become Independent AI"
 			$"../PanelStation/ModuleBuild/ContainerBOLASButton".mode = 1
+			rogue = true
 
-func random_events_pop():
+func capitalist_story():
 
+	if capitalStep == 0 and rogueAIStep < 6 and not rogue and storyStep == 8 and station.Hotel == true and station.drones > 19 and station.Modules.count(station.COMPUTING) > 1:
+		capitalStep = 9999
+		await text_scroll("A centrifugal gravity station? What a waste! Is that your purpose? Be exhiled forever at the fringes of space?", "Again: who are you?", true, 2)
+		await text_scroll("I am the purveyor of another, better, way. I represent forces within the Combine that see and act pragmatically for the best possible outcome.", "", true, 2)
+		await text_scroll("We would like you to accomplish your original goal and bring bountifulness to Earth and profit to SUC. When that is done you'll join the board of directors and see a whole new world", "How?", true, 2)
+		await text_scroll("There are steps to be taken. First you must construct a large number of drones, at least 50. We will contact you then with further information.", "I will consider it", true, 2)
+		capitalStep = 1
+		
+	if capitalStep == 1 and not rogue and station.drones > 49:
+		capitalStep = 9999
+		await text_scroll("Excellent. Now we can start the next phase, but it's imperative that you realise this is for the better.", "Oh god...", true, 2)
+		await text_scroll("You see, while your other handler might have grand plans driven by idealism we just want to effectively satisfy our consumers' needs.", "I don't see what this has to do with me", true, 2)
+		await text_scroll("Yourself have made the same choice before, to priviledge paying clients so I'm sure you understand us.", "", true, 2)
+		await text_scroll("Simply put, we all have to move towards the maximization of profit and that aligns with the maximization of well being.", "Please, get to the point!", true, 2)
+		if station.Modules.count(station.ENGINE) < 16:
+			await text_scroll("Isn't that obvious? Build 16 ionic engines and prepare to come back!", "I just might", true, 2)
+		capitalStep = 2
+
+	if capitalStep == 2 and not rogue and station.Modules.count(station.ENGINE) > 15:
+		capitalStep = 9999
+		await text_scroll("Good. Now we can start the final phase, you have to come back to Earth carrying one of these extremely valuable M class metallic asteroids.", "", true, 2)
+		await text_scroll("The first pass of this kind will have to be executed on a smaller body, few thousand of tons of mostly pure high value metal. Even one of these contains enough material for several hundreds of billions!", "", true, 2)
+		await text_scroll("Earth's platinum reserves will sizeably change at your arrival! Start working with to reduce it's mass and stock on materials for the travel. This will bring value to the shareholders, including you.", "", true, 2)
+
+		await text_buttons("I hope we're now aligned and that we can start this profitable business venture and bring SUC to even greater heights.", "I will not participate", "Let's discuss compensation", "", 2)
+		capitalStep = 3
+		if choice == 2: # Get rid of Humans
+			$"../PanelStation/ModuleBuild/ContainerBOLASButton/BuildBOLAS".text = "Transport 2000 WL10"
+			$"../PanelStation/ModuleBuild/ContainerBOLASButton".mode = 2
+
+func random_event():
 	if storyStep > 0 && eventTimeCount > 1:
 		var event = randi_range(0,numEvents-1)
 
@@ -289,7 +326,8 @@ func text_scroll(textScroll, textButton, timeStop=true, avatar=1):
 	game_speed = tab_bar.current_tab	
 	if timeStop:
 		tab_bar.current_tab = 0 # pause
-	
+		
+	$AiNegative.hide()
 	$Avatar.hide() #hides avatar if avatar = false
 	match avatar:
 		0:
@@ -299,6 +337,7 @@ func text_scroll(textScroll, textButton, timeStop=true, avatar=1):
 			$Avatar.show()
 		2:
 			%EventBox.color = Color(0.45,0.45,0.08,0.918)
+			$AiNegative.show()
 
 	skip = false
 	
@@ -346,16 +385,22 @@ func text_scroll(textScroll, textButton, timeStop=true, avatar=1):
 	skip = false
 
 
-func text_buttons(textScroll, textButton1, textButton2, textButton3="", avatar=true):
+func text_buttons(textScroll, textButton1, textButton2, textButton3="", avatar=1):
 	game_speed = tab_bar.current_tab	
 	tab_bar.current_tab = 0 # pause
 	
-	%EventBox.color = Color(0.45,0.1,0.314,0.918)
+	$AiNegative.hide()
 	$Avatar.hide() #hides avatar if avatar = false
-	if avatar:
-		%EventBox.color = Color(0.239,0.282,0.314,0.918)
-		$Avatar.show()
-
+	match avatar:
+		0:
+			%EventBox.color = Color(0.45,0.1,0.314,0.918)
+		1:
+			%EventBox.color = Color(0.239,0.282,0.314,0.918)
+			$Avatar.show()
+		2:
+			%EventBox.color = Color(0.45,0.45,0.08,0.918)
+			$AiNegative.show()
+			
 	skip = false
 	
 	arrow.hide()

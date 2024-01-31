@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://drddf4j2gbweq"]
+[gd_scene load_steps=38 format=3 uid="uid://drddf4j2gbweq"]
 
 [ext_resource type="Texture2D" uid="uid://b2nler7tmsvhs" path="res://Asset/SpaceStation1.png" id="1_5p6ln"]
 [ext_resource type="Script" path="res://main.gd" id="1_7tmd3"]
@@ -29,8 +29,10 @@
 [ext_resource type="Texture2D" uid="uid://b7ptlrcaomldx" path="res://Asset/plain-arrow.png" id="21_jkw4m"]
 [ext_resource type="Script" path="res://CuriosityBox.gd" id="22_n4oy2"]
 [ext_resource type="FontFile" uid="uid://cheaeyn4xqc2l" path="res://Asset/Pixel12x10.ttf" id="23_yaorp"]
+[ext_resource type="Texture2D" uid="uid://dabfhu5hkc8to" path="res://Asset/AI_negative.png" id="27_cxlhv"]
 [ext_resource type="Texture2D" uid="uid://d2irfm1no6m53" path="res://Asset/BOLAS.png" id="28_24hbh"]
 [ext_resource type="Texture2D" uid="uid://b7olq1fnnb7cn" path="res://Asset/AIStation.png" id="30_l41wr"]
+[ext_resource type="Texture2D" uid="uid://ck2fxt71xvnny" path="res://Asset/Asteroid_Transport.png" id="33_8mhb7"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ws068"]
 bg_color = Color(0.239216, 0.239216, 0.239216, 1)
@@ -971,6 +973,12 @@ offset_bottom = 52.0
 texture = ExtResource("13_4216q")
 expand_mode = 1
 
+[node name="AiNegative" type="Sprite2D" parent="EventBox"]
+visible = false
+position = Vector2(14, 12)
+scale = Vector2(0.0791017, 0.0791017)
+texture = ExtResource("27_cxlhv")
+
 [node name="Text" type="RichTextLabel" parent="EventBox"]
 layout_mode = 0
 offset_left = 48.0
@@ -1031,7 +1039,6 @@ text = "Ok"
 
 [node name="StoryBox" type="TextureRect" parent="."]
 unique_name_in_owner = true
-visible = false
 layout_mode = 0
 offset_top = 41.0
 offset_right = 1278.0
@@ -1058,6 +1065,12 @@ visible = false
 position = Vector2(190, 524)
 scale = Vector2(0.341797, 0.341797)
 texture = ExtResource("30_l41wr")
+
+[node name="AsteroidTransport" type="Sprite2D" parent="StoryBox"]
+visible = false
+position = Vector2(1156, 115)
+scale = Vector2(0.184326, 0.196527)
+texture = ExtResource("33_8mhb7")
 
 [node name="Text" type="RichTextLabel" parent="StoryBox"]
 unique_name_in_owner = true

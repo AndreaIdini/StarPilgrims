@@ -77,6 +77,7 @@ https://nss.org/settlement/nasa/spaceresvol2/thermalmanagement.html
 - [1] https://www.sciencedirect.com/science/article/abs/pii/S0094576517311220. This examination of Main Belt asteroids as prospective targets for mining and exploration missions has found that within a delta-v of 8 km, starting from LEO, one can access 3986 MBAs
 - https://descanso.jpl.nasa.gov/SciTechBook/series1/Goebel_02_Chap2_thruster.pdf Exhaust ion thrusters: 100 km/s.
 - https://www.asterank.com/
+- 1986 DA Mass 3.7*10^10 ton https://iopscience.iop.org/article/10.3847/PSJ/ac235f
 
 
 
