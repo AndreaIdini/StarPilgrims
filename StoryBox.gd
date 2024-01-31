@@ -57,11 +57,11 @@ Dedicated to my wife Chiara and her good health.
 
 
 
-This game was written from scratch in Godot without previous experience in a week. 
+This game was written from scratch in Godot without previous experience in about a week. 
 If I could do it, anyone can. Give it a try. Code is available on github.
 	
 	
-	
+Version alpha0.9
 Andrea Idini 2024 (c)", "Resume")
 
 	
