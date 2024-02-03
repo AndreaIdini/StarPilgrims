@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://drddf4j2gbweq"]
+[gd_scene load_steps=39 format=3 uid="uid://drddf4j2gbweq"]
 
 [ext_resource type="Texture2D" uid="uid://b2nler7tmsvhs" path="res://Asset/SpaceStation1.png" id="1_5p6ln"]
 [ext_resource type="Script" path="res://main.gd" id="1_7tmd3"]
@@ -33,6 +33,7 @@
 [ext_resource type="Texture2D" uid="uid://d2irfm1no6m53" path="res://Asset/BOLAS.png" id="28_24hbh"]
 [ext_resource type="Texture2D" uid="uid://b7olq1fnnb7cn" path="res://Asset/AIStation.png" id="30_l41wr"]
 [ext_resource type="Texture2D" uid="uid://ck2fxt71xvnny" path="res://Asset/Asteroid_Transport.png" id="33_8mhb7"]
+[ext_resource type="AudioStream" uid="uid://b7vqaw814wy6y" path="res://Asset/among_the_stars.mp3" id="34_eki6l"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ws068"]
 bg_color = Color(0.239216, 0.239216, 0.239216, 1)
@@ -902,6 +903,7 @@ script = ExtResource("20_ukp5a")
 
 [node name="CuriosityBox" type="ColorRect" parent="."]
 unique_name_in_owner = true
+visible = false
 layout_mode = 0
 offset_left = 789.0
 offset_top = 392.0
@@ -928,8 +930,7 @@ offset_bottom = 217.0
 theme_override_fonts/normal_font = ExtResource("23_yaorp")
 theme_override_font_sizes/normal_font_size = 20
 bbcode_enabled = true
-text = "Did you know, blablabla?
-I'm here to provide guidance!"
+text = "I'm also here to provide guidance and true facts about space, just to ease you in this wonderful universe you'll help us explore!"
 
 [node name="Button" type="Button" parent="CuriosityBox"]
 layout_mode = 1
@@ -956,6 +957,7 @@ expand_mode = 1
 
 [node name="EventBox" type="ColorRect" parent="."]
 unique_name_in_owner = true
+visible = false
 layout_mode = 0
 offset_left = 789.0
 offset_top = 392.0
@@ -1039,6 +1041,7 @@ text = "Ok"
 
 [node name="StoryBox" type="TextureRect" parent="."]
 unique_name_in_owner = true
+visible = false
 layout_mode = 0
 offset_top = 41.0
 offset_right = 1278.0
@@ -1126,6 +1129,10 @@ offset_bottom = 90.0
 text = "Menu"
 flat = false
 script = ExtResource("17_3hbk4")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("34_eki6l")
+autoplay = true
 
 [connection signal="mouse_entered" from="PanelStation/LabelPayload/LabelHumans" to="InfoBox" method="_on_label_humans_mouse_entered"]
 [connection signal="mouse_entered" from="PanelStation/LabelPayload/LabelHumans/Hitbox" to="InfoBox" method="_on_label_humans_mouse_entered"]

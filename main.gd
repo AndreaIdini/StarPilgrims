@@ -19,13 +19,13 @@ var energy_crisis = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	
 	if station.cheat:
 		print("cheat credits")
 		credits = 100000
 		event_box.storyStep = 0
 		
 	update_show()
-	
 	if event_box.storyStep == 0:
 		entrance_Dialogs()
 	

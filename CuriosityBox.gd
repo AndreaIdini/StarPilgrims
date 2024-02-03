@@ -10,37 +10,37 @@ var eventStep = 0
 var skip = false
 var mouseIn = false
 var curiosities = JSON.new()
-var path_to_file = "./Asset/curiosities.json"
 
 var curiosityBox = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	self.hide()
-	var json_text = FileAccess.get_file_as_string(path_to_file)
-	curiosities = JSON.parse_string(json_text)
 	
-	print(len(curiosities))
-	# print(curiosities[0]["text"]) This will contains entries from json file
+	var file = FileAccess.open("res://Asset/curiosities.json", FileAccess.READ)
+	var json_text = file.get_as_text()
+	curiosities = JSON.parse_string(json_text)
+
 	randomize()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
+
 	eventTimeCount += delta*tab_bar.current_tab*tab_bar.current_tab
-	curiosity_events()
+	if %EventBox.storyStep > 2 && eventTimeCount > 120:
+		var event = randi_range(0,300)
+		if event == 0 and eventStep > -1 and curiosityBox:
+			$"../InfoBox".text += "curiosity"
+			curiosity_events()
 
 func curiosity_events():
+	eventTimeCount = 0.
+	curiosityBox = false
+	await text_scroll(curiosities[eventStep]["text"])
+	eventStep = abs(eventStep) + 1
 	
-	if %EventBox.storyStep > 2 && eventTimeCount > 45:
-		var event = randi_range(0,200)
-		if event == 0 and eventStep > -1 and curiosityBox:
-			eventTimeCount = 0.
-			eventStep = - eventStep # Makes it negative, so not to overwrite it.
-			await text_scroll(curiosities[-eventStep]["text"])
-			eventStep = abs(eventStep) + 1
-			
-			if eventStep == len(curiosities):
-				curiosityBox = false
+	if eventStep < len(curiosities):
+		curiosityBox = true
 	
 
 func text_scroll(textScroll, timeStop=false):
@@ -51,6 +51,8 @@ func text_scroll(textScroll, timeStop=false):
 	
 	$Button.hide()
 	self.show()
+	%CuriosityBox.show()
+	
 	$"../InfoBox".text = ""
 	print("here")
 	text.bbcode_text = textScroll
@@ -94,3 +96,7 @@ func _on_mouse_entered():
 func _on_mouse_exited():
 	if not Rect2(Vector2(), size).has_point(get_local_mouse_position()): # workaround to not leave when hovering on text
 		mouseIn=false # Replace with function body.
+
+
+func _on_button_pressed():
+	self.hide() # Replace with function body.

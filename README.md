@@ -16,17 +16,17 @@ I appreciate any feedback and PR you will like to provide, even just to make ord
 
 ## TODO
 
-- Check the orbital dynamics and cost and the relation between number of engine, time of flight, and matter consumption
-- Evaluate logarithmic curve for credits earning in factory in function of the number of humans, maybe difficult to balance. Evalaute a discount in credits for the cost of modules and other expenses after construction of factory.
-- Implement Missions and Events so that can help or hinder.
-- Make UI rescalable.
+[X] Check the orbital dynamics and cost and the relation between number of engine, time of flight, and matter consumption
+[X] Evaluate logarithmic curve for credits earning in factory in function of the number of humans, maybe difficult to balance. Evalaute a discount in credits for the cost of modules and other expenses after construction of factory.
+[X] Implement Missions and Events so that can help or hinder.
+[X] Make UI rescalable.
 
 ## Resources:
 
 The following Creative Commons were used:
 
 - Icons from https://game-icons.net/
-
+- Music from https://www.zapsplat.com Among the Stars
 ## Notes
 
 ### Resources
