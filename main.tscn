@@ -29,10 +29,10 @@
 [ext_resource type="Texture2D" uid="uid://b7ptlrcaomldx" path="res://Asset/plain-arrow.png" id="21_jkw4m"]
 [ext_resource type="Script" path="res://CuriosityBox.gd" id="22_n4oy2"]
 [ext_resource type="FontFile" uid="uid://cheaeyn4xqc2l" path="res://Asset/Pixel12x10.ttf" id="23_yaorp"]
-[ext_resource type="Texture2D" uid="uid://dabfhu5hkc8to" path="res://Asset/AI_negative.png" id="27_cxlhv"]
+[ext_resource type="Texture2D" path="res://Asset/AI_negative.png" id="27_cxlhv"]
 [ext_resource type="Texture2D" uid="uid://d2irfm1no6m53" path="res://Asset/BOLAS.png" id="28_24hbh"]
-[ext_resource type="Texture2D" uid="uid://b7olq1fnnb7cn" path="res://Asset/AIStation.png" id="30_l41wr"]
-[ext_resource type="Texture2D" uid="uid://ck2fxt71xvnny" path="res://Asset/Asteroid_Transport.png" id="33_8mhb7"]
+[ext_resource type="Texture2D" path="res://Asset/AIStation.png" id="30_l41wr"]
+[ext_resource type="Texture2D" path="res://Asset/Asteroid_Transport.png" id="33_8mhb7"]
 [ext_resource type="AudioStream" uid="uid://b7vqaw814wy6y" path="res://Asset/among_the_stars.mp3" id="34_eki6l"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ws068"]

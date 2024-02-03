@@ -30,7 +30,6 @@ func _physics_process(delta):
 	if %EventBox.storyStep > 2 && eventTimeCount > 120:
 		var event = randi_range(0,300)
 		if event == 0 and eventStep > -1 and curiosityBox:
-			$"../InfoBox".text += "curiosity"
 			curiosity_events()
 
 func curiosity_events():
@@ -38,9 +37,11 @@ func curiosity_events():
 	curiosityBox = false
 	await text_scroll(curiosities[eventStep]["text"])
 	eventStep = abs(eventStep) + 1
+	curiosityBox = true
 	
-	if eventStep < len(curiosities):
-		curiosityBox = true
+	if eventStep >= len(curiosities):
+		curiosityBox = false
+
 	
 
 func text_scroll(textScroll, timeStop=false):
