@@ -343,7 +343,6 @@ func text_scroll(textScroll, textButton, timeStop=true, avatar=1):
 	
 	curiosity.hide()
 	curiosity.eventTimeCount = 0.
-	curiosity.eventStep = abs(curiosity.eventStep)
 	
 	arrow.hide()
 	button.hide()

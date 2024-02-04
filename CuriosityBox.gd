@@ -5,7 +5,7 @@ extends ColorRect
 var text_speed = 0.03
 
 var eventTimeCount = 0.
-var eventStep = 0
+var curiosityStep = 0
 
 var skip = false
 var mouseIn = false
@@ -20,26 +20,24 @@ func _ready():
 	var file = FileAccess.open("res://Asset/curiosities.json", FileAccess.READ)
 	var json_text = file.get_as_text()
 	curiosities = JSON.parse_string(json_text)
-
+	print("len curiosities: ", len(curiosities))
 	randomize()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
 
 	eventTimeCount += delta*tab_bar.current_tab*tab_bar.current_tab
-	if %EventBox.storyStep > 2 && eventTimeCount > 120:
-		var event = randi_range(0,300)
-		if event == 0 and eventStep > -1 and curiosityBox:
+	if %EventBox.storyStep > 2 && eventTimeCount > 90:
+		var event = randi_range(0,200)
+		if event == 0 and curiosityStep > -1 and curiosityBox:
 			curiosity_events()
 
 func curiosity_events():
 	eventTimeCount = 0.
-	curiosityBox = false
-	await text_scroll(curiosities[eventStep]["text"])
-	eventStep = abs(eventStep) + 1
-	curiosityBox = true
+	await text_scroll(curiosities[curiosityStep]["text"])
+	curiosityStep = abs(curiosityStep) + 1
 	
-	if eventStep >= len(curiosities):
+	if curiosityStep == len(curiosities):
 		curiosityBox = false
 
 	
