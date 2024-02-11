@@ -108,7 +108,7 @@ I hope you have enough credits to financially recover from this", "Accept")
 					await event_box.text_scroll("Your energy is still insufficient! The drones are taking too much, release half of them", "Accept")
 					station.drones = floor(station.drones/2)
 				else:
-					story_box.game_over("You don't have enough energy to sustain your station's basic functions.\n\nYou are forced to shut down and drift in space until your husk is recycled by some other drone.\n\n\n\n\n\n(If you're given name is Andrea, you might consider this a win)")
+					story_box.game_over("You don't have enough energy to sustain your station's basic functions.\n\nYou are forced to shut down and drift in space until your husk is recycled by some other drone.\n\n\n\n\n\n(If your given name is Andrea, you might consider this a win)")
 		
 		energy_crisis = false
 	pass
