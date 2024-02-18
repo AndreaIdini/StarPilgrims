@@ -49,11 +49,12 @@ func about():
 	button.hide()
 	await text_scroll("[center][b][color=white][font_size=40] Star Pilgrims [/font_size] [/color][/b]
 
-
 Dedicated to my wife Chiara and her good health.
 
 
 
+
+Let me know if you liked it, I might make more!
 
 
 
@@ -61,7 +62,7 @@ This game was written from scratch in Godot without previous experience in about
 If I could do it, anyone can. Give it a try. Code is available on github.
 	
 	
-Version alpha0.9
+Version beta0.11
 Andrea Idini 2024 (c)", "Resume")
 
 	
