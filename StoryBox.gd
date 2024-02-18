@@ -125,7 +125,7 @@ func text_scroll(textScroll, textButton):
 		button.text = textButton
 		button.show()
 	skip = false
-	%EventBox.show()
+	#% EventBox.show()
 
 func _on_button_pressed():
 	over = true
