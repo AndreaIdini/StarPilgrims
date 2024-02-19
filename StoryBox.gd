@@ -105,7 +105,11 @@ func text_scroll(textScroll, textButton):
 	game_speed = tab_bar.current_tab
 	tab_bar.current_tab = 0 # pause
 	button.hide()
-	%EventBox.hide()
+	var event_on = false
+	if %EventBox.is_visible():
+		event_on = true
+		%EventBox.hide()
+	
 	$"../InfoBox".text = ""
 	
 	self.show()
@@ -122,11 +126,15 @@ func text_scroll(textScroll, textButton):
 		
 	if !skip:
 		await get_tree().create_timer(0.3).timeout
+		
 	if textButton != "":
 		button.text = textButton
 		button.show()
+		
 	skip = false
-	#% EventBox.show()
+	
+	if event_on:
+		%EventBox.show()
 
 func _on_button_pressed():
 	over = true

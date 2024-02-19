@@ -86,7 +86,7 @@ to have a positive balance of all the three resources at all times.", "")
 		await text_scroll("
 If the energy goes to 0, the human freezes.", "")
 		await text_scroll("
-If the matter goes to 0, the human hungers.", "")
+If the matter goes to 0, the human starves.", "")
 		await text_scroll("
 If the credits go to 0 while the human suffers and you cannot afford a rescue mission, the human dies.", "")
 		await text_scroll("If the human dies, you failed your purpose as an AI and you will be replaced.
