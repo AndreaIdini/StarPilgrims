@@ -132,11 +132,12 @@ func text_scroll(textScroll, textButton):
 		button.show()
 		
 	skip = false
-	
+	tab_bar.current_tab = 1 # pause
 	if event_on:
 		%EventBox.show()
+
 
 func _on_button_pressed():
 	over = true
 	self.hide() # Replace with function body.
-	tab_bar.current_tab = game_speed
+	tab_bar.current_tab = 1

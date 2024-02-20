@@ -74,7 +74,9 @@ func _physics_process(delta):
 	if build_in_progress:
 		build_counter += delta
 		progress_build_md.value = build_counter
-		if build_counter > time_to_build_drone/log(station.humans+1)*log(2):
+		station.matter -= drone_matter_cost/progress_build_md.max_value*delta
+		
+		if build_counter > progress_build_md.max_value:
 			build_in_progress = false
 			build_counter = 0.
 			progress_build_md.value = 0.

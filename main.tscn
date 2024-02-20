@@ -1,13 +1,15 @@
-[gd_scene load_steps=39 format=3 uid="uid://drddf4j2gbweq"]
+[gd_scene load_steps=41 format=3 uid="uid://drddf4j2gbweq"]
 
 [ext_resource type="Texture2D" uid="uid://b2nler7tmsvhs" path="res://Asset/SpaceStation1.png" id="1_5p6ln"]
 [ext_resource type="Script" path="res://main.gd" id="1_7tmd3"]
 [ext_resource type="Script" path="res://Station.gd" id="2_oc6wt"]
+[ext_resource type="Texture2D" uid="uid://dc11coqqu5mqe" path="res://Asset/credits-currency.png" id="3_qjlbu"]
 [ext_resource type="Script" path="res://Launch.gd" id="4_oiuw7"]
 [ext_resource type="FontFile" uid="uid://c7qik7sno301b" path="res://Asset/First In Line.otf" id="5_i7pv1"]
 [ext_resource type="Script" path="res://Buttons/ContainerSolarPanel.gd" id="5_ree1l"]
 [ext_resource type="Script" path="res://Buttons/ContainerBattery.gd" id="5_tsak2"]
 [ext_resource type="FontFile" uid="uid://cpbviiltpflav" path="res://Asset/casio-fx-702p.ttf" id="6_3qpvv"]
+[ext_resource type="Script" path="res://Line2D.gd" id="6_8k71f"]
 [ext_resource type="Script" path="res://Buttons/ContainerComputing.gd" id="6_fswgt"]
 [ext_resource type="Script" path="res://Buttons/ContainerLiving.gd" id="6_yq5dq"]
 [ext_resource type="Script" path="res://Buttons/ContainerDroneBay.gd" id="8_v88ik"]
@@ -133,18 +135,10 @@ theme_override_font_sizes/font_size = 24
 text = "??"
 horizontal_alignment = 2
 
-[node name="UnitCred" type="Label" parent="PanelStation/LabelPayload/LabelCredits/CountCred"]
-layout_mode = 1
-anchors_preset = -1
-anchor_top = 0.473
-anchor_bottom = 0.473
-offset_left = 212.826
-offset_top = -16.508
-offset_right = 244.826
-offset_bottom = 17.492
-theme_override_font_sizes/font_size = 24
-text = "€"
-horizontal_alignment = 2
+[node name="Credits-currency" type="Sprite2D" parent="PanelStation/LabelPayload/LabelCredits/CountCred"]
+position = Vector2(238, 18)
+scale = Vector2(0.0527345, 0.0527345)
+texture = ExtResource("3_qjlbu")
 
 [node name="LabelHumans" type="Label" parent="PanelStation/LabelPayload"]
 layout_mode = 1
@@ -320,6 +314,12 @@ offset_bottom = 19.918
 theme_override_font_sizes/font_size = 22
 text = "kWp"
 horizontal_alignment = 2
+
+[node name="Line2D" type="Line2D" parent="PanelStation/PanelEnergy/LabelEnergy"]
+position = Vector2(350, 0)
+points = PackedVector2Array(0, 17.484)
+width = 1.0
+script = ExtResource("6_8k71f")
 
 [node name="LabelConsumption" type="Label" parent="PanelStation/PanelEnergy"]
 layout_mode = 1

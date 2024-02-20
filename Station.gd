@@ -1,7 +1,7 @@
 extends Node
 
 class_name Station
-var cheat = false
+var cheat = true
 
 var time = 0.
 

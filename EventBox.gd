@@ -90,7 +90,9 @@ If the matter goes to 0, the human starves.", "")
 		await text_scroll("
 If the credits go to 0 while the human suffers and you cannot afford a rescue mission, the human dies.", "")
 		await text_scroll("If the human dies, you failed your purpose as an AI and you will be replaced.
-So be a good AI and make sure there's always enough energy, matter and credits to go around. Understood?","Understood.")
+So be a good AI and make sure there's always enough energy, matter and credits to go around.", "")
+		await text_scroll("You will have to be careful. The station goes dark when orbiting around Earth and power fluctuates. 
+Managing energy and matter is your primary job! Understood?","Understood.")
 
 		
 		await text_scroll("Your first objective now is to start populating this space station.
